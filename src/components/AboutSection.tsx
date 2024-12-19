@@ -29,7 +29,7 @@ export default function AboutSection() {
           <Image
             className="object-cover object-center rounded shadow-lg hover:scale-105 transition-transform duration-500"
             alt="Về chúng tôi"
-            src="/images/about-petshop.jpg"
+            src="/images/hero-pet-2.jpg"
             width={720}
             height={600}
             priority

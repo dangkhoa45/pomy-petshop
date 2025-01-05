@@ -1,70 +1,64 @@
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaPhone, FaTiktok } from "react-icons/fa"; // Import React Icons
+import { FaFacebook, FaInstagram, FaPhone, FaTiktok } from "react-icons/fa";
 
-interface NavLink {
-  name: string;
-  href: string;
-}
-
-interface HeaderProps {
-  navLinks: NavLink[];
-}
-
-export default function Header({ navLinks }: HeaderProps) {
+export default function Header() {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto flex flex-wrap p-4 md:p-5 flex-col md:flex-row items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center text-2xl font-bold text-indigo-600"
-        >
-          🐾 POMY PETSHOP
-        </Link>
-
-        <nav className="hidden md:flex space-x-8">
-          {navLinks?.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-gray-600 hover:text-indigo-600 transition duration-300 relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
+    <header className="text-gray-600 body-font">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+          <Link className="mr-5 hover:text-gray-900" href="/" >Trang chủ</Link>
+          <Link className="mr-5 hover:text-gray-900" href="/about">Giới thiệu</Link>
+          <Link className="mr-5 hover:text-gray-900" href="/services">Dịch vụ</Link>
+          <Link className="hover:text-gray-900" href="/contact">Liên hệ</Link>
         </nav>
-
-        <div className="flex space-x-4 text-gray-600">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 transition duration-300"
+        <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="w-10 h-10 text-white p-2 bg-pink-500 rounded-full"
+            viewBox="0 0 24 24"
           >
-            <FaFacebook size={20} />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 transition duration-300"
-          >
-            <FaInstagram size={20} />
-          </a>
-          <a
-            href="https://tiktok.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 transition duration-300"
-          >
-            <FaTiktok size={20} />
-          </a>
-          <a
-            href="tel:+123456789"
-            className="hover:text-indigo-600 transition duration-300"
-          >
-            <FaPhone size={20} />
-          </a>
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span className="ml-3 text-xl">POMY PETSHOP</span>
+        </a>
+        <div className="lg:w-2/5 inline-flex items-center lg:justify-end ml-5 lg:ml-0">
+          <div className="flex space-x-4 text-gray-600 mt-3 lg:mt-0">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600 transition duration-300"
+            >
+              <FaFacebook size={20} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600 transition duration-300"
+            >
+              <FaInstagram size={20} />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600 transition duration-300"
+            >
+              <FaTiktok size={20} />
+            </a>
+            <a
+              href="tel:+123456789"
+              className="hover:text-indigo-600 transition duration-300"
+            >
+              <FaPhone size={20} />
+            </a>
+          </div>
         </div>
       </div>
     </header>

@@ -7,7 +7,18 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ["Playfair Display", "serif"], 
+        body: ["Montserrat", "sans-serif"],    
+      },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
   },
   plugins: [],
 } satisfies Config;

@@ -161,8 +161,8 @@ function Footer() {
         </motion.div>
       </div>
 
-      <div className="bg-green-200 py-4">
-        <div className="container mx-auto flex flex-wrap items-center justify-between">
+      <div className="bg-green-200 p-4">
+        <div className="container mx-auto flex flex-wrap items-center justify-between m-1">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-gray-600 text-sm text-center sm:text-right"
+            className="text-gray-600 text-sm text-center sm:text-right "
           >
             Design by{" "}
             <a

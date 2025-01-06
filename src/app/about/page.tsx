@@ -1,3 +1,4 @@
+import OurTeamSection from "@/components/OurTeamSection";
 import QuestionSection from "@/components/QuestionSection";
 import ServiceSection from "@/components/ServiceSection";
 import StatisticSecondary from "@/components/StatisticSecondary";
@@ -10,6 +11,7 @@ function AboutPage() {
       <StatisticSecondary />
       <QuestionSection />
       <TestimonialSection />
+      <OurTeamSection />
     </>
   );
 }

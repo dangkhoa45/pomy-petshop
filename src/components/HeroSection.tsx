@@ -13,6 +13,15 @@ function HeroSection() {
     },
   };
 
+  const buttonVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: 0.8 },
+    },
+  };
+
   const imageVariant = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -52,14 +61,8 @@ function HeroSection() {
             className="flex justify-center"
             initial="hidden"
             whileInView="visible"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.5, delay: 0.8 },
-              },
-            }}
+            viewport={{ once: true }}
+            variants={buttonVariant}
           >
             <motion.button
               className="inline-flex text-white bg-pink-500 border-0 py-3 px-8 focus:outline-none hover:bg-pink-600 rounded-full text-lg shadow-md transition-all font-poppins"

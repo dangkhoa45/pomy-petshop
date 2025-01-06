@@ -83,28 +83,28 @@ export default function Header() {
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto font-dosis font-extrabold">
             <Link
-              className="mr-5 relative group font-body text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
+              className="mr-5 relative group font-body  border-pink-500 text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
               href="/"
             >
               Trang chủ{" "}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              className="mr-5 relative group font-body text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
+              className="mr-5 relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
               href="/about"
             >
               Giới thiệu{" "}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              className="mr-5 relative group font-body text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
+              className="mr-5 relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
               href="/services"
             >
               Dịch vụ{" "}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              className="relative group font-body text-gray-600 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
+              className="relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
               href="/contact"
             >
               Liên hệ{" "}
@@ -128,7 +128,7 @@ export default function Header() {
             <button className="animate-bounce inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform group">
               <FaPhoneAlt />
               <span className="ml-2 group-hover:text-pink-200 transition-colors duration-300">
-                Đặt Lịch Khám
+                Đặt SPA - Hotel
               </span>
             </button>
           </div>

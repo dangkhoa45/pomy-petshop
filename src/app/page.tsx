@@ -1,5 +1,5 @@
 import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 import FeatureSection from "@/components/FeatureSection";
 import GallerySection from "@/components/GallerySection";
 import HeroSection from "@/components/HeroSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <AboutSection />
       <StatisticSection />
       <FeatureSection />
-      <ContactSection />
+      <ContactForm />
       <ServiceSection />
       <TestimonialSection />
       <GallerySection />

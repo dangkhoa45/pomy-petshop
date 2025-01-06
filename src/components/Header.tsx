@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   FaEnvelope,
   FaFacebook,
@@ -9,10 +10,27 @@ import {
   FaPhoneAlt,
   FaTelegram,
 } from "react-icons/fa";
-
 import { SiZalo } from "react-icons/si";
 
+const navVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, staggerChildren: 0.2 },
+  },
+};
+
+const linkVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function Header() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
   return (
     <>
       <motion.div
@@ -59,7 +77,7 @@ export default function Header() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600" 
+              className="hover:text-pink-500 text-gray-600"
             >
               <FaInstagram />
             </a>
@@ -74,6 +92,7 @@ export default function Header() {
           </div>
         </div>
       </motion.div>
+
       <motion.header
         className="text-gray-300 body-font bg-white sticky top-0 z-50 shadow-md"
         initial={{ y: -100, opacity: 0 }}
@@ -81,36 +100,65 @@ export default function Header() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto font-dosis font-extrabold">
-            <Link
-              className="mr-5 relative group font-body  border-pink-500 text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
-              href="/"
-            >
-              Trang chủ{" "}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              className="mr-5 relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
-              href="/about"
-            >
-              Giới thiệu{" "}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              className="mr-5 relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
-              href="/services"
-            >
-              Dịch vụ{" "}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              className="relative group font-body text-pink-500 hover:text-pink-500 transition duration-300 transform hover:scale-110 font-extrabold text-lg"
-              href="/contact"
-            >
-              Liên hệ{" "}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </nav>
+          <motion.nav
+            className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto font-dosis font-extrabold"
+            initial="hidden"
+            animate="visible"
+            variants={navVariants}
+          >
+            <motion.div variants={linkVariants}>
+              <Link
+                href="/"
+                className={`mr-5 relative group font-body ${
+                  isActive("/")
+                    ? "text-pink-600 font-bold border-b-4 border-pink-600"
+                    : "text-pink-500"
+                } hover:border-b-4 hover:border-pink-500 transition-all duration-300 transform hover:scale-110 font-extrabold text-lg`}
+              >
+                Trang chủ
+              </Link>
+            </motion.div>
+
+            <motion.div variants={linkVariants}>
+              <Link
+                href="/about"
+                className={`mr-5 relative group font-body ${
+                  isActive("/about")
+                    ? "text-pink-600 font-bold border-b-4 border-pink-600"
+                    : "text-pink-500"
+                } hover:border-b-4 hover:border-pink-500 transition-all duration-300 transform hover:scale-110 font-extrabold text-lg`}
+              >
+                Giới thiệu
+              </Link>
+            </motion.div>
+
+            <motion.div variants={linkVariants}>
+              <Link
+                href="/services"
+                className={`mr-5 relative group font-body ${
+                  isActive("/services")
+                    ? "text-pink-600 font-bold border-b-4 border-pink-600"
+                    : "text-pink-500"
+                } hover:border-b-4 hover:border-pink-500 transition-all duration-300 transform hover:scale-110 font-extrabold text-lg`}
+              >
+                Dịch vụ
+              </Link>
+            </motion.div>
+
+            <motion.div variants={linkVariants}>
+              <Link
+                href="/contact"
+                className={`relative group font-body ${
+                  isActive("/contact")
+                    ? "text-pink-600 font-bold border-b-4 border-pink-600"
+                    : "text-pink-500"
+                } hover:border-b-4 hover:border-pink-500 transition-all duration-300 transform hover:scale-110 font-extrabold text-lg`}
+              >
+                Liên hệ
+              </Link>
+            </motion.div>
+          </motion.nav>
+
           <motion.a
             whileHover={{ scale: 1.1, rotate: 5 }}
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
@@ -124,10 +172,10 @@ export default function Header() {
             />
           </motion.a>
 
-          <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0 mt-5 lg:mt-0">
+          <div className="lg:w-2/5 inline-flex lg:justify-end mt-6 lg:mt-0">
             <button className="animate-bounce inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform group">
               <FaPhoneAlt />
-              <span className="ml-2 group-hover:text-pink-200 transition-colors duration-300">
+              <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300">
                 Đặt SPA - Hotel
               </span>
             </button>

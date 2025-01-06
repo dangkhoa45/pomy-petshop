@@ -15,7 +15,7 @@ import { SiZalo } from "react-icons/si";
 
 function Footer() {
   return (
-    <footer className="bg-green-50 text-gray-300">
+    <footer className="bg-gradient-to-r from-green-100 to-pink-300  text-gray-300">
       <div className="container px-5 py-16 mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -156,7 +156,7 @@ function Footer() {
         </motion.div>
       </div>
 
-      <div className="bg-green-200 p-4">
+      <div className="bg-gradient-to-r from-green-100 to-pink-200 p-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between m-1">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -37,7 +37,7 @@ export default function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-green-200 text-white text-sm"
+        className="bg-gradient-to-r from-green-100 to-pink-200 text-white text-sm"
       >
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
           <div className="flex items-center space-x-4">
@@ -94,7 +94,7 @@ export default function Header() {
       </motion.div>
 
       <motion.header
-        className="text-gray-300 body-font bg-white sticky top-0 z-50 shadow-md"
+        className="text-gray-300 body-font bg-gradient-to-r from-green-100 to-pink-300 sticky top-0 z-50 shadow-md"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

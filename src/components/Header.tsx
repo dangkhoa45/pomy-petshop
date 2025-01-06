@@ -38,7 +38,7 @@ export default function Header() {
             </a>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <a
               href="https://facebook.com"
               target="_blank"

@@ -19,20 +19,20 @@ export default function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-pink-700 text-white text-sm"
+        className="bg-green-200 text-white text-sm"
       >
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
           <div className="flex items-center space-x-4">
             <a
               href="tel:0708039333"
-              className="flex items-center space-x-1 hover:text-gray-300"
+              className="flex items-center space-x-1 hover:text-pink-500 text-gray-600"
             >
               <FaPhoneAlt /> <span className="pl-1">070 803 9333</span>
             </a>
-            <span>|</span>
+            <span className="text-gray-600">|</span>
             <a
               href="mailto:tust3000@gmail.com"
-              className="flex items-center space-x-1 hover:text-gray-300"
+              className="flex items-center space-x-1 hover:text-pink-600 text-gray-600"
             >
               <FaEnvelope /> <span>tust3000@gmail.com</span>
             </a>
@@ -40,10 +40,10 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300"
+              className="hover:text-pink-500 text-gray-600"
             >
               <FaFacebook />
             </a>
@@ -51,7 +51,7 @@ export default function Header() {
               href="https://zalo.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300 "
+              className="hover:text-pink-500 text-gray-600"
             >
               <SiZalo />
             </a>
@@ -59,7 +59,7 @@ export default function Header() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300"
+              className="hover:text-pink-500 text-gray-600" 
             >
               <FaInstagram />
             </a>
@@ -67,7 +67,7 @@ export default function Header() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300"
+              className="hover:text-pink-500 text-gray-600"
             >
               <FaTelegram />
             </a>

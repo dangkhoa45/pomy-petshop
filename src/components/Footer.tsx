@@ -1,176 +1,192 @@
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { FaFacebook, FaInstagram, FaTelegram } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
+
 function Footer() {
   return (
-    <footer className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-pink-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span className="ml-3 text-xl">POMY PETSHOP</span>
+    <footer className="bg-green-50 text-gray-300">
+      <div className="container px-5 py-16 mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-4"
+        >
+          <a className="flex items-center text-white">
+            <Image
+              src="/images/logo.jpg"
+              alt="POMY PETSHOP Logo"
+              className="w-12 h-12 rounded-full"
+              width={48}
+              height={48}
+            />
+            <span className="ml-3 text-2xl text-pink-400 font-semibold">
+              POMY PETSHOP
+            </span>
           </a>
-          <p className="mt-2 text-sm text-gray-500">
-          31 Phú Lợi - Sóc Trăng - TPST <br/> Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
+          <p className="text-gray-600 text-sm">
+            31 Phú Lợi, Sóc Trăng, TPST <br />
+            Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng.
           </p>
-        </div>
-        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-              CATEGORIES
-            </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-              CATEGORIES
-            </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-              CATEGORIES
-            </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-              CATEGORIES
-            </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div className="bg-gray-100">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-sm text-center sm:text-left">
-            © 2025 POMY PETSHOP —
+          <p className="text-gray-600 text-sm">
+            Hotline: <Link href="tel:0708039333">070 803 9333</Link>
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-4"
+        >
+          <h3 className="text-lg font-semibold text-pink-300">Về chúng tôi</h3>
+          <nav className="list-none space-y-2">
+            <li>
+              <Link
+                className="text-gray-600 hover:text-pink-500 transition duration-300"
+                href="/"
+              >
+                Trang chủ
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-gray-600 hover:text-pink-500 transition duration-300"
+                href="/about"
+              >
+                Giới thiệu
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-gray-600 hover:text-pink-500 transition duration-300"
+                href="/services"
+              >
+                Dịch vụ
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-gray-600 hover:text-pink-500 transition duration-300"
+                href="/contact"
+              >
+                Liên hệ
+              </Link>
+            </li>
+          </nav>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="space-y-4"
+        >
+          <h3 className="text-lg font-semibold text-pink-300">Liên hệ</h3>
+          <nav className="list-none space-y-2">
+            <li>
+              <a
+                href="tel:0708039333"
+                className="text-gray-600 hover:text-pink-500 transition duration-300 flex items-center"
+              >
+                070 803 9333
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:tust3000@gmail.com"
+                className="text-gray-600 hover:text-pink-500 transition duration-300 flex items-center"
+              >
+                tust3000@gmail.com
+              </a>
+            </li>
+          </nav>
+          <div className="flex space-x-4">
             <a
-              href="https://twitter.com/DangKhoa"
-              rel="noopener noreferrer"
-              className="text-gray-600 ml-1"
+              href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 text-gray-600"
             >
-              @DangKhoa
+              <FaFacebook />
             </a>
-          </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="text-gray-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
+            <a
+              href="https://zalo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 text-gray-600 "
+            >
+              <SiZalo />
             </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 text-gray-600"
+            >
+              <FaInstagram />
             </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-              </svg>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 text-gray-600"
+            >
+              <FaTelegram />
             </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="0"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="none"
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                ></path>
-                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-              </svg>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="space-y-4"
+        >
+          <h3 className="text-lg font-semibold text-pink-300">Dịch vụ nổi bật</h3>
+          <ul className="list-none space-y-2">
+            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+              <Link href="/services">Cắt tỉa lông</Link>
+            </li>
+            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+              <Link href="/services">Vệ sinh toàn thân</Link>
+            </li>
+            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+              <Link href="/services">Khách sạn thú cưng</Link>
+            </li>
+          </ul>
+        </motion.div>
+      </div>
+
+      <div className="bg-green-200 py-4">
+        <div className="container mx-auto flex flex-wrap items-center justify-between">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-600 text-sm text-center sm:text-left"
+          >
+            © 2025 POMY PETSHOP - All rights reserved.
+          </motion.p>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-600 text-sm text-center sm:text-right"
+          >
+            Design by{" "}
+            <a
+              href="https://www.facebook.com/Khoai4145/"
+              className="hover:text-pink-500 text-gray-600"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @dangkhoa
             </a>
-          </span>
+          </motion.span>
         </div>
       </div>
     </footer>

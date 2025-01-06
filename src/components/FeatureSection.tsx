@@ -1,145 +1,171 @@
-function FeatureSection() {
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function FeatureSection() {
+  const cardVariant = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const containerVariant = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="text-center mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
-            Raw Denim Heirloom Man Braid
+    <section className="bg-green-50 text-gray-700 body-font py-20">
+      <div className="container px-5 mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h1 className="sm:text-4xl text-3xl font-extrabold text-pink-500 mb-6">
+            Dịch Vụ Nổi Bật
           </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-            Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-            taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi
-            pug.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Chúng tôi cung cấp các dịch vụ thú cưng hàng đầu với chất lượng tốt
+            nhất, đảm bảo sự hài lòng cho cả bạn và thú cưng của bạn.
           </p>
-          <div className="flex mt-6 justify-center">
-            <div className="w-16 h-1 rounded-full bg-pink-500 inline-flex"></div>
+          <div className="mt-6 flex justify-center">
+            <div className="w-16 h-1 rounded-full bg-pink-500"></div>
           </div>
         </div>
-        <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-          <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-            <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
+
+        {/* Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Card 1 */}
+          <motion.div
+            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
+            variants={cardVariant}
+          >
+            <div className="w-20 h-20 mx-auto bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mb-5">
               <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
+                xmlns="http://www.w3.org/2000/svg"
                 className="w-10 h-10"
+                fill="none"
                 viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                <path d="M12 12c4.418 0 8 3.134 8 7H4c0-3.866 3.582-7 8-7z" />
+                <path d="M12 8a4 4 0 100-8 4 4 0 000 8z" />
               </svg>
             </div>
-            <div className="flex-grow">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                Shooting Stars
-              </h2>
-              <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
-              </p>
-              <a className="mt-3 text-pink-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-            <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Cắt Tỉa Thú Cưng
+            </h2>
+            <p className="text-lg text-gray-600 mb-5">
+              Dịch vụ cắt tỉa lông chuyên nghiệp giúp thú cưng của bạn luôn sạch
+              và đẹp mắt.
+            </p>
+            <a className="text-pink-500 inline-flex items-center font-medium">
+              Tìm Hiểu Thêm
               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 ml-2"
                 fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-10 h-10"
                 viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <circle cx="6" cy="6" r="3"></circle>
-                <circle cx="6" cy="18" r="3"></circle>
-                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
+            variants={cardVariant}
+          >
+            <div className="w-20 h-20 mx-auto bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-10 h-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M20 12h-8a4 4 0 100 8h8a4 4 0 100-8z" />
+                <path d="M12 4v4M16 4v4M8 4v4" />
               </svg>
             </div>
-            <div className="flex-grow">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                The Catalyzer
-              </h2>
-              <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
-              </p>
-              <a className="mt-3 text-pink-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-            <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Dịch Vụ Vệ Sinh
+            </h2>
+            <p className="text-lg text-gray-600 mb-5">
+              Giữ vệ sinh sạch sẽ cho thú cưng với các sản phẩm và dịch vụ tốt
+              nhất.
+            </p>
+            <a className="text-pink-500 inline-flex items-center font-medium">
+              Tìm Hiểu Thêm
               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 ml-2"
                 fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-10 h-10"
                 viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
+            variants={cardVariant}
+          >
+            <div className="w-20 h-20 mx-auto bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-10 h-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M3 12l9 9 9-9M9 21V12M15 21V12" />
               </svg>
             </div>
-            <div className="flex-grow">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                Neptune
-              </h2>
-              <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard.
-              </p>
-              <a className="mt-3 text-pink-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Khách Sạn Thú Cưng
+            </h2>
+            <p className="text-lg text-gray-600 mb-5">
+              Dịch vụ lưu trú an toàn, thoải mái cho thú cưng của bạn khi bạn đi
+              xa.
+            </p>
+            <a className="text-pink-500 inline-flex items-center font-medium">
+              Tìm Hiểu Thêm
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
-export default FeatureSection;

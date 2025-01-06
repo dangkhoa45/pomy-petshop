@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ function StatisticSection() {
     dailyBookings: 0,
     hotelRooms: 0,
   });
-  
+
   const animateNumber = (target: number, key: string) => {
     let start = 0;
     const step = Math.ceil(target / 50);

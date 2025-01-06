@@ -2,20 +2,28 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTelegram } from "react-icons/fa";
+import { BiLogoGmail } from "react-icons/bi";
+import {
+  FaAngleRight,
+  FaFacebook,
+  FaHome,
+  FaInstagram,
+  FaPhoneAlt,
+  FaTelegram,
+} from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
 
 function Footer() {
   return (
     <footer className="bg-green-50 text-gray-300">
-      <div className="container px-5 py-16 mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container px-5 py-16 mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-4"
         >
-          <a className="flex items-center text-white">
+          <motion.a className="flex items-center text-white">
             <Image
               src="/images/logo.jpg"
               alt="POMY PETSHOP Logo"
@@ -23,93 +31,25 @@ function Footer() {
               width={48}
               height={48}
             />
-            <span className="ml-3 text-2xl text-pink-400 font-semibold">
+            <span className="ml-3 text-2xl text-pink-400 font-extrabold">
               POMY PETSHOP
             </span>
-          </a>
-          <p className="text-gray-600 text-sm">
-            31 Phú Lợi, Sóc Trăng, TPST <br />
+          </motion.a>
+          <p className="text-sm text-pink-500 font-semibold flex items-center">
             Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng.
           </p>
-          <p className="text-gray-600 text-sm">
-            Hotline: <Link href="tel:0708039333">070 803 9333</Link>
+          <p className="text-gray-600 text-sm italic">
+            Với đội ngũ bác sĩ thú y giàu kinh nghiệm và trang thiết bị hiện
+            đại, chúng tôi cam kết mang đến những dịch vụ y tế chất lượng cao,
+            từ khám chữa bệnh, tiêm phòng, đến tư vấn dinh dưỡng và chăm sóc
+            hàng ngày.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4"
-        >
-          <h3 className="text-lg font-semibold text-pink-300">Về chúng tôi</h3>
-          <nav className="list-none space-y-2">
-            <li>
-              <Link
-                className="text-gray-600 hover:text-pink-500 transition duration-300"
-                href="/"
-              >
-                Trang chủ
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-600 hover:text-pink-500 transition duration-300"
-                href="/about"
-              >
-                Giới thiệu
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-600 hover:text-pink-500 transition duration-300"
-                href="/services"
-              >
-                Dịch vụ
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-600 hover:text-pink-500 transition duration-300"
-                href="/contact"
-              >
-                Liên hệ
-              </Link>
-            </li>
-          </nav>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-4"
-        >
-          <h3 className="text-lg font-semibold text-pink-300">Liên hệ</h3>
-          <nav className="list-none space-y-2">
-            <li>
-              <a
-                href="tel:0708039333"
-                className="text-gray-600 hover:text-pink-500 transition duration-300 flex items-center"
-              >
-                070 803 9333
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:tust3000@gmail.com"
-                className="text-gray-600 hover:text-pink-500 transition duration-300 flex items-center"
-              >
-                tust3000@gmail.com
-              </a>
-            </li>
-          </nav>
-          <div className="flex space-x-4">
+          <div className="flex space-x-8">
             <a
               href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
+              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
             >
               <FaFacebook />
             </a>
@@ -117,7 +57,7 @@ function Footer() {
               href="https://zalo.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600 "
+              className="hover:text-pink-500 text-gray-600 hover:animate-bounce "
             >
               <SiZalo />
             </a>
@@ -125,7 +65,7 @@ function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
+              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
             >
               <FaInstagram />
             </a>
@@ -133,7 +73,7 @@ function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
+              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
             >
               <FaTelegram />
             </a>
@@ -143,21 +83,76 @@ function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-4"
         >
-          <h3 className="text-lg font-semibold text-pink-300">Dịch vụ nổi bật</h3>
+          <h3 className="text-lg font-semibold text-pink-300">Về chúng tôi</h3>
           <ul className="list-none space-y-2">
-            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+              <FaAngleRight className="mr-2" />
+              <Link href="/">Trang chủ</Link>
+            </li>
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+              <FaAngleRight className="mr-2" />
+              <Link href="/about">Giới thiệu</Link>
+            </li>
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+              <FaAngleRight className="mr-2" />
+              <Link href="/services">Dịch vụ</Link>
+            </li>
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+              <FaAngleRight className="mr-2" />
+              <Link href="/contact">Liên hệ</Link>
+            </li>
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="space-y-4"
+        >
+          <h3 className="text-lg font-semibold text-pink-300">
+            Dịch vụ nổi bật
+          </h3>
+          <ul className="list-none space-y-2">
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+              <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Cắt tỉa lông</Link>
             </li>
-            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+              <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Vệ sinh toàn thân</Link>
             </li>
-            <li className="text-gray-600 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+              <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Khách sạn thú cưng</Link>
             </li>
           </ul>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="space-y-4"
+        >
+          <h3 className="text-lg font-semibold text-pink-300">Liên hệ</h3>
+          <p className="text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+            <FaHome className="mr-2" />
+            <Link href="https://maps.app.goo.gl/g8ENXpPKNb9vrRET9">
+              31 Phú Lợi, Phường 2, Sóc Trăng,{" "}
+              <br className="hidden lg:block" /> TP Sóc Trăng, Việt Nam.
+            </Link>
+          </p>
+          <p className="text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+            <FaPhoneAlt className="mr-2" />
+            <Link href="tel:0708039333">070 803 9333</Link>
+          </p>
+          <p className=" text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+            <BiLogoGmail className="mr-2" />
+            <Link href="mailto:tust3000@gmail.com">tust3000@gmail.com</Link>
+          </p>
         </motion.div>
       </div>
 

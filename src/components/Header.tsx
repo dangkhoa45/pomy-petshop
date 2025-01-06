@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+        <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto font-dosis font-extrabold">
           <Link className="mr-5 hover:text-gray-900" href="/" >Trang chủ</Link>
           <Link className="mr-5 hover:text-gray-900" href="/about">Giới thiệu</Link>
           <Link className="mr-5 hover:text-gray-900" href="/services">Dịch vụ</Link>
@@ -32,7 +32,7 @@ export default function Header() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition duration-300"
+              className="hover:text-pink-500 transition duration-300"
             >
               <FaFacebook size={20} />
             </a>
@@ -40,7 +40,7 @@ export default function Header() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition duration-300"
+              className="hover:text-pink-500 transition duration-300"
             >
               <FaInstagram size={20} />
             </a>
@@ -48,13 +48,13 @@ export default function Header() {
               href="https://tiktok.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition duration-300"
+              className="hover:text-pink-500 transition duration-300"
             >
               <FaTiktok size={20} />
             </a>
             <a
               href="tel:+123456789"
-              className="hover:text-indigo-600 transition duration-300"
+              className="hover:text-pink-500 transition duration-300"
             >
               <FaPhone size={20} />
             </a>

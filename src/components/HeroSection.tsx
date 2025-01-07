@@ -36,9 +36,9 @@ function HeroSection() {
 
   return (
     <section className="bg-transparent text-gray-700 body-font">
-      <div className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-5 py-8 md:py-8 md:flex-row flex-col items-center">
         <motion.div
-          className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+          className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-3 md:mb-0 items-center text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -61,7 +61,7 @@ function HeroSection() {
             yêu. Hãy để chúng tôi chăm sóc người bạn bốn chân của bạn.
           </motion.p>
           <motion.div
-            className="flex justify-center"
+            className="justify-center hidden md:flex"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -105,7 +105,7 @@ function HeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-[370px] h-[370px] md:w-[512px] md:h-[512px]"
+            className="relative w-[350px] h-[350px] md:w-[512px] md:h-[512px]"
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
@@ -116,7 +116,7 @@ function HeroSection() {
             />
           </motion.div>
         </motion.div>
-        {/* Modal */}
+        
         {isOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"

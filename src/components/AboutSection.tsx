@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function AboutSection() {
+  const router = useRouter();
+
   const textVariant = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -41,13 +44,21 @@ export default function AboutSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <Image
-            className="object-cover object-center rounded-lg shadow-lg"
-            alt="About Us"
-            src="https://dummyimage.com/720x600"
-            width={720}
-            height={600}
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-gradient-to-tl from-green-100 to-pink-200 relative w-[350px] h-[350px] md:w-[512px] md:h-[512px]"
+          >
+            <Image
+              className="object-cover object-center rounded-lg shadow-lg"
+              alt="pomy-petshop-who-am-i"
+              src="/images/pomy-petshop-2.png"
+              layout="fill"
+              objectFit="cover"
+            />
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -77,6 +88,9 @@ export default function AboutSection() {
               className="inline-flex text-white bg-pink-500 border-0 py-3 px-8 focus:outline-none hover:bg-pink-600 rounded-full text-lg shadow-md transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                router.push("/about");
+              }}
             >
               Tìm Hiểu Thêm
             </motion.button>
@@ -84,6 +98,9 @@ export default function AboutSection() {
               className="ml-4 inline-flex text-pink-500 bg-white border border-pink-500 py-3 px-8 focus:outline-none hover:bg-pink-50 rounded-full text-lg shadow-md transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                router.push("/services");
+              }}
             >
               Dịch Vụ Của Chúng Tôi
             </motion.button>

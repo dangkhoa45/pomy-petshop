@@ -50,7 +50,7 @@ function StatisticSection() {
   };
 
   return (
-    <section className="bg-green-50 text-gray-700 body-font">
+    <section className="bg-transparent text-gray-700 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-4xl text-3xl font-extrabold title-font mb-4 text-pink-500">

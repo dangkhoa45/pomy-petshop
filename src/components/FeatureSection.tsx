@@ -22,7 +22,7 @@ export default function FeatureSection() {
   };
 
   return (
-    <section className="bg-green-50 text-gray-700 body-font py-20">
+    <section className="bg-transparent text-gray-700 body-font py-20">
       <div className="container px-5 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">

@@ -10,7 +10,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 
 export default function Home() {
   return (
-    <>
+    <div className='bg-gradient-to-r from-green-100 to-pink-200'>
       <HeroSection />
       <AboutSection />
       <StatisticSection />
@@ -19,6 +19,6 @@ export default function Home() {
       <ServiceSection />
       <TestimonialSection />
       <GallerySection />
-    </>
+    </div>
   );
 }

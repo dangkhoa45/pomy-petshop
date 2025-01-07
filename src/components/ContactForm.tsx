@@ -13,7 +13,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-green-50 text-gray-700 body-font py-20">
+    <section className="bg-transparent text-gray-700 body-font py-20">
       <div className="container mx-auto px-5 flex flex-wrap items-center">
         <motion.div
           className="lg:w-3/5 md:w-1/2 pr-0 mb-10 md:mb-0"

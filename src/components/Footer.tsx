@@ -86,21 +86,21 @@ function Footer() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-4"
         >
-          <h3 className="text-lg font-semibold text-pink-300">Về chúng tôi</h3>
+          <h3 className="text-lg font-semibold text-pink-500">Về chúng tôi</h3>
           <ul className="list-none space-y-2">
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300">
               <FaAngleRight className="mr-2" />
               <Link href="/">Trang chủ</Link>
             </li>
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300">
               <FaAngleRight className="mr-2" />
               <Link href="/about">Giới thiệu</Link>
             </li>
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300">
               <FaAngleRight className="mr-2" />
               <Link href="/services">Dịch vụ</Link>
             </li>
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300">
               <FaAngleRight className="mr-2" />
               <Link href="/contact">Liên hệ</Link>
             </li>
@@ -113,19 +113,19 @@ function Footer() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="space-y-4"
         >
-          <h3 className="text-lg font-semibold text-pink-300">
+          <h3 className="text-lg font-semibold text-pink-500">
             Dịch vụ nổi bật
           </h3>
           <ul className="list-none space-y-2">
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300 italic">
               <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Cắt tỉa lông</Link>
             </li>
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300 italic">
               <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Vệ sinh toàn thân</Link>
             </li>
-            <li className="flex items-center text-gray-500 hover:text-pink-500 transition duration-300 italic">
+            <li className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300 italic">
               <FaAngleRight className="mr-2" />{" "}
               <Link href="/services">Khách sạn thú cưng</Link>
             </li>
@@ -137,19 +137,19 @@ function Footer() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="space-y-4"
         >
-          <h3 className="text-lg font-semibold text-pink-300">Liên hệ</h3>
-          <p className="text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+          <h3 className="text-lg font-semibold text-pink-500">Liên hệ</h3>
+          <p className="text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <FaHome className="mr-2" />
             <Link href="https://maps.app.goo.gl/g8ENXpPKNb9vrRET9">
               31 Phú Lợi, Phường 2, Sóc Trăng,{" "}
               <br className="hidden lg:block" /> TP Sóc Trăng, Việt Nam.
             </Link>
           </p>
-          <p className="text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+          <p className="text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <FaPhoneAlt className="mr-2" />
             <Link href="tel:0708039333">070 803 9333</Link>
           </p>
-          <p className=" text-sm hover:text-pink-500 text-gray-500 flex items-center italic">
+          <p className=" text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <BiLogoGmail className="mr-2" />
             <Link href="mailto:tust3000@gmail.com">tust3000@gmail.com</Link>
           </p>

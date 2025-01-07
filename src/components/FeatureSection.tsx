@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { motion } from "framer-motion";
 
 export default function FeatureSection() {
@@ -21,11 +20,22 @@ export default function FeatureSection() {
     },
   };
 
+  const textVariant = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
     <section className="bg-transparent text-gray-700 body-font py-20">
       <div className="container px-5 mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div variants={textVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }} className="text-center mb-12">
           <h1 className="sm:text-4xl text-3xl font-extrabold text-pink-500 mb-6">
             Dịch Vụ Nổi Bật
           </h1>
@@ -36,9 +46,8 @@ export default function FeatureSection() {
           <div className="mt-6 flex justify-center">
             <div className="w-16 h-1 rounded-full bg-pink-500"></div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
           variants={containerVariant}
@@ -46,7 +55,6 @@ export default function FeatureSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Card 1 */}
           <motion.div
             className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
             variants={cardVariant}
@@ -86,7 +94,6 @@ export default function FeatureSection() {
             </a>
           </motion.div>
 
-          {/* Card 2 */}
           <motion.div
             className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
             variants={cardVariant}
@@ -126,7 +133,6 @@ export default function FeatureSection() {
             </a>
           </motion.div>
 
-          {/* Card 3 */}
           <motion.div
             className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
             variants={cardVariant}

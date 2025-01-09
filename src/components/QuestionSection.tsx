@@ -1,94 +1,76 @@
+"use client";
+import Image from "next/image";
+
 function QuestionSection() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">
-          Raw Denim Heirloom Man Braid
-          <br className="hidden sm:block" />
-          Selfies Wayfarers
-        </h1>
-        <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-          <div className="p-4 md:w-1/3 flex">
-            <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </div>
-            <div className="flex-grow pl-6">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                Shooting Stars
+      <div className="container mx-auto flex px-5 pb-24 pt-8 md:flex-row flex-col items-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <span className="title-font sm:text-2xl text-2xl mb-1 text-green-500 font-extrabold">
+            Lý do
+          </span>
+          <h1 className="title-font sm:text-4xl text-3xl mb-2 text-pink-600 font-extrabold">
+            Tại sao nên chọn <br className="md:hidden" /> POMY Petshop?
+          </h1>
+          <span className="title-font text-lg mb-1 text-gray-600 font-extrabold">
+            Chúng tôi cam kết mang lại sự chăm sóc tốt nhất cho thú cưng của
+            bạn.
+          </span>
+          <div className="flex flex-col mt-6 mb-10 lg:items-start items-center">
+            <div className="flex-grow">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+                Đội ngũ giàu kinh nghiệm
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard ugh iceland kickstarter tumblr
-                live-edge tilde.
+                Với đội ngũ bác sĩ thú y chuyên nghiệp và tận tâm, chúng tôi cam
+                kết mang lại sự chăm sóc tốt nhất cho thú cưng của bạn.
               </p>
             </div>
           </div>
-          <div className="p-4 md:w-1/3 flex">
-            <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="6" cy="6" r="3"></circle>
-                <circle cx="6" cy="18" r="3"></circle>
-                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-              </svg>
-            </div>
-            <div className="flex-grow pl-6">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                The Catalyzer
+          <div className="flex flex-col mb-10 lg:items-start items-center">
+            <div className="flex-grow">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+                Trang thiết bị hiện đại
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard ugh iceland kickstarter tumblr
-                live-edge tilde.
+                Phòng khám được trang bị các thiết bị y tế tiên tiến, đảm bảo
+                chẩn đoán chính xác và điều trị hiệu quả.
               </p>
             </div>
           </div>
-          <div className="p-4 md:w-1/3 flex">
-            <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <div className="flex-grow pl-6">
-              <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                Neptune
+          <div className="flex flex-col mb-10 lg:items-start items-center">
+            <div className="bg-slate-600 border-collapse"></div>
+            <div className="flex-grow">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+                Chăm sóc tận tâm và chu đáo
               </h2>
               <p className="leading-relaxed text-base">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug VHS try-hard ugh iceland kickstarter tumblr
-                live-edge tilde.
+                <span className="text-pink-600 font-dosis font-bold">
+                  <a
+                    href="https://www.facebook.com/cuahangthucungPOMY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    Pomy Petshop{" "}
+                  </a>
+                </span>
+                luôn đặt sức khỏe và hạnh phúc của thú cưng lên hàng đầu, mang
+                đến sự yên tâm và tin tưởng tuyệt đối cho bạn.
               </p>
             </div>
           </div>
+        </div>
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <Image
+            className="object-cover object-center rounded"
+            alt="hero"
+            src="/images/pomy-petshop-3.jpg"
+            width={720}
+            height={600}
+            loading="lazy"
+            translate="no"
+          />
         </div>
       </div>
     </section>

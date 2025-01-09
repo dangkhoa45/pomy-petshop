@@ -49,7 +49,7 @@ export default function AboutSection() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-gradient-to-tl from-green-100 to-pink-200 relative w-[350px] h-[350px] md:w-[512px] md:h-[512px]"
+            className="bg-gradient-to-tl from-green-100 to-pink-200 relative hide md:block md:w-[512px] md:h-[512px]"
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"

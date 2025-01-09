@@ -105,7 +105,7 @@ function HeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-[350px] h-[350px] md:w-[512px] md:h-[512px]"
+            className="relative w-[300px] h-[300px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"

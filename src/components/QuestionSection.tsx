@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -112,7 +112,7 @@ function QuestionSection() {
         >
           <Image
             className="object-cover object-center rounded"
-            alt="hero"
+            alt="pomy-petshop-careful"
             src="/images/pomy-petshop-3.jpg"
             width={720}
             height={600}

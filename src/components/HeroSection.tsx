@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -116,7 +116,7 @@ function HeroSection() {
             />
           </motion.div>
         </motion.div>
-        
+
         {isOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"

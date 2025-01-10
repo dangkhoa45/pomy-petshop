@@ -45,14 +45,14 @@ export default function Header() {
               href="tel:0708039333"
               className="flex items-center space-x-1 hover:text-pink-500 text-gray-600"
             >
-              <FaPhoneAlt /> <span className="pl-1">070 803 9333</span>
+              <FaPhoneAlt className="text-red-400 font-bold" /> <span className="pl-1 text-red-400 font-bold">070 803 9333</span>
             </a>
             <span className="text-gray-600">|</span>
             <a
               href="mailto:tust3000@gmail.com"
               className="flex items-center space-x-1 hover:text-pink-600 text-gray-600"
             >
-              <FaEnvelope /> <span>tust3000@gmail.com</span>
+              <FaEnvelope className="text-green-600 font-bold" /> <span className="pl-1 text-green-600 font-bold">tust3000@gmail.com</span>
             </a>
           </div>
 
@@ -160,7 +160,7 @@ export default function Header() {
           </motion.nav>
 
           <motion.a
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            href="/"
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
           >
             <Image
@@ -170,14 +170,27 @@ export default function Header() {
               width={85}
               height={85}
             />
+            <div className="flex flex-col">
+              <span className=" md:hidden ml-3 text-3xl font-extrabold text-pink-700">
+                POMY Petshop
+              </span>
+              <span className=" md:hidden ml-3 text-sm font-extrabold text-green-600">
+                Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
+              </span>
+            </div>
           </motion.a>
 
           <div className="lg:w-2/5 inline-flex lg:justify-end mt-6 lg:mt-0">
             <button className="animate-bounce inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform group">
               <FaPhoneAlt />
-              <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300">
-                Đặt SPA - Hotel
-              </span>
+              <Link
+                href="https://www.facebook.com/cuahangthucungPOMY"
+                className=" group-hover:text-pink-200 transition-colors duration-300"
+              >
+                <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300">
+                  Đặt SPA - Hotel
+                </span>
+              </Link>
             </button>
           </div>
         </div>

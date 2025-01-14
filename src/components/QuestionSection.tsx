@@ -28,7 +28,7 @@ function QuestionSection() {
           </motion.h1>
 
           <motion.span
-            className="title-font text-lg mb-1 text-gray-600 font-extrabold"
+            className="title-font text-lg mb-5 text-gray-600 font-extrabold"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -38,8 +38,7 @@ function QuestionSection() {
             bạn.
           </motion.span>
 
-          <div className="flex flex-col md:flex-row md:gap-3  mt-6 mb-10 lg:items-start items-center">
-            <div>TEXT</div>
+          <div className="flex flex-col mb-10 lg:items-start items-center">
             <motion.div
               className="flex-grow"
               initial={{ opacity: 0, y: 20 }}

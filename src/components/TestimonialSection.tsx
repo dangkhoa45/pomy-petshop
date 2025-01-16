@@ -97,7 +97,7 @@ function TestimonialSection() {
 
   return (
     <section className="text-gray-600 body-font bg-transparent">
-      <div className="container px-5 mx-auto">
+      <div className="container px-5 py-12 mx-auto">
         <h1 className="text-4xl font-extrabold text-center text-pink-500 mb-12">
           Cảm Nhận Từ Khách Hàng
         </h1>

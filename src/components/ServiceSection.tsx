@@ -44,7 +44,7 @@ function ServiceSection() {
   return (
     <>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-12 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -62,21 +62,37 @@ function ServiceSection() {
               <div className="h-1 w-20 bg-pink-500 rounded"></div>
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-600 bg-gradient-to-r from-white to-pink-200 rounded-lg p-4">
-              Dịch vụ tại <span className="font-bold text-pink-600"> Pomy Petshop </span>bao gồm cắt tỉa, vệ sinh, khách sạn dành
-              cho thú cưng. Với đội ngũ chăm sóc chuyên nghiệp và trang thiết bị
-              hiện đại, chúng tôi cam kết mang lại sự chăm sóc tận tâm và chất
-              lượng cao cho thú cưng của bạn.
+              Dịch vụ tại{" "}
+              <span className="font-bold text-pink-600"> Pomy Petshop </span>bao
+              gồm cắt tỉa, vệ sinh, khách sạn dành cho thú cưng. Với đội ngũ
+              chăm sóc chuyên nghiệp và trang thiết bị hiện đại, chúng tôi cam
+              kết mang lại sự chăm sóc tận tâm và chất lượng cao cho thú cưng
+              của bạn.
             </p>
           </motion.div>
           <div className="flex flex-wrap -m-4">
             {services.map((service) => (
               <motion.div
                 key={service.id}
-                className="xl:w-1/3 md:w-1/2 p-4 "
-                whileHover={{ scale: 1.05 }}
+                className="xl:w-1/3 md:w-1/2 p-4"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 15px 30px rgba(255, 122, 163, 0.4)",
+                }}
+                style={{ filter: "brightness(1)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.filter = "brightness(1.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.filter = "brightness(1)";
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 onClick={() => setSelectedService(service)}
               >
-                <div className="bg-gradient-to-bl from-white to-pink-200 p-6 rounded-lg cursor-pointer h-[370px]">
+                <motion.div className="bg-gradient-to-bl from-white to-pink-200 p-6 rounded-lg cursor-pointer h-[370px] transition-transform duration-300">
                   <Image
                     className="h-40 rounded w-full object-cover object-center mb-6"
                     src={service.image}
@@ -93,7 +109,7 @@ function ServiceSection() {
                   <p className="leading-relaxed text-base">
                     {service.description}
                   </p>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 function QuestionSection() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-5 py-12 mb-8 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <motion.span
             className="title-font sm:text-2xl text-2xl mb-1 text-green-500 font-extrabold"
@@ -84,7 +84,7 @@ function QuestionSection() {
             </motion.div>
           </div>
 
-          <div className="flex flex-col mb-10 lg:items-start items-center">
+          <div className="flex flex-col mb-0 md:mb-10 lg:items-start items-center">
             <motion.div
               className="flex-grow"
               initial={{ opacity: 0, y: 20 }}

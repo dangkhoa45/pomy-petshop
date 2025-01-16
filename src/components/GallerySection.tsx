@@ -50,7 +50,7 @@ const GallerySection: React.FC = () => {
 
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-4 py-16 mx-auto">
+      <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-col text-center w-full mb-8">
           <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-pink-500">
             Bộ Sưu Tập Hình Ảnh

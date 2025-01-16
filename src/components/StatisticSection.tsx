@@ -64,7 +64,7 @@ function StatisticSection() {
 
   return (
     <section className="bg-transparent text-gray-700 body-font">
-      <div className="container px-3 md:px-5 py-8 mx-auto">
+      <div className="container px-3 md:px-5 py-12 mx-auto">
         <motion.div
           variants={textVariant}
           initial="hidden"

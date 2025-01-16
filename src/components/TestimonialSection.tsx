@@ -59,9 +59,8 @@ const testimonials: Testimonial[] = [
 
 function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(3); // Default is 3 for large screens
+  const [itemsToShow, setItemsToShow] = useState(3);
 
-  // Update number of items based on screen size
   const updateItemsToShow = () => {
     if (window.innerWidth >= 1024) {
       setItemsToShow(3);
@@ -72,7 +71,6 @@ function TestimonialSection() {
     }
   };
 
-  // Adjust layout on resize
   useEffect(() => {
     updateItemsToShow();
     window.addEventListener("resize", updateItemsToShow);

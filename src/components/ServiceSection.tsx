@@ -118,7 +118,7 @@ function ServiceSection() {
               layout="fill"
               objectFit="contain"
             />
-            <div className="absolute bottom-0 p-4 bg-white bg-opacity-80 w-full">
+            <div className="hidden md:block absolute bottom-0 p-4 bg-white bg-opacity-80 w-full">
               <h2 className="text-xl font-bold text-pink-600">
                 {selectedService.title}
               </h2>

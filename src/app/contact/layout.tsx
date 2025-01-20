@@ -1,14 +1,14 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "POMY PETSHOP - TRANG CHỦ",
-  description: "POMY PETSHOP - 31 Phú Lợi - Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng ",
+  title: "POMY PETSHOP - LIÊN HỆ",
+  description:
+    "POMY PETSHOP - 31 Phú Lợi - Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng ",
 };
 
-export default function RootLayout({
+export default function ContactLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

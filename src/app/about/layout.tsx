@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -52,7 +53,10 @@ export default function AboutPage({
           content={metadata.description as string}
         />
         <meta property="og:image" content="/images/og-image.jpg" />
-        <meta property="og:url" content="https://pomypetshopsoctrang.com/about" />
+        <meta
+          property="og:url"
+          content="https://pomypetshopsoctrang.com/about"
+        />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -68,6 +72,7 @@ export default function AboutPage({
 
         <main className="flex-grow" role="main" aria-labelledby="main-content">
           {children}
+          <Analytics />
         </main>
 
         <Footer aria-label="Pomy Petshop Footer" />

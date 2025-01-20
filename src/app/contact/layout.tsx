@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -71,6 +72,7 @@ export default function AboutPage({
 
         <main className="flex-grow" role="main" aria-labelledby="main-content">
           {children}
+          <Analytics />
         </main>
 
         <Footer aria-label="Pomy Petshop Footer" />

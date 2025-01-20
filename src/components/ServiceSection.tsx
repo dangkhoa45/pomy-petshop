@@ -77,7 +77,6 @@ function ServiceSection() {
                 className="xl:w-1/3 md:w-1/2 p-4"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0px 15px 30px rgba(255, 122, 163, 0.4)",
                 }}
                 style={{ filter: "brightness(1)" }}
                 onMouseEnter={(e) => {

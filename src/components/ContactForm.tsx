@@ -83,27 +83,29 @@ export default function ContactForm() {
             nhất.
           </p>
           <p className="text-base text-gray-500 pb-2">
-            <a href="mailto:tust3000@gmail.com">
-              📧 Email: tust3000@gmail.com
-            </a>
+            <a href="mailto:tust3000@gmail.com">📧 Email: tust3000@gmail.com</a>
           </p>
           <p className="text-base text-gray-500">
-            <a href="tel:0708039333">
-              📞 Hotline: 070 803 9333
-            </a>
+            <a href="tel:0708039333">📞 Hotline: 070 803 9333</a>
           </p>
         </motion.div>
 
         <motion.div
-          className="lg:w-2/6 md:w-1/2 bg-white shadow-lg rounded-lg p-8"
+          className="w-full lg:w-2/6 md:w-1/2 bg-white shadow-lg rounded-lg p-8"
           initial="hidden"
           whileInView="visible"
           variants={formVariant}
           viewport={{ once: true, amount: 0.3 }}
         >
+          {errorMessage && (
+            <p className="text-red-500 text-sm m-4 text-center bg-green-200 p-3 font-bold">
+              {errorMessage}
+            </p>
+          )}
           <h2 className="text-2xl font-bold text-gray-900 mb-5">
             Đăng Ký Ngay
           </h2>
+
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
               <label
@@ -183,12 +185,6 @@ export default function ContactForm() {
               Gửi Ngay
             </button>
           </form>
-
-          {errorMessage && (
-            <p className="text-red-500 text-sm mt-4 text-center">
-              {errorMessage}
-            </p>
-          )}
 
           {isSubmitted && (
             <p className="text-green-500 text-sm mt-4 text-center">

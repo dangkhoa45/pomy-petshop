@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "POMY PETSHOP",
     images: [
       {
-        url: "https://pomypetshopsoctrang.com/images/pomy-petshop-1.jpg",
+        url: "/images/pomy-petshop-1.jpg",
         width: 1200,
         height: 630,
         alt: "POMY PETSHOP - Cửa hàng thú cưng hàng uy tín, cung cấp các dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại 31 Phú Lợi, Sóc Trăng",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - TRANG CHỦ",
     description:
       "Khám phá dịch vụ và sản phẩm dành cho thú cưng tại POMY PETSHOP. Cắt tỉa, vệ sinh, khách sạn thú cưng chuyên nghiệp.",
-    images: ["https://pomypetshopsoctrang.com/images/pomy-petshop-1.jpg"],
+    images: ["/images/pomy-petshop-1.jpg"],
   },
   icons: {
     icon: "/favicon.ico",

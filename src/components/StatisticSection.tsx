@@ -90,7 +90,7 @@ function StatisticSection() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.div className="p-4" variants={cardVariant}>
-            <div className="bg-white border-2 border-pink-500 px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white border-2 border-pink-500 h-[235px]  px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <PetsCared />
               <h2 className="title-font font-extrabold text-3xl md:text-4xl text-pink-500">
                 {stats.petsCared}+
@@ -102,7 +102,7 @@ function StatisticSection() {
           </motion.div>
 
           <motion.div className="p-4" variants={cardVariant}>
-            <div className="bg-white border-2 border-pink-500 px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white border-2 border-pink-500 h-[235px] px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <StartIcon />
               <h2 className="title-font font-extrabold text-3xl md:text-4xl text-pink-500">
                 {stats.happyClients}+
@@ -114,7 +114,7 @@ function StatisticSection() {
           </motion.div>
 
           <motion.div className="p-4" variants={cardVariant}>
-            <div className="bg-white border-2 border-pink-500 px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white border-2 border-pink-500 h-[235px] px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CalendarIcon />
               <h2 className="title-font font-extrabold text-3xl md:text-4xl text-pink-500">
                 {stats.dailyBookings}+
@@ -126,7 +126,7 @@ function StatisticSection() {
           </motion.div>
 
           <motion.div className="p-4" variants={cardVariant}>
-            <div className="bg-white border-2 border-pink-500 px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white border-2 border-pink-500 h-[235px] px-6 py-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <EventIcon />
               <h2 className="title-font font-extrabold text-3xl md:text-4xl text-pink-500">
                 {stats.hotelRooms}+

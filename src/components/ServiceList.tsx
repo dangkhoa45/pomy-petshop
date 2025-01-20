@@ -3,204 +3,154 @@ import Image from "next/image";
 function ServiceList() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-12 mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center items-start mx-auto pb-12">
-          <h1 className="flex-grow sm:pr-16 text-2xl font-semibold title-font text-gray-900">
-            Slow-carb next level shoindxgoitch ethical authentic, scenester
-            sriracha forage.
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-col text-center w-full mb-20">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+            Master Cleanse Reliac Heirloom
           </h1>
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+            gentrify, subway tile poke farm-to-table. Franzen you probably
+            haven&apos;t heard of them man bun deep jianbing selfies heirloom.
+          </p>
         </div>
         <div className="flex flex-wrap -m-4">
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/420x260"
-                width={420}
-                height={260}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/600x360"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                The Catalyzer
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Shooting Stars
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/421x261"
-                width={421}
-                height={261}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/601x361"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                Shooting Stars
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  The Catalyzer
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/422x262"
-                width={422}
-                height={262}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/603x363"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                Neptune
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  The 400 Blows
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/423x263"
-                width={423}
-                height={263}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/602x362"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                The 400 Blows
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Neptune
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/424x264"
-                width={424}
-                height={264}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/605x365"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                The Catalyzer
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Holden Caulfield
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
+          <div className="lg:w-1/3 sm:w-1/2 p-4">
+            <div className="flex relative">
               <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/425x265"
-                width={425}
-                height={265}
+                alt="gallery"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://dummyimage.com/606x366"
+                width={600}
+                height={300}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                Shooting Stars
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
-            </div>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
-              <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/427x267"
-                width={427}
-                height={267}
-              />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                Neptune
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
-            </div>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a className="block relative h-48 rounded overflow-hidden">
-              <Image
-                alt="ecommerce"
-                className="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/428x268"
-                width={428}
-                height={268}
-              />
-            </a>
-            <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                The 400 Blows
-              </h2>
-              <p className="mt-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s
-              </p>
+              <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">
+                  THE SUBTITLE
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Alper Kamu
+                </h1>
+                <p className="leading-relaxed">
+                  Photo booth fam kinfolk cold-pressed sriracha leggings
+                  jianbing microdosing tousled waistcoat.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ function HeroSection() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <motion.h1
-            className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500 font-poppins"
+            className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500 font-heading"
             variants={textVariant}
           >
             Dịch Vụ Chăm Sóc

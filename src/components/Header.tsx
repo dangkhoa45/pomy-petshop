@@ -45,14 +45,18 @@ export default function Header() {
               href="tel:0708039333"
               className="flex items-center space-x-1 hover:text-pink-500 text-gray-600"
             >
-              <FaPhoneAlt className="text-red-400 font-bold" /> <span className="pl-1 text-red-400 font-bold">070 803 9333</span>
+              <FaPhoneAlt className="text-red-400 font-bold" />{" "}
+              <span className="pl-1 text-red-400 font-bold">070 803 9333</span>
             </a>
             <span className="text-gray-600">|</span>
             <a
               href="mailto:tust3000@gmail.com"
               className="flex items-center space-x-1 hover:text-pink-600 text-gray-600"
             >
-              <FaEnvelope className="text-green-600 font-bold" /> <span className="pl-1 text-green-600 font-bold">tust3000@gmail.com</span>
+              <FaEnvelope className="text-green-600 font-bold" />{" "}
+              <span className="pl-1 text-green-600 font-bold">
+                tust3000@gmail.com
+              </span>
             </a>
           </div>
 

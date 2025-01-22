@@ -6,13 +6,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "POMY PETSHOP - TRANG CHỦ",
+  title: "POMY PETSHOP",
   description:
-    "Pomy Petshop - Cửa hàng thú cưng hàng uy tín, cung cấp các dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại 31 Phú Lợi, Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp, kết hợp với các sản phẩm chất lượng, đảm bảo mang lại sự hài lòng cho thú cưng của bạn!",
+    "Pomy Petshop - Cửa hàng thú cưng uy tín, cung cấp dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Sóc Trăng. Dịch vụ chuyên nghiệp, sản phẩm chất lượng, đảm bảo sự hài lòng cho thú cưng của bạn.",
   openGraph: {
-    title: "POMY PETSHOP - TRANG CHỦ",
+    title: "POMY PETSHOP",
     description:
-      "Pomy Petshop - Cửa hàng thú cưng hàng uy tín, cung cấp các dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại 31 Phú Lợi, Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp, kết hợp với các sản phẩm chất lượng, đảm bảo mang lại sự hài lòng cho thú cưng của bạn!",
+      "Cửa hàng thú cưng uy tín tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp.",
     url: "https://pomypetshopsoctrang.com",
     siteName: "POMY PETSHOP",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/images/pomy-petshop-1.jpg",
         width: 1200,
         height: 630,
-        alt: "POMY PETSHOP - Cửa hàng thú cưng hàng uy tín, cung cấp các dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại 31 Phú Lợi, Sóc Trăng",
+        alt: "POMY PETSHOP - Dịch vụ thú cưng tại Sóc Trăng",
       },
     ],
     locale: "vi_VN",
@@ -28,13 +28,39 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "POMY PETSHOP - TRANG CHỦ",
+    title: "POMY PETSHOP",
     description:
-      "Khám phá dịch vụ và sản phẩm dành cho thú cưng tại POMY PETSHOP. Cắt tỉa, vệ sinh, khách sạn thú cưng chuyên nghiệp.",
+      "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
     images: ["/images/pomy-petshop-1.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://pomypetshopsoctrang.com",
+    languages: {
+      "vi-VN": "https://pomypetshopsoctrang.com/vi",
+      "en-US": "https://pomypetshopsoctrang.com/en",
+    },
+  },
+  verification: {
+    google:
+      "google-site-verification=w_erDInrT5fGiLu7Ft-JEfRKvADe4xeYOyN9zx_73kw",
+  },
+  facebook: {
+    appId: "2422218498121617",
   },
 };
 
@@ -43,40 +69,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  
   return (
     <html lang="vi">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta property="og:title" content={metadata.title as string} />
-        <meta
-          property="og:description"
-          content={metadata.description as string}
-        />
-        <meta property="og:image" content="/images/og-image.jpg" />
-        <meta property="og:url" content="https://pomypetshopsoctrang.com" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title as string} />
-        <meta
-          name="twitter:description"
-          content={metadata.description as string}
-        />
-        <meta name="twitter:image" content="/images/twitter-image.jpg" />
-      </head>
       <body className="flex flex-col min-h-screen bg-gray-50">
         <Header aria-label="Pomy Petshop Header" />
-
         <main className="flex-grow" role="main" aria-labelledby="main-content">
           {children}
           <Analytics />
           <SpeedInsights />
         </main>
-
         <Footer aria-label="Pomy Petshop Footer" />
       </body>
     </html>

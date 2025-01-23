@@ -1,5 +1,4 @@
-"use client"
-import OurTeamSection from "@/components/OurTeamSection";
+"use client";
 import QuestionSection from "@/components/QuestionSection";
 import ServiceSection from "@/components/ServiceSection";
 import StatisticSecondary from "@/components/StatisticSecondary";
@@ -35,7 +34,7 @@ function AboutPage() {
       <StatisticSecondary />
       <QuestionSection />
       <TestimonialSection />
-      <OurTeamSection />
+      {/* <OurTeamSection /> */}
     </div>
   );
 }

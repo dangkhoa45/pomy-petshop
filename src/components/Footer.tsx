@@ -2,18 +2,24 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { BiLogoGmail } from "react-icons/bi";
-import {
-  FaAngleRight,
-  FaFacebook,
-  FaHome,
-  FaInstagram,
-  FaPhoneAlt,
-  FaTelegram,
-} from "react-icons/fa";
-import { SiZalo } from "react-icons/si";
+import { FaAngleRight, FaFacebook, FaHome, FaPhoneAlt } from "react-icons/fa";
 
 function Footer() {
+  useEffect(() => {
+    const fbScript = document.createElement("script");
+    fbScript.async = true;
+    fbScript.defer = true;
+    fbScript.crossOrigin = "anonymous";
+    fbScript.src =
+      "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0";
+    document.body.appendChild(fbScript);
+
+    return () => {
+      document.body.removeChild(fbScript);
+    };
+  }, []);
   return (
     <footer className="bg-gradient-to-r from-green-100 to-pink-300  text-gray-300">
       <div className="container px-5 py-16 mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -27,55 +33,32 @@ function Footer() {
             <Image
               src="/images/logo.jpg"
               alt="POMY PETSHOP Logo"
-              className="w-12 h-12 rounded-full"
-              width={48}
-              height={48}
+              className="w-[56px] h-[56px] md:w-16 md:h-16 rounded-full"
+              width={64}
+              height={64}
             />
-            <span className="ml-3 text-2xl text-pink-400 font-extrabold">
+            <span className="ml-3 text-2xl text-pink-600 font-extrabold">
               POMY PETSHOP
             </span>
           </motion.a>
-          <p className="text-sm text-pink-500 font-semibold flex items-center">
+          <p className="text-md text-green-800 font-semibold flex items-center">
             Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng.
           </p>
-          <p className="text-gray-600 text-sm italic">
-            Với đội ngũ bác sĩ thú y giàu kinh nghiệm và trang thiết bị hiện
-            đại, chúng tôi cam kết mang đến những dịch vụ y tế chất lượng cao,
-            từ khám chữa bệnh, tiêm phòng, đến tư vấn dinh dưỡng và chăm sóc
-            hàng ngày.
+          <p className="text-gray-600 text-md italic">
+            Dịch vụ tại Pomy Petshop bao gồm cắt tỉa, vệ sinh, khách sạn dành
+            cho thú cưng. Với đội ngũ chăm sóc chuyên nghiệp và trang thiết bị
+            hiện đại, chúng tôi cam kết mang lại sự chăm sóc tận tâm và chất
+            lượng cao cho thú cưng của bạn
           </p>
-          <div className="flex space-x-8">
+          <div className="flex flex-col space-y-3">
             <a
               href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
+              className=" flex  space-x-2 hover:underline text-pink-600 hover:animate-bounce"
             >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://zalo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600 hover:animate-bounce "
-            >
-              <SiZalo />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600 hover:animate-bounce"
-            >
-              <FaTelegram />
+              <FaFacebook className="w-6 h-6" />
+              <span>Fanpage: Pomy Petshop</span>
             </a>
           </div>
         </motion.div>
@@ -84,7 +67,7 @@ function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4"
+          className="space-y-3"
         >
           <h3 className="text-lg font-semibold text-pink-500">Về chúng tôi</h3>
           <ul className="list-none space-y-2">
@@ -111,7 +94,7 @@ function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-4"
+          className="space-y-3"
         >
           <h3 className="text-lg font-semibold text-pink-500">
             Dịch vụ nổi bật
@@ -135,7 +118,7 @@ function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="space-y-4"
+          className="space-y-3"
         >
           <h3 className="text-lg font-semibold text-pink-500">Liên hệ</h3>
           <p className="text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
@@ -153,6 +136,26 @@ function Footer() {
             <BiLogoGmail className="mr-2" />
             <Link href="mailto:tust3000@gmail.com">tust3000@gmail.com</Link>
           </p>
+          <div
+            className="fb-page"
+            data-href="https://www.facebook.com/cuahangthucungPOMY"
+            data-tabs=""
+            data-width="340"
+            data-height="70"
+            data-small-header="true"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="false"
+          >
+            <blockquote
+              cite="https://www.facebook.com/cuahangthucungPOMY"
+              className="fb-xfbml-parse-ignore "
+            >
+              <a href="https://www.facebook.com/cuahangthucungPOMY">
+                Pomy Petshop Fanpage
+              </a>
+            </blockquote>
+          </div>
         </motion.div>
       </div>
 

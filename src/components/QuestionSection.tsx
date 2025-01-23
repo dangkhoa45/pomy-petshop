@@ -1,8 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 function QuestionSection() {
+  const [isOpen, setIsOpen] = useState(false);
+  const imageVariant = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, delay: 0.4 },
+    },
+  };
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-12 mb-8 md:flex-row flex-col items-center">
@@ -46,7 +57,7 @@ function QuestionSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true, amount: 0.5 }}
             >
-              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-1">
                 Chăm sóc tận tâm và chu đáo
               </h2>
               <p className="leading-relaxed text-base">
@@ -74,7 +85,7 @@ function QuestionSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.5 }}
             >
-              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-1">
                 Đội ngũ giàu kinh nghiệm
               </h2>
               <p className="leading-relaxed text-base">
@@ -92,7 +103,7 @@ function QuestionSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true, amount: 0.5 }}
             >
-              <h2 className="text-pink-600 text-lg title-font font-semibold mb-3">
+              <h2 className="text-pink-600 text-lg title-font font-semibold mb-1">
                 Trang thiết bị hiện đại
               </h2>
               <p className="leading-relaxed text-base">
@@ -102,22 +113,51 @@ function QuestionSection() {
             </motion.div>
           </div>
         </div>
-
         <motion.div
           className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={imageVariant}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
+          onClick={() => setIsOpen(true)}
         >
-          <Image
-            className="object-cover object-center rounded"
-            alt="pomy-petshop-careful"
-            src="/images/pomy-petshop-3.jpg"
-            width={720}
-            height={600}
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-[300px] h-[300px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
+          >
+            <Image
+              className="object-cover object-center rounded-lg shadow-lg"
+              alt="pomy-petshop"
+              src="/images/pomy-petshop-1.jpg"
+              layout="fill"
+              objectFit="cover"
+            />
+          </motion.div>
         </motion.div>
+        {isOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            onClick={() => setIsOpen(false)}
+          >
+            <motion.div
+              className="relative w-[80%] h-[80%] bg-gradient-to-r from-pink-300 to-white rounded-lg overflow-hidden"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                className="object-cover"
+                alt="pomy-petshop"
+                src="/images/pomy-petshop-1.jpg"
+                layout="fill"
+                objectFit="contain"
+              />
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );

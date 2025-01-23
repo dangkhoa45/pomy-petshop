@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Gluten&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-heading: 'Pacifico', sans-serif;
-  --font-body: 'Sour Gummy', sans-serif;
+  --font-heading: 'Gluten', sans-serif;
+  --font-body: 'Gluten', sans-serif;
 }
 
 html {

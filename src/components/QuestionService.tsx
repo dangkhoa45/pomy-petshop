@@ -79,18 +79,18 @@ function QuestionService() {
         </div>
 
         <motion.div
-          className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"
+          className="relative w-[300px] h-[300px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.5 }}
         >
           <Image
-            className="object-cover object-center rounded"
+            className="object-cover object-center rounded-lg shadow-lg"
             alt="pomy-petshop-careful"
             src="/images/pomy-petshop-13.jpg"
-            width={520}
-            height={520}
+            layout="fill"
+            objectFit="cover"
           />
         </motion.div>
       </div>

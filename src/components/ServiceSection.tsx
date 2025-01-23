@@ -18,7 +18,7 @@ const services: Service[] = [
     subtitle: "Dịch vụ trông giữ thú cưng",
     description:
       "Đội ngũ chuyên nghiệp cùng trang thiết bị hiện đại sẽ mang lại trải nghiệm khách sạn thoải mái nhất cho thú cưng của bạn.",
-    image: "/images/pomy-service-1.jpg",
+    image: "/images/pomy-petshop-hotel.jpeg",
   },
   {
     id: 2,
@@ -36,6 +36,14 @@ const services: Service[] = [
       "Chăm sóc sức khỏe và vệ sinh toàn diện cho thú cưng của bạn với quy trình chuyên nghiệp.",
     image: "/images/pomy-service-3.jpg",
   },
+  {
+    id: 4,
+    title: "tiêm vaccine, xổ giun",
+    subtitle: "Dịch vụ tiêm vaccine, xổ giun",
+    description:
+      "Chăm sóc sức khỏe và vệ sinh toàn diện cho thú cưng của bạn với quy trình chuyên nghiệp.",
+    image: "/images/tiem-vaccine-cho-cho.jpg",
+  },
 ];
 
 function ServiceSection() {
@@ -44,7 +52,7 @@ function ServiceSection() {
   return (
     <>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-12 mx-auto">
+        <div className="container px-5 py-8 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,16 +61,13 @@ function ServiceSection() {
             className="flex flex-wrap w-full mb-8"
           >
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-              <span className="sm:text-md text-sm font-bold title-font mb-2 text-green-600">
-                Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
-              </span>
-              <h1 className="sm:text-3xl text-2xl font-extrabold title-font mb-2 text-pink-600">
+              <h1 className="sm:text-3xl text-2xl font-extrabold title-font my-2 text-pink-600">
                 Dịch vụ chúng tôi cung cấp
               </h1>
               <div className="h-1 w-20 bg-pink-500 rounded"></div>
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-600 bg-gradient-to-r from-white to-pink-200 rounded-lg p-4">
-              Dịch vụ tại{" "}
+              Dịch vụ tại
               <span className="font-bold text-pink-600"> Pomy Petshop </span>bao
               gồm cắt tỉa, vệ sinh, khách sạn dành cho thú cưng. Với đội ngũ
               chăm sóc chuyên nghiệp và trang thiết bị hiện đại, chúng tôi cam
@@ -74,7 +79,7 @@ function ServiceSection() {
             {services.map((service) => (
               <motion.div
                 key={service.id}
-                className="xl:w-1/3 md:w-1/2 p-4"
+                className="xl:w-1/4 md:w-1/2 p-4"
                 whileHover={{
                   scale: 1.05,
                 }}
@@ -91,7 +96,7 @@ function ServiceSection() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 onClick={() => setSelectedService(service)}
               >
-                <motion.div className="bg-gradient-to-bl from-white to-pink-200 p-6 rounded-lg cursor-pointer h-[370px] transition-transform duration-300">
+                <motion.div className="bg-gradient-to-bl from-white to-pink-200 p-6 rounded-lg cursor-pointer h-[358px] transition-transform duration-300">
                   <Image
                     className="h-40 rounded w-full object-cover object-center mb-6"
                     src={service.image}
@@ -102,10 +107,10 @@ function ServiceSection() {
                   <h3 className="tracking-widest text-pink-500 text-xs font-medium title-font">
                     {service.title}
                   </h3>
-                  <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+                  <h2 className="text-md text-gray-900 font-medium title-font mb-1">
                     {service.subtitle}
                   </h2>
-                  <p className="leading-relaxed text-base">
+                  <p className="leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </motion.div>

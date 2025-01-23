@@ -1,11 +1,13 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function HeroSection() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter()
 
   const textVariant = {
     hidden: { opacity: 0, x: -50 },
@@ -42,7 +44,14 @@ function HeroSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
         >
+          <motion.span
+            variants={textVariant}
+            className="sm:text-md text-sm font-bold title-font mb-6 text-green-600"
+          >
+            Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
+          </motion.span>
           <motion.h1
             className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500 font-heading"
             variants={textVariant}
@@ -56,7 +65,8 @@ function HeroSection() {
             variants={textVariant}
             transition={{ delay: 0.3 }}
           >
-            Chúng tôi cung cấp các dịch vụ cắt tỉa, vệ sinh, và khách sạn thú
+            <span className="text-pink-500 font-bold">POMY PETSHOP</span> ở đây
+            chúng tôi cung cấp các dịch vụ cắt tỉa, vệ sinh, và khách sạn thú
             cưng chuyên nghiệp, giúp thú cưng của bạn luôn khỏe mạnh và đáng
             yêu. Hãy để chúng tôi chăm sóc người bạn bốn chân của bạn.
           </motion.p>
@@ -75,6 +85,7 @@ function HeroSection() {
                 boxShadow: "0px 10px 20px rgba(255, 122, 163, 0.4)",
               }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("https://www.facebook.com/cuahangthucungPOMY")}
             >
               Đặt Lịch Ngay
             </motion.button>
@@ -86,6 +97,7 @@ function HeroSection() {
                 boxShadow: "0px 10px 20px rgba(255, 122, 163, 0.2)",
               }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/services")}
             >
               Tìm Hiểu Thêm
             </motion.button>
@@ -110,7 +122,7 @@ function HeroSection() {
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
               alt="pomy-petshop"
-              src="/images/pomy-petshop-1.jpg"
+              src="/images/pomy-petshop-14.jpg"
               layout="fill"
               objectFit="cover"
             />
@@ -131,7 +143,7 @@ function HeroSection() {
               <Image
                 className="object-cover"
                 alt="pomy-petshop"
-                src="/images/pomy-petshop-1.jpg"
+                src="/images/pomy-petshop-14.jpg"
                 layout="fill"
                 objectFit="contain"
               />

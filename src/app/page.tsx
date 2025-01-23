@@ -37,9 +37,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServiceSection />
-      <StatisticSection />
-      {/* <FeatureSection /> */}
       <QuestionSection />
+      <StatisticSection />
       <ContactForm />
       <TestimonialSection />
       <GallerySection />

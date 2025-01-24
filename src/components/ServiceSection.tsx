@@ -111,10 +111,10 @@ function ServiceSection() {
                     width={720}
                     height={400}
                   />
-                  <h3 className="tracking-widest text-pink-500 text-xs font-medium title-font">
+                  <h3 className="tracking-widest text-green-600 text-xs font-medium title-font">
                     {service.title}
                   </h3>
-                  <h2 className="text-md text-gray-900 font-medium title-font mb-1">
+                  <h2 className="text-sm font-bold text-pink-600 title-font mb-1">
                     {service.subtitle}
                   </h2>
                   <p className="leading-relaxed text-sm line-clamp-3">

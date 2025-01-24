@@ -5,9 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --font-heading: "Gluten", sans-serif;
-  --font-body: "Gluten", sans-serif;
-  --font-secondary: "Pacifico", cursive;
+  --font-heading: "Gluten", "Arial", sans-serif;
+  --font-body: "Gluten", "Roboto", sans-serif;
+  --font-secondary: "Pacifico", "Comic Sans MS", cursive;
+
+  --color-primary: #ec4899;
+  --color-primary-hover: #db2777;
+  --color-background: #f9fafb;
+  --color-text: #333;
 }
 
 html {
@@ -22,8 +27,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #f9fafb;
-  color: #333;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 h1,
@@ -39,18 +44,28 @@ h6 {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 a {
   text-decoration: none;
-  color: #ec4899;
+  color: var(--color-primary);
   transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-  color: #db2777;
+  color: var(--color-primary-hover);
 }
 
 button {
@@ -63,8 +78,9 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+
 .bg-primary {
-  background-color: #e53e3e;
+  background-color: var(--color-primary);
 }
 
 .font-secondary {

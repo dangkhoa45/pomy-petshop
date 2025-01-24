@@ -90,8 +90,12 @@ function HeroSection() {
           </motion.h1>
           <motion.p
             className="mb-8 leading-relaxed text-lg text-gray-600"
-            variants={textVariant}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 0.5 } },
+            }}
             transition={{ delay: 0.3 }}
+            viewport={{ once: true, amount: 0.8 }}
           >
             <span className="text-pink-500 font-bold">POMY PETSHOP</span> ở đây
             chúng tôi cung cấp các dịch vụ cắt tỉa, vệ sinh, và khách sạn thú

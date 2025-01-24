@@ -1,37 +1,70 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
-import { FaCheckCircle } from "react-icons/fa";
+import { useState } from "react";
+// import { FaCheckCircle } from "react-icons/fa";
+import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useSwipeable } from "react-swipeable";
 import Typical from "react-typical";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { galleryImages } from "./GallerySection";
 
 const FeatureService = () => {
-  const services = [
-    "Vệ sinh tai, nhổ lông tai",
-    "Cắt móng, dũa móng",
-    "Cạo lông bụng, vùng vệ sinh",
-    "Tắm và dưỡng xả lông",
-    "Tỉa gọn lông vùng mắt",
-    "Thao dưỡng và thơm lông",
-  ];
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+  const handleNextImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(
+        (prevIndex) => ((prevIndex as number) + 1) % galleryImages.length
+      );
+    }
   };
 
-  const ServiceItem = ({ name }: { name: string }) => (
-    <motion.div
-      variants={itemVariants}
-      initial="hidden"
-      animate="visible"
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="p-2 sm:w-1/2 w-full"
-    >
-      <div className="bg-gray-100 rounded flex p-4 h-full items-center hover:shadow-lg transition-shadow duration-300">
-        <FaCheckCircle className="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" />
-        <span className="title-font font-medium">{name}</span>
-      </div>
-    </motion.div>
-  );
+  const handlePrevImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(
+        (prevIndex) =>
+          ((prevIndex as number) - 1 + galleryImages.length) %
+          galleryImages.length
+      );
+    }
+  };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleNextImage,
+    onSwipedRight: handlePrevImage,
+    trackMouse: true,
+  });
+
+  // const services = [
+  //   "Vệ sinh tai, nhổ lông tai",
+  //   "Cắt móng, dũa móng",
+  //   "Cạo lông bụng, vùng vệ sinh",
+  //   "Tắm và dưỡng xả lông",
+  //   "Tỉa gọn lông vùng mắt",
+  //   "Thao dưỡng và thơm lông",
+  // ];
+
+  // const itemVariants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0 },
+  // };
+
+  // const ServiceItem = ({ name }: { name: string }) => (
+  //   <motion.div
+  //     variants={itemVariants}
+  //     initial="hidden"
+  //     animate="visible"
+  //     transition={{ duration: 0.5, ease: "easeOut" }}
+  //     className="p-2 sm:w-1/2 w-full"
+  //   >
+  //     <div className="bg-gray-100 rounded flex p-4 h-full items-center hover:shadow-lg transition-shadow duration-300">
+  //       <FaCheckCircle className="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" />
+  //       <span className="title-font font-medium">{name}</span>
+  //     </div>
+  //   </motion.div>
+  // );
 
   return (
     <motion.section
@@ -48,11 +81,11 @@ const FeatureService = () => {
           className="text-center mb-8"
         >
           <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-600 font-poppins">
-            Dịch vụ spa chuyên nghiệp cho thú cưng tại
+            Dịch vụ spa - hotel chuyên nghiệp cho thú cưng tại
             <br />
-            <span className="text-2xl md:text-4xl pt-4 font-bold">
+            <span className="text-2xl md:text-4xl font-bold">
               <Typical
-                steps={["POMY Petshop", 1000, "31 Phú Lợi - Sóc Trăng", 1000]}
+                steps={["POMY Petshop", 1500, "31 Phú Lợi - Sóc Trăng", 1500]}
                 loop={Infinity}
                 wrapper="span"
               />
@@ -65,25 +98,74 @@ const FeatureService = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-              },
-            },
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={2}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
           }}
-          className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2"
+          autoplay={{ delay: 3000 }}
+          navigation
+          className="gallery-swiper"
         >
-          {services.map((service, index) => (
-            <ServiceItem key={index} name={service} />
+          {galleryImages.map((image, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                className="relative overflow-hidden rounded-lg shadow-md cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setSelectedIndex(index)}
+              >
+                <Image
+                  alt={image.alt}
+                  src={image.src}
+                  layout="responsive"
+                  width={500}
+                  height={300}
+                  className="object-cover"
+                />
+              </motion.div>
+            </SwiperSlide>
           ))}
-        </motion.div>
+        </Swiper>
       </div>
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => setSelectedIndex(null)}
+        >
+          <motion.div
+            className="relative bg-white rounded-lg overflow-hidden"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+            {...swipeHandlers}
+          >
+            <Image
+              src={galleryImages[selectedIndex].src}
+              alt={galleryImages[selectedIndex].alt}
+              width={800}
+              height={500}
+              className="rounded-lg"
+            />
+            <button
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-600 rounded-full p-2"
+              onClick={handlePrevImage}
+            >
+              <FaChevronLeft size={20} />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2  text-pink-600 rounded-full p-2"
+              onClick={handleNextImage}
+            >
+              <FaChevronRight size={20} />
+            </button>
+          </motion.div>
+        </div>
+      )}
     </motion.section>
   );
 };

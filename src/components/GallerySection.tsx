@@ -10,12 +10,12 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-interface GalleryImage {
+export interface GalleryImage {
   src: string;
   alt: string;
 }
 
-const galleryImages: GalleryImage[] = [
+export const galleryImages: GalleryImage[] = [
   {
     src: "/images/pomy-petshop-4.jpeg",
     alt: "cat-tia-ve-sinh-khach-san-thu-cung",

@@ -1,8 +1,15 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 function PricingServiceSPA() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   return (
     <section className="text-gray-600 body-font">
       <motion.div
@@ -147,19 +154,62 @@ function PricingServiceSPA() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
             viewport={{ once: true, amount: 0.5 }}
           >
             <Image
-              className="rounded-lg shadow-lg object-cover object-center mb-6"
+              className="rounded-lg shadow-lg object-cover object-center mb-6 cursor-pointer hover:shadow-2xl transition-all duration-300"
               src={"/images/pomy-service-1.jpg"}
               alt={"Dịch vụ cắt tỉa thú cưng và vệ sinh Pomy Petshop"}
               layout="fill"
               objectFit="contain"
+              onClick={toggleModal}
             />
           </motion.div>
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={toggleModal}
+          >
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-6 w-[90%] md:w-[600px] relative"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 hover:scale-110 transition-transform duration-200"
+                onClick={toggleModal}
+              >
+                ✖
+              </button>
+              <Image
+                className="rounded-lg object-cover object-center"
+                src={"/images/pomy-service-1.jpg"}
+                alt={"Dịch vụ cắt tỉa thú cưng và vệ sinh Pomy Petshop"}
+                layout="responsive"
+                width={600}
+                height={400}
+              />
+              <p className="mt-4 text-center text-gray-700">
+                Hình ảnh dịch vụ cắt tỉa và vệ sinh tại{" "}
+                <span className="text-pink-600">POMY petshop</span>
+                <br/> <span className="text-green-600">31 Phú Lợi - Sóc Trăng</span>
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -3,14 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-  FaPhoneAlt,
-  FaTelegram,
-} from "react-icons/fa";
-import { SiZalo } from "react-icons/si";
+import { FaEnvelope, FaFacebook, FaPhoneAlt } from "react-icons/fa";
 
 const navVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -65,33 +58,9 @@ export default function Header() {
               href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
+              className="text-pink-500 hover:text-pink-900 hover:underline flex items-center space-x-2 text-center"
             >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://zalo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <SiZalo />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <FaTelegram />
+              <FaFacebook /> <span>Fanpage: Pomy petshop</span>
             </a>
           </div>
         </div>
@@ -167,13 +136,15 @@ export default function Header() {
             href="/"
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
           >
-            <Image
-              src="/images/logo.jpg"
-              alt="POMY PETSHOP Logo"
-              className="w-[85px] h-[85px] rounded-full transform transition duration-500 hover:rotate-12"
-              width={85}
-              height={85}
-            />
+            <div className="w-[85px] h-[85px] md:w-[120px] md:h-[120px] relative transform transition duration-500 hover:rotate-12">
+              <Image
+                src="/images/logo.jpg"
+                alt="POMY PETSHOP Logo"
+                className="rounded-full"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className="flex flex-col">
               <span className=" md:hidden ml-3 text-3xl font-extrabold text-pink-700">
                 POMY Petshop

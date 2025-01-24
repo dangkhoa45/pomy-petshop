@@ -1,6 +1,7 @@
 "use client";
+import CTA from "@/components/CTA-SPA";
 import FeatureService from "@/components/FeatureService";
-import PricingService from "@/components/PricingService";
+import PricingServiceSPA from "@/components/PricingServiceSPA";
 import QuestionService from "@/components/QuestionService";
 import { useEffect } from "react";
 
@@ -26,13 +27,13 @@ function ServicePage() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  
+
   return (
     <div className="bg-gradient-to-r from-green-100 to-pink-200">
       <FeatureService />
       <QuestionService />
-      <PricingService />
-      {/* <ServiceList /> */}
+      <CTA />
+      <PricingServiceSPA />
     </div>
   );
 }

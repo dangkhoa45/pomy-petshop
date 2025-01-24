@@ -5,10 +5,10 @@ import Image from "next/image";
 function QuestionService() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-12 mb-8 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-5 py-12 mb-2 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <motion.h1
-            className="title-font text-3xl mb-8 text-pink-600 font-extrabold"
+            className="title-font text-2xl md:text-3xl mb-8 text-pink-600 font-extrabold"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

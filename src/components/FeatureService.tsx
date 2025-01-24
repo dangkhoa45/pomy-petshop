@@ -27,7 +27,7 @@ const FeatureService = () => {
       className="p-2 sm:w-1/2 w-full"
     >
       <div className="bg-gray-100 rounded flex p-4 h-full items-center hover:shadow-lg transition-shadow duration-300">
-        <FaCheckCircle className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4" />
+        <FaCheckCircle className="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" />
         <span className="title-font font-medium">{name}</span>
       </div>
     </motion.div>
@@ -47,7 +47,7 @@ const FeatureService = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-8"
         >
-          <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-500 font-poppins">
+          <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-600 font-poppins">
             Dịch vụ spa chuyên nghiệp cho thú cưng tại
             <br />
             <span className="text-2xl md:text-4xl pt-4 font-bold">

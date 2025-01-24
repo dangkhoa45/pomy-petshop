@@ -145,7 +145,6 @@ function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Swiper
-            effect={"cards"}
             grabCursor={true}
             modules={[Autoplay]}
             autoplay={{ delay: 3000 }}
@@ -157,12 +156,12 @@ function HeroSection() {
                 <Image
                   src={image.image}
                   alt={image.alt}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg shadow-lg"
+                  layout="intrinsic"
+                  width={500}
+                  height={300}
                   priority={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  quality={75}
+                  quality={80}
+                  loading={index === 0 ? undefined : "lazy"}
                 />
               </SwiperSlide>
             ))}

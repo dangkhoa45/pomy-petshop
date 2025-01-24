@@ -161,7 +161,7 @@ export default function Header() {
               } relative transform transition duration-500 hover:rotate-12`}
             >
               <Image
-                src="/images/logo.jpg"
+                src="/images/pomy-petshop-logo.jpg"
                 alt="POMY PETSHOP Logo"
                 className="rounded-full"
                 layout="fill"

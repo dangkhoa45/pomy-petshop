@@ -130,6 +130,11 @@ function TestimonialSection() {
                     src={testimonial.image}
                     width={80}
                     height={80}
+                    layout="intrinsic"
+                    priority={testimonial.id === 1}
+                    objectFit="cover"
+                    quality={80}
+                    loading={testimonial.id === 1 ? undefined : "lazy"}
                   />
                   <p className="leading-relaxed italic text-gray-600">
                     &quot;{testimonial.message}&quot;

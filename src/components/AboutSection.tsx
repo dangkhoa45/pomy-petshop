@@ -53,10 +53,14 @@ export default function AboutSection() {
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
-              alt="pomy-petshop-who-am-i"
+              alt="cua-hang-pomy-petshop"
               src="/images/pomy-petshop-14.jpg"
-              layout="fill"
+              width={512}
+              height={512}
+              layout="intrinsic"
               objectFit="cover"
+              quality={80}
+              loading={"lazy"}
             />
           </motion.div>
         </motion.div>

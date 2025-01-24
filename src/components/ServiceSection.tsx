@@ -110,6 +110,9 @@ function ServiceSection() {
                     alt={service.title}
                     width={720}
                     height={400}
+                    priority={service.id === 1}
+                    quality={80}
+                    loading={service.id === 1 ? undefined : "lazy"}
                   />
                   <h3 className="tracking-widest text-green-600 text-xs font-medium title-font">
                     {service.title}
@@ -159,6 +162,9 @@ function ServiceSection() {
                         layout="fill"
                         objectFit="contain"
                         className="rounded-l-lg"
+                        priority={service.id === 1}
+                        quality={80}
+                        loading={service.id === 1 ? undefined : "lazy"}
                       />
                     </div>
                     <div className="w-1/2 h-full p-8 flex flex-col justify-center">

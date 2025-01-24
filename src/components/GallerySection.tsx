@@ -117,6 +117,9 @@ const GallerySection: React.FC = () => {
                   width={500}
                   height={300}
                   className="object-cover"
+                  priority={index === 0}
+                  quality={80}
+                  loading={index === 0 ? undefined : "lazy"}
                 />
               </motion.div>
             </SwiperSlide>
@@ -143,6 +146,8 @@ const GallerySection: React.FC = () => {
               width={800}
               height={500}
               className="rounded-lg"
+              quality={80}
+              loading="lazy"
             />
             <button
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-600 rounded-full p-2"

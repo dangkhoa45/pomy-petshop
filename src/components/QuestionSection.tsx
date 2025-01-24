@@ -134,6 +134,8 @@ function QuestionSection() {
               src="/images/pomy-petshop-1.jpg"
               layout="fill"
               objectFit="cover"
+              quality={80}
+              loading="lazy"
             />
           </motion.div>
         </motion.div>
@@ -154,6 +156,8 @@ function QuestionSection() {
                 src="/images/pomy-petshop-1.jpg"
                 layout="fill"
                 objectFit="contain"
+                quality={80}
+                loading="lazy"
               />
             </motion.div>
           </div>

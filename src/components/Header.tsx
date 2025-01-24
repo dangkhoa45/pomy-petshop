@@ -136,7 +136,7 @@ export default function Header() {
             href="/"
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
           >
-            <div className="w-[85px] h-[85px] md:w-[120px] md:h-[120px] relative transform transition duration-500 hover:rotate-12">
+            <div className="w-[85px] h-[85px] md:w-[140px] md:h-[140px] relative transform transition duration-500 hover:rotate-12">
               <Image
                 src="/images/logo.jpg"
                 alt="POMY PETSHOP Logo"

@@ -180,19 +180,13 @@ function PricingServiceSPA() {
             onClick={toggleModal}
           >
             <motion.div
-              className="bg-white rounded-lg shadow-lg p-6 w-[90%] md:w-[600px] relative"
+              className="rounded-lg shadow-lg p-6 w-[90%] md:w-[600px] relative"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 hover:scale-110 transition-transform duration-200"
-                onClick={toggleModal}
-              >
-                ✖
-              </button>
               <Image
                 className="rounded-lg object-cover object-center"
                 src={"/images/pomy-service-1.jpg"}
@@ -204,7 +198,8 @@ function PricingServiceSPA() {
               <p className="mt-4 text-center text-gray-700">
                 Hình ảnh dịch vụ cắt tỉa và vệ sinh tại{" "}
                 <span className="text-pink-600">POMY petshop</span>
-                <br/> <span className="text-green-600">31 Phú Lợi - Sóc Trăng</span>
+                <br />{" "}
+                <span className="text-green-600">31 Phú Lợi - Sóc Trăng</span>
               </p>
             </motion.div>
           </motion.div>

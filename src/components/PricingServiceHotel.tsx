@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -62,13 +62,15 @@ const PricingServiceHotel: React.FC = () => {
           <HotelDescription openModal={openModal} />
         </div>
 
-        {isModalOpen && (
-          <Modal
-            images={images}
-            selectedImageIndex={selectedImageIndex}
-            closeModal={closeModal}
-          />
-        )}
+        <AnimatePresence>
+          {isModalOpen && (
+            <Modal
+              images={images}
+              selectedImageIndex={selectedImageIndex}
+              closeModal={closeModal}
+            />
+          )}
+        </AnimatePresence>
       </motion.div>
     </section>
   );
@@ -99,11 +101,12 @@ const HotelImage: React.FC<{ openModal: (index: number) => void }> = ({
     initial={{ scale: 0.9, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 1, ease: "easeOut" }}
+    whileHover={{ scale: 1.05 }} // Hover effect for main image
     onClick={() => openModal(0)}
   >
     <div className="relative w-[400px] h-[640px] m-2">
       <Image
-        className="rounded-lg shadow-lg object-cover object-center mb-6"
+        className="rounded-lg shadow-lg object-cover object-center mb-6 transition-transform duration-300"
         src="/images/pomy-petshop-hotel.jpeg"
         alt="Dịch vụ khách sạn thú cưng tại Pomy Petshop"
         layout="fill"
@@ -145,6 +148,7 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
           className="relative w-full h-[200px] rounded-lg shadow-md overflow-hidden cursor-pointer"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.05 }} // Hover effect for grid images
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: index * 0.2 }}
           onClick={() => openModal(index + 1)}
@@ -199,47 +203,56 @@ const ServiceHighlights = () => (
   </ul>
 );
 
-interface ModalProps {
+const Modal: React.FC<{
   images: ImageObject[];
   selectedImageIndex: number;
   closeModal: () => void;
-}
-
-const Modal: React.FC<ModalProps> = ({
-  images,
-  selectedImageIndex,
-  closeModal,
-}) => (
-  <div
+}> = ({ images, selectedImageIndex, closeModal }) => (
+  <motion.div
     className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.3 }}
     onClick={closeModal}
   >
-    <div
+    <motion.div
       className="relative w-3/4 h-3/4 bg-white rounded-lg"
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.8 }}
+      transition={{ duration: 0.3 }}
       onClick={(e) => e.stopPropagation()}
     >
       <Swiper
         navigation
         pagination={{ clickable: true }}
-        modules={[Navigation, Pagination]}
+        autoplay={{ delay: 3000 }}
+        modules={[Navigation, Pagination, Autoplay]}
         initialSlide={selectedImageIndex}
         className="w-full h-full"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
+            <motion.div
+              className="relative w-full h-full"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.5 }}
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
                 layout="fill"
                 objectFit="contain"
               />
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 export default PricingServiceHotel;

@@ -146,7 +146,9 @@ function PricingServiceSPA() {
             className="md:w-1/2 mx-auto overflow-auto relative w-[380px] h-[780px]"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.3 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <Image
               className="rounded-lg shadow-lg object-cover object-center mb-6"

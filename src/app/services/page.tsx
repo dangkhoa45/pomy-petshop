@@ -1,6 +1,7 @@
 "use client";
 import CTA from "@/components/CTA-SPA";
 import FeatureService from "@/components/FeatureService";
+import PricingServiceHotel from "@/components/PricingServiceHotel";
 import PricingServiceSPA from "@/components/PricingServiceSPA";
 import QuestionService from "@/components/QuestionService";
 import { useEffect } from "react";
@@ -34,6 +35,7 @@ function ServicePage() {
       <QuestionService />
       <CTA />
       <PricingServiceSPA />
+      <PricingServiceHotel />
     </div>
   );
 }

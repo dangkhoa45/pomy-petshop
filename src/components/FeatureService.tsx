@@ -1,8 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
-// import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
+import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
 import Typical from "react-typical";
@@ -36,35 +35,6 @@ const FeatureService = () => {
     onSwipedRight: handlePrevImage,
     trackMouse: true,
   });
-
-  // const services = [
-  //   "Vệ sinh tai, nhổ lông tai",
-  //   "Cắt móng, dũa móng",
-  //   "Cạo lông bụng, vùng vệ sinh",
-  //   "Tắm và dưỡng xả lông",
-  //   "Tỉa gọn lông vùng mắt",
-  //   "Thao dưỡng và thơm lông",
-  // ];
-
-  // const itemVariants = {
-  //   hidden: { opacity: 0, y: 50 },
-  //   visible: { opacity: 1, y: 0 },
-  // };
-
-  // const ServiceItem = ({ name }: { name: string }) => (
-  //   <motion.div
-  //     variants={itemVariants}
-  //     initial="hidden"
-  //     animate="visible"
-  //     transition={{ duration: 0.5, ease: "easeOut" }}
-  //     className="p-2 sm:w-1/2 w-full"
-  //   >
-  //     <div className="bg-gray-100 rounded flex p-4 h-full items-center hover:shadow-lg transition-shadow duration-300">
-  //       <FaCheckCircle className="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" />
-  //       <span className="title-font font-medium">{name}</span>
-  //     </div>
-  //   </motion.div>
-  // );
 
   return (
     <motion.section

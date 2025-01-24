@@ -148,7 +148,7 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
           className="relative w-full h-[200px] rounded-lg shadow-md overflow-hidden cursor-pointer"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }} // Hover effect for grid images
+          whileHover={{ scale: 1.05 }} 
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: index * 0.2 }}
           onClick={() => openModal(index + 1)}

@@ -54,7 +54,7 @@ export default function AboutSection() {
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
               alt="pomy-petshop-who-am-i"
-              src="/images/pomy-petshop-2.png"
+              src="/images/pomy-petshop-14.jpg"
               layout="fill"
               objectFit="cover"
             />

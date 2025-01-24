@@ -1,13 +1,48 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, EffectCards } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+interface HeroImage {
+  id: number;
+  image: string;
+  alt: string;
+}
+
+const HeroImages: HeroImage[] = [
+  {
+    id: 1,
+    image: "/images/cua-hang-pomy-petshop-1.jpg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    id: 2,
+    image: "/images/cua-hang-pomy-petshop-2.jpg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    id: 3,
+    image: "/images/cua-hang-pomy-petshop-3.jpg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    id: 4,
+    image: "/images/cua-hang-pomy-petshop-4.jpg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    id: 5,
+    image: "/images/cua-hang-pomy-petshop-5.jpg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+];
 
 function HeroSection() {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const textVariant = {
     hidden: { opacity: 0, x: -50 },
@@ -24,15 +59,6 @@ function HeroSection() {
       opacity: 1,
       y: 0,
       transition: { duration: 0.5, delay: 0.8 },
-    },
-  };
-
-  const imageVariant = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, delay: 0.4 },
     },
   };
 
@@ -85,7 +111,9 @@ function HeroSection() {
                 boxShadow: "0px 10px 20px rgba(255, 122, 163, 0.4)",
               }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => router.push("https://www.facebook.com/cuahangthucungPOMY")}
+              onClick={() =>
+                router.push("https://www.facebook.com/cuahangthucungPOMY")
+              }
             >
               Đặt Lịch Ngay
             </motion.button>
@@ -106,50 +134,31 @@ function HeroSection() {
 
         <motion.div
           className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"
-          variants={imageVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          onClick={() => setIsOpen(true)}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-[300px] h-[300px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
+          <Swiper
+            effect={"cards"}
+            grabCursor={true}
+            modules={[EffectCards, Autoplay]}
+            autoplay={{ delay: 3000 }}
+            loop={true}
+            className="w-full h-[300px] md:h-[512px] mySwiper"
           >
-            <Image
-              className="object-cover object-center rounded-lg shadow-lg"
-              alt="pomy-petshop"
-              src="/images/pomy-petshop-14.jpg"
-              layout="fill"
-              objectFit="cover"
-            />
-          </motion.div>
+            {HeroImages.map((image, index) => (
+              <SwiperSlide key={index}>
+                <Image
+                  src={image.image}
+                  alt={image.alt}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </motion.div>
-
-        {isOpen && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            onClick={() => setIsOpen(false)}
-          >
-            <motion.div
-              className="relative w-[80%] h-[80%] bg-gradient-to-r from-pink-300 to-white rounded-lg overflow-hidden"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                className="object-cover"
-                alt="pomy-petshop"
-                src="/images/pomy-petshop-14.jpg"
-                layout="fill"
-                objectFit="contain"
-              />
-            </motion.div>
-          </div>
-        )}
       </div>
     </section>
   );

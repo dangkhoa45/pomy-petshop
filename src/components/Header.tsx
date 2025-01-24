@@ -152,7 +152,7 @@ export default function Header() {
             <button className="inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition duration-300 group hover:scale-105">
               <FaPhoneAlt />
               <Link href="https://www.facebook.com/cuahangthucungPOMY">
-                <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300">
+                <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300 text-white">
                   Đặt SPA - Hotel
                 </span>
               </Link>

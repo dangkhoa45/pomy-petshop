@@ -158,6 +158,7 @@ function HeroSection() {
                   className="rounded-lg shadow-lg"
                   priority={index === 0}
                   loading={index === 0 ? "eager" : "lazy"}
+                  quality={75}
                 />
               </SwiperSlide>
             ))}

@@ -71,11 +71,10 @@ const GallerySection: React.FC = () => {
     }
   };
 
-  // Configure swipe handlers
   const swipeHandlers = useSwipeable({
     onSwipedLeft: handleNextImage,
     onSwipedRight: handlePrevImage,
-    trackMouse: true, // Allows swiping with the mouse as well
+    trackMouse: true,
   });
 
   return (
@@ -146,13 +145,13 @@ const GallerySection: React.FC = () => {
               className="rounded-lg"
             />
             <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-[#393939] hover:bg-gray-600 rounded-full p-2"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-600 rounded-full p-2"
               onClick={handlePrevImage}
             >
               <FaChevronLeft size={20} />
             </button>
             <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-[#393939] hover:bg-gray-600 rounded-full p-2"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2  text-pink-600 rounded-full p-2"
               onClick={handleNextImage}
             >
               <FaChevronRight size={20} />

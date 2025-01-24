@@ -2,6 +2,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Service {
   id: number;
@@ -17,7 +22,7 @@ const services: Service[] = [
     title: "Khách sạn thú cưng",
     subtitle: "Dịch vụ trông giữ thú cưng",
     description:
-      "Đội ngũ chuyên nghiệp cùng trang thiết bị hiện đại sẽ mang lại trải nghiệm khách sạn thoải mái nhất cho thú cưng của bạn.",
+      "Mang đến sự thoải mái và yên tâm tối đa khi bạn vắng nhà. Dịch vụ khách sạn của chúng tôi được trang bị không gian hiện đại, sạch sẽ và thoáng mát, kèm theo đội ngũ chăm sóc tận tâm, chuyên nghiệp. Chúng tôi cam kết tạo ra một không gian như 'ngôi nhà thứ hai' cho thú cưng của bạn.",
     image: "/images/pomy-petshop-hotel.jpeg",
   },
   {
@@ -25,7 +30,7 @@ const services: Service[] = [
     title: "Cắt tỉa",
     subtitle: "Dịch vụ cắt tỉa thú cưng",
     description:
-      "Đảm bảo thú cưng của bạn luôn xinh đẹp với các kiểu cắt tỉa thời trang và phù hợp.",
+      "Để thú cưng của bạn luôn tỏa sáng với những kiểu cắt tỉa đẹp mắt và phong cách nhất! Đội ngũ thợ lành nghề của chúng tôi sử dụng các kỹ thuật tiên tiến và dụng cụ hiện đại để tạo ra vẻ ngoài hoàn hảo, phù hợp với từng giống loài và cá tính riêng của thú cưng.",
     image: "/images/pomy-service-2.jpg",
   },
   {
@@ -33,7 +38,7 @@ const services: Service[] = [
     title: "Vệ sinh",
     subtitle: "Dịch vụ vệ sinh",
     description:
-      "Chăm sóc sức khỏe và vệ sinh toàn diện cho thú cưng của bạn với quy trình chuyên nghiệp.",
+      "Chăm sóc sức khỏe thú cưng không chỉ là trách nhiệm mà còn là niềm đam mê của chúng tôi. Dịch vụ vệ sinh của Pomy Petshop bao gồm tắm rửa, làm sạch lông, và các liệu pháp khử trùng chuyên sâu. Chúng tôi đảm bảo mang lại sự thoải mái và thư giãn tối ưu cho thú cưng của bạn.",
     image: "/images/pomy-service-3.jpg",
   },
   {
@@ -41,13 +46,15 @@ const services: Service[] = [
     title: "tiêm vaccine, xổ giun",
     subtitle: "Dịch vụ tiêm vaccine, xổ giun",
     description:
-      "Chăm sóc sức khỏe và vệ sinh toàn diện cho thú cưng của bạn với quy trình chuyên nghiệp.",
+      "Đừng để các bệnh tật tiềm ẩn làm ảnh hưởng đến sức khỏe thú cưng của bạn. Chúng tôi cung cấp các liệu trình tiêm vaccine và xổ giun chuyên nghiệp, đảm bảo an toàn tuyệt đối với quy trình đạt chuẩn. Hãy để chúng tôi đồng hành trong việc bảo vệ thú cưng của bạn khỏi các nguy cơ bệnh tật.",
     image: "/images/tiem-vaccine-cho-cho.jpg",
   },
 ];
 
 function ServiceSection() {
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState<
+    number | null
+  >(null);
 
   return (
     <>
@@ -76,7 +83,7 @@ function ServiceSection() {
             </p>
           </motion.div>
           <div className="flex flex-wrap -m-4">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <motion.div
                 key={service.id}
                 className="xl:w-1/4 md:w-1/2 p-4"
@@ -94,7 +101,7 @@ function ServiceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                onClick={() => setSelectedService(service)}
+                onClick={() => setSelectedServiceIndex(index)}
               >
                 <motion.div className="bg-gradient-to-bl from-white to-pink-200 p-6 rounded-lg cursor-pointer h-[358px] transition-transform duration-300">
                   <Image
@@ -110,7 +117,7 @@ function ServiceSection() {
                   <h2 className="text-md text-gray-900 font-medium title-font mb-1">
                     {service.subtitle}
                   </h2>
-                  <p className="leading-relaxed text-sm">
+                  <p className="leading-relaxed text-sm line-clamp-3">
                     {service.description}
                   </p>
                 </motion.div>
@@ -119,31 +126,53 @@ function ServiceSection() {
           </div>
         </div>
       </section>
-      {selectedService && (
+
+      {selectedServiceIndex !== null && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={() => setSelectedService(null)}
+          onClick={() => setSelectedServiceIndex(null)}
         >
           <motion.div
-            className="relative w-[80%] h-[80%] bg-gradient-to-r from-pink-300 to-white rounded-lg overflow-hidden"
+            className="relative w-[50%] h-[60%] bg-gradient-to-r from-pink-300 to-green-200 rounded-lg overflow-hidden"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              className="object-cover"
-              alt={selectedService.title}
-              src={selectedService.image}
-              layout="fill"
-              objectFit="contain"
-            />
-            <div className="hidden md:block absolute bottom-0 p-4 bg-white bg-opacity-80 w-full">
-              <h2 className="text-xl font-bold text-pink-600">
-                {selectedService.title}
-              </h2>
-              <p className="text-gray-600">{selectedService.description}</p>
-            </div>
+            <Swiper
+              initialSlide={selectedServiceIndex}
+              spaceBetween={50}
+              slidesPerView={1}
+              navigation={true}
+              pagination={{ clickable: true }}
+              modules={[Navigation, Pagination]}
+              className="h-full"
+            >
+              {services.map((service) => (
+                <SwiperSlide key={service.id}>
+                  <div className="flex h-full">
+                    <div className="w-1/2 h-full relative">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        layout="fill"
+                        objectFit="contain"
+                        className="rounded-l-lg"
+                      />
+                    </div>
+                    <div className="w-1/2 h-full p-8 flex flex-col justify-center">
+                      <h2 className="text-2xl font-bold text-pink-600 mb-4">
+                        {service.subtitle}
+                      </h2>
+                      <p className="text-gray-600 text-base mb-6">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </motion.div>
         </div>
       )}

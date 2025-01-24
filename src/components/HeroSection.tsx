@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, EffectCards } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 interface HeroImage {
@@ -81,6 +81,8 @@ function HeroSection() {
           <motion.h1
             className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500 font-heading"
             variants={textVariant}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
           >
             Dịch Vụ Chăm Sóc
             <br className="hidden lg:inline-block" />
@@ -141,7 +143,7 @@ function HeroSection() {
           <Swiper
             effect={"cards"}
             grabCursor={true}
-            modules={[EffectCards, Autoplay]}
+            modules={[Autoplay]}
             autoplay={{ delay: 3000 }}
             loop={true}
             className="w-full h-[300px] md:h-[512px] mySwiper"
@@ -154,6 +156,8 @@ function HeroSection() {
                   layout="fill"
                   objectFit="cover"
                   className="rounded-lg shadow-lg"
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               </SwiperSlide>
             ))}

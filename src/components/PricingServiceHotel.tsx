@@ -101,7 +101,7 @@ const HotelImage: React.FC<{ openModal: (index: number) => void }> = ({
     initial={{ scale: 0.9, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 1, ease: "easeOut" }}
-    whileHover={{ scale: 1.05 }} // Hover effect for main image
+    whileHover={{ scale: 1.05 }} 
     onClick={() => openModal(0)}
   >
     <div className="relative w-[400px] h-[640px] m-2">

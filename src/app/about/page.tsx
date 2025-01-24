@@ -1,4 +1,5 @@
 "use client";
+import AboutSecondary from "@/components/AboutSecondary";
 import QuestionSection from "@/components/QuestionSection";
 import ServiceSection from "@/components/ServiceSection";
 import StatisticSecondary from "@/components/StatisticSecondary";
@@ -30,11 +31,11 @@ function AboutPage() {
 
   return (
     <div className="bg-gradient-to-r from-green-100 to-pink-200">
+      <AboutSecondary />
       <ServiceSection />
       <StatisticSecondary />
       <QuestionSection />
       <TestimonialSection />
-      {/* <OurTeamSection /> */}
     </div>
   );
 }

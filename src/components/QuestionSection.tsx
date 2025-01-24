@@ -126,7 +126,7 @@ function QuestionSection() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-[300px] h-[300px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
+            className="relative w-[400px] h-[400px] md:w-[512px] md:h-[512px] flex items-center justify-center cursor-pointer"
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"

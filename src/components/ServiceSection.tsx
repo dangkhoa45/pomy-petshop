@@ -68,7 +68,7 @@ function ServiceSection() {
             className="flex flex-wrap w-full mb-8"
           >
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-              <h1 className="sm:text-3xl text-2xl font-extrabold title-font my-2 text-pink-600">
+              <h1 className=" text-3xl font-extrabold title-font my-2 text-pink-600">
                 Dịch vụ chúng tôi cung cấp
               </h1>
               <div className="h-1 w-20 bg-pink-500 rounded"></div>

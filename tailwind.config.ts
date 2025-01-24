@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["var(--font-heading)", "sans-serif"],
-        body: ["var(--font-body)", "sans-serif"],
+        heading: ["Poppins", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
     },
     screens: {

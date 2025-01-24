@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import AboutSecondary from "@/components/AboutSecondary";
 import QuestionSection from "@/components/QuestionSection";
 import ServiceSection from "@/components/ServiceSection";

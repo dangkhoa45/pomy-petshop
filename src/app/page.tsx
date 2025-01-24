@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import AboutSection from "@/components/AboutSection";
 import ContactForm from "@/components/ContactForm";
 import GallerySection from "@/components/GallerySection";

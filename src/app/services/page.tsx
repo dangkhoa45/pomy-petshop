@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import CTA from "@/components/CTA-SPA";
 import FeatureService from "@/components/FeatureService";
 import PricingServiceHotel from "@/components/PricingServiceHotel";

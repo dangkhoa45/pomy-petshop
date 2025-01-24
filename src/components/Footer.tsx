@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +31,7 @@ function Footer() {
         >
           <motion.a className="flex items-center text-white">
             <Image
-              src="/images/logo.jpg"
+              src="/images/pomy-petshop-logo.jpg"
               alt="POMY PETSHOP Logo"
               className="w-[56px] h-[56px] md:w-16 md:h-16 rounded-full"
               width={64}

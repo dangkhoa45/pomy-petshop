@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FaEnvelope, FaFacebook, FaPhoneAlt } from "react-icons/fa";
 
 const navVariants = {
@@ -21,7 +22,25 @@ const linkVariants = {
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  // Theo dõi sự kiện scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Người dùng cuộn xuống
+      } else {
+        setIsScrolled(false); // Người dùng ở đầu trang
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Dọn dẹp sự kiện khi component bị hủy
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const isActive = (path: string) => pathname === path;
 
   return (
@@ -136,7 +155,7 @@ export default function Header() {
             href="/"
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
           >
-            <div className="w-[85px] h-[85px] md:w-[140px] md:h-[140px] relative transform transition duration-500 hover:rotate-12">
+            <div className={`w-[85px] h-[85px] ${isScrolled ? "md:w-[90px] md:h-[90px]" : "md:w-[140px] md:h-[140px]"} relative transform transition duration-500 hover:rotate-12`}>
               <Image
                 src="/images/logo.jpg"
                 alt="POMY PETSHOP Logo"

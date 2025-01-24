@@ -3,14 +3,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-  FaPhoneAlt,
-  FaTelegram,
-} from "react-icons/fa";
-import { SiZalo } from "react-icons/si";
+import { useEffect, useState } from "react";
+import { FaEnvelope, FaFacebook, FaPhoneAlt } from "react-icons/fa";
 
 const navVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -28,7 +22,23 @@ const linkVariants = {
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const isActive = (path: string) => pathname === path;
 
   return (
@@ -45,14 +55,18 @@ export default function Header() {
               href="tel:0708039333"
               className="flex items-center space-x-1 hover:text-pink-500 text-gray-600"
             >
-              <FaPhoneAlt className="text-red-400 font-bold" /> <span className="pl-1 text-red-400 font-bold">070 803 9333</span>
+              <FaPhoneAlt className="text-red-400 font-bold" />{" "}
+              <span className="pl-1 text-red-400 font-bold">070 803 9333</span>
             </a>
             <span className="text-gray-600">|</span>
             <a
               href="mailto:tust3000@gmail.com"
               className="flex items-center space-x-1 hover:text-pink-600 text-gray-600"
             >
-              <FaEnvelope className="text-green-600 font-bold" /> <span className="pl-1 text-green-600 font-bold">tust3000@gmail.com</span>
+              <FaEnvelope className="text-green-600 font-bold" />{" "}
+              <span className="pl-1 text-green-600 font-bold">
+                tust3000@gmail.com
+              </span>
             </a>
           </div>
 
@@ -61,33 +75,9 @@ export default function Header() {
               href="https://www.facebook.com/cuahangthucungPOMY"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
+              className="text-pink-500 hover:text-pink-900 hover:underline flex items-center space-x-2 text-center"
             >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://zalo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <SiZalo />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 text-gray-600"
-            >
-              <FaTelegram />
+              <FaFacebook /> <span>Fanpage: Pomy petshop</span>
             </a>
           </div>
         </div>
@@ -163,13 +153,21 @@ export default function Header() {
             href="/"
             className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0 hover:text-pink-500 transition duration-300 transform hover:scale-110"
           >
-            <Image
-              src="/images/logo.jpg"
-              alt="POMY PETSHOP Logo"
-              className="w-[85px] h-[85px] rounded-full transform transition duration-500 hover:rotate-12"
-              width={85}
-              height={85}
-            />
+            <div
+              className={`w-[85px] h-[85px] ${
+                isScrolled
+                  ? "md:w-[90px] md:h-[90px]"
+                  : "md:w-[140px] md:h-[140px]"
+              } relative transform transition duration-500 hover:rotate-12`}
+            >
+              <Image
+                src="/images/logo.jpg"
+                alt="POMY PETSHOP Logo"
+                className="rounded-full"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className="flex flex-col">
               <span className=" md:hidden ml-3 text-3xl font-extrabold text-pink-700">
                 POMY Petshop

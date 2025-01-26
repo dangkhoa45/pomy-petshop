@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -136,10 +136,10 @@ function ServiceSection() {
           onClick={() => setSelectedServiceIndex(null)}
         >
           <motion.div
-            className="relative w-[50%] h-[60%] bg-gradient-to-r from-pink-300 to-green-200 rounded-lg overflow-hidden"
-            initial={{ opacity: 0, scale: 0.8 }}
+            className="relative w-[80%] h-[90%] bg-gradient-to-r from-pink-100 to-green-100 overflow-hidden rounded-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -150,28 +150,28 @@ function ServiceSection() {
               navigation={true}
               pagination={{ clickable: true }}
               modules={[Navigation, Pagination]}
-              className="h-full"
+              className="w-full h-full"
             >
               {services.map((service) => (
                 <SwiperSlide key={service.id}>
-                  <div className="flex h-full">
-                    <div className="w-1/2 h-full relative">
+                  <div className="flex flex-wrap h-full">
+                    <div className="md:w-1/2 w-[500px] h-[680px] md:h-full relative ">
                       <Image
                         src={service.image}
                         alt={service.title}
                         layout="fill"
-                        objectFit="contain"
-                        className="rounded-l-lg"
+                        className="rounded-t-lg md:rounded-l-lg md:rounded-t-none object-cover md:object-contain"
                         priority={service.id === 1}
                         quality={80}
                         loading={service.id === 1 ? undefined : "lazy"}
                       />
                     </div>
-                    <div className="w-1/2 h-full p-8 flex flex-col justify-center">
-                      <h2 className="text-2xl font-bold text-pink-600 mb-4">
+
+                    <div className="absolute bottom-1 md:relative bg-transparent w-full md:w-1/2 h-auto p-6 md:p-8 flex flex-col justify-center">
+                      <h2 className="text-xl md:text-2xl font-bold text-pink-600 mb-4">
                         {service.subtitle}
                       </h2>
-                      <p className="text-gray-600 text-base mb-6">
+                      <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                         {service.description}
                       </p>
                     </div>

@@ -155,19 +155,19 @@ function ServiceSection() {
               {services.map((service) => (
                 <SwiperSlide key={service.id}>
                   <div className="flex flex-wrap h-full">
-                    <div className="md:w-1/2 w-[500px] h-[680px] md:h-full relative ">
+                    <div className="md:w-1/2 w-[400px] h-[420px] md:h-full relative ">
                       <Image
                         src={service.image}
                         alt={service.title}
                         layout="fill"
-                        className="rounded-t-lg md:rounded-l-lg md:rounded-t-none object-cover md:object-contain"
+                        className="rounded-t-lg md:rounded-l-lg md:rounded-t-none object-fill md:object-contain"
                         priority={service.id === 1}
                         quality={80}
                         loading={service.id === 1 ? undefined : "lazy"}
                       />
                     </div>
 
-                    <div className="absolute bottom-1 md:relative bg-transparent w-full md:w-1/2 h-auto p-6 md:p-8 flex flex-col justify-center">
+                    <div className="md:relative bg-transparent w-full md:w-1/2 h-auto p-6 md:p-8 flex flex-col justify-center">
                       <h2 className="text-xl md:text-2xl font-bold text-pink-600 mb-4">
                         {service.subtitle}
                       </h2>

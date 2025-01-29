@@ -3,24 +3,25 @@ import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "POMY PETSHOP",
+  title: "Pomy Petshop | Cửa hàng thú cưng Sóc Trăng | Cắt tỉa - Tắm vệ sinh",
   description:
-    "Pomy Petshop - Cửa hàng thú cưng uy tín, cung cấp dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Sóc Trăng. Dịch vụ chuyên nghiệp, sản phẩm chất lượng, đảm bảo sự hài lòng cho thú cưng của bạn.",
+    "Pomy Petshop - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh, khách sạn cho thú cưng. Uy tín - Chất lượng - Giá tốt.",
   openGraph: {
-    title: "POMY PETSHOP",
+    title: "Pomy Petshop",
     description:
       "Cửa hàng thú cưng uy tín tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp.",
     url: "https://pomypetshopsoctrang.com",
-    siteName: "POMY PETSHOP",
+    siteName: "Pomy Petshop",
     images: [
       {
-        url: "/images/cua-hang-pomy-petshop-1.jpg",
+        url: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
         width: 1200,
         height: 630,
-        alt: "POMY PETSHOP - Dịch vụ thú cưng tại Sóc Trăng",
+        alt: "Pomy Petshop - Dịch vụ thú cưng tại Sóc Trăng",
       },
     ],
     locale: "vi_VN",
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "POMY PETSHOP",
+    title: "Pomy Petshop",
     description:
-      "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
+      "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
     images: ["/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
@@ -71,6 +72,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
+      <head>
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "PetStore",
+              name: "POMY Petshop",
+              url: "https://pomypetshopsoctrang.com",
+              logo: "https://pomypetshopsoctrang.com/favicon.ico",
+              image: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "31 Phú Lợi, Sóc Trăng, Thành Phố Sóc Trăng",
+                addressLocality: "Sóc Trăng",
+                addressRegion: "ST",
+                postalCode: "96000",
+                addressCountry: "VN",
+              },
+              openingHours: "Mo-Su 07:00-22:00",
+              telephone: "+8470 803 9333",
+            }),
+          }}
+        />
+      </head>
       <body className="flex flex-col min-h-screen bg-gray-50">
         <Header aria-label="Pomy Petshop Header" />
         <main className="flex-grow" role="main" aria-labelledby="main-content">

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Cửa hàng thú cưng Pomy pet shop uy tín tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp.",
     url: "https://pomypetshopsoctrang.com",
-    siteName: "Pomy Petshop",
+    siteName: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     images: [
       {
         url: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pomy petshop",
+    title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
     images: ["/images/cua-hang-pomy-petshop-1.jpg"],

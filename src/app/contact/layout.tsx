@@ -4,6 +4,31 @@ export const metadata: Metadata = {
   title: "POMY PETSHOP - LIÊN HỆ",
   description:
     "Liên hệ với POMY PETSHOP tại 31 Phú Lợi, Sóc Trăng để được tư vấn về dịch vụ cắt tỉa, vệ sinh, và khách sạn thú cưng. Chúng tôi luôn sẵn sàng hỗ trợ bạn!",
+  keywords: [
+    "pomypetshop",
+    "pomypetshopsoctrang",
+    "petshop",
+    "petshopsoctrang",
+    "thucung",
+    "thucungsoctrang",
+    "thucungpomy",
+    "thucungpomysoctrang",
+    "POMY Petshop",
+    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
+    "Cửa Hàng Thú Cưng Sóc Trăng",
+    "petshop Sóc Trăng",
+    "cua hang thu cung Soc Trang",
+    "xổ giun chó mèo Sóc Trăng ( chính)",
+    "cat tia poodle Soc Trang ( chính)",
+    "tam meo Soc Trang",
+    "tam cho Soc Trang",
+    "vaccine chó mèo Sóc Trăng",
+    "hotel chó mèo Sóc Trăng",
+    "khách sạn chó mèo Sóc Trăng ( chính)",
+    "lưu trú chó mèo Sóc Trăng",
+    "quần áo chó mèo Sóc Trăng",
+    "phụ kiện đồ chơi chó mèo Sóc Trăng",
+  ],
   openGraph: {
     title: "POMY PETSHOP - LIÊN HỆ",
     description:
@@ -57,20 +82,6 @@ export const metadata: Metadata = {
   facebook: {
     appId: "2422218498121617",
   },
-  keywords: [
-    "pomypetshop",
-    "pomypetshopsoctrang",
-    "petshop",
-    "petshopsoctrang",
-    "thucung",
-    "thucungsoctrang",
-    "thucungpomy",
-    "thucungpomysoctrang",
-    "POMY Petshop",
-    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
-    "Cửa Hàng Thú Cưng Sóc Trăng",
-    "petshop Sóc Trăng",
-  ],
 };
 
 export default function ContactLayout({

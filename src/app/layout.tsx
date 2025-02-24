@@ -9,6 +9,31 @@ export const metadata: Metadata = {
   title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng ",
   description:
     "Pomy petshop - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh, khách sạn cho thú cưng. Uy tín - Chất lượng - Giá tốt.",
+  keywords: [
+    "pomypetshop",
+    "pomypetshopsoctrang",
+    "petshop",
+    "petshopsoctrang",
+    "thucung",
+    "thucungsoctrang",
+    "thucungpomy",
+    "thucungpomysoctrang",
+    "POMY Petshop",
+    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
+    "Cửa Hàng Thú Cưng Sóc Trăng",
+    "petshop Sóc Trăng",
+    "cua hang thu cung Soc Trang",
+    "xổ giun chó mèo Sóc Trăng ( chính)",
+    "cat tia poodle Soc Trang ( chính)",
+    "tam meo Soc Trang",
+    "tam cho Soc Trang",
+    "vaccine chó mèo Sóc Trăng",
+    "hotel chó mèo Sóc Trăng",
+    "khách sạn chó mèo Sóc Trăng ( chính)",
+    "lưu trú chó mèo Sóc Trăng",
+    "quần áo chó mèo Sóc Trăng",
+    "phụ kiện đồ chơi chó mèo Sóc Trăng",
+  ],
   openGraph: {
     title:
       "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
@@ -34,9 +59,7 @@ export const metadata: Metadata = {
       "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
-    images: [
-      "/images/cua-hang-pomy-petshop-1.jpg",
-    ],
+    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -67,20 +90,6 @@ export const metadata: Metadata = {
   facebook: {
     appId: "2422218498121617",
   },
-  keywords: [
-    "pomypetshop",
-    "pomypetshopsoctrang",
-    "petshop",
-    "petshopsoctrang",
-    "thucung",
-    "thucungsoctrang",
-    "thucungpomy",
-    "thucungpomysoctrang",
-    "POMY Petshop",
-    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
-    "Cửa Hàng Thú Cưng Sóc Trăng",
-    "petshop Sóc Trăng",
-  ],
 };
 
 export default function RootLayout({

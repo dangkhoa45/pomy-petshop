@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "POMY PETSHOP",
     images: [
       {
-        url: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
+        url: "/images/cua-hang-pomy-petshop-1.jpg",
         width: 1200,
         height: 630,
         alt: "Giới thiệu POMY PETSHOP - Nơi yêu thương thú cưng",

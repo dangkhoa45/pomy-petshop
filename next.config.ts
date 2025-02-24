@@ -3,7 +3,7 @@ import TerserPlugin from "terser-webpack-plugin";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["dummyimage.com", "i.pravatar.cc"],
+    domains: ["dummyimage.com", "i.pravatar.cc", "pomypetshopsoctrang.com"],
   },
 
   webpack: (config, { isServer }) => {

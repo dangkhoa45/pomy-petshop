@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - LIÊN HỆ",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
-    images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
+    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
     icon: "/favicon.ico",

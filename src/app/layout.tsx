@@ -90,32 +90,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      {/* <head>
-        <Script
-          id="local-business-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "PetStore",
-              name: "POMY Petshop",
-              url: "https://pomypetshopsoctrang.com",
-              logo: "https://pomypetshopsoctrang.com/favicon.ico",
-              image: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "31 Phú Lợi, Sóc Trăng, Thành Phố Sóc Trăng",
-                addressLocality: "Sóc Trăng",
-                addressRegion: "ST",
-                postalCode: "96000",
-                addressCountry: "VN",
-              },
-              openingHours: "Mo-Su 07:00-22:00",
-              telephone: "+8470 803 9333",
-            }),
-          }}
-        />
-      </head> */}
       <body className="flex flex-col min-h-screen bg-gray-50">
         <Header aria-label="Pomy Petshop Header" />
         <main className="flex-grow" role="main" aria-labelledby="main-content">

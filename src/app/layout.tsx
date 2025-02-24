@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,11 +10,13 @@ export const metadata: Metadata = {
   description:
     "Pomy petshop - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh, khách sạn cho thú cưng. Uy tín - Chất lượng - Giá tốt.",
   openGraph: {
-    title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
+    title:
+      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Cửa hàng thú cưng Pomy pet shop uy tín tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp.",
     url: "https://pomypetshopsoctrang.com",
-    siteName: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
+    siteName:
+      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     images: [
       {
         url: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
@@ -29,10 +30,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
+    title:
+      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
-    images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
+    images: [
+      "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
+    ],
   },
   icons: {
     icon: "pomypetshopsoctrang.com/favicon.ico",
@@ -63,6 +67,20 @@ export const metadata: Metadata = {
   facebook: {
     appId: "2422218498121617",
   },
+  keywords: [
+    "pomypetshop",
+    "pomypetshopsoctrang",
+    "petshop",
+    "petshopsoctrang",
+    "thucung",
+    "thucungsoctrang",
+    "thucungpomy",
+    "thucungpomysoctrang",
+    "POMY Petshop",
+    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
+    "Cửa Hàng Thú Cưng Sóc Trăng",
+    "petshop Sóc Trăng",
+  ],
 };
 
 export default function RootLayout({
@@ -72,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <head>
+      {/* <head>
         <Script
           id="local-business-schema"
           type="application/ld+json"
@@ -97,7 +115,7 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
+      </head> */}
       <body className="flex flex-col min-h-screen bg-gray-50">
         <Header aria-label="Pomy Petshop Header" />
         <main className="flex-grow" role="main" aria-labelledby="main-content">

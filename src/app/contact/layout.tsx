@@ -57,9 +57,23 @@ export const metadata: Metadata = {
   facebook: {
     appId: "2422218498121617",
   },
+  keywords: [
+    "pomypetshop",
+    "pomypetshopsoctrang",
+    "petshop",
+    "petshopsoctrang",
+    "thucung",
+    "thucungsoctrang",
+    "thucungpomy",
+    "thucungpomysoctrang",
+    "POMY Petshop",
+    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
+    "Cửa Hàng Thú Cưng Sóc Trăng",
+    "petshop Sóc Trăng",
+  ],
 };
 
-export default function AboutPage({
+export default function ContactLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -26,7 +26,9 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - DỊCH VỤ",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
-    images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
+    images: [
+      "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
+    ],
   },
   icons: {
     icon: "https://pomypetshopsoctrang.com/favicon.ico",
@@ -57,6 +59,20 @@ export const metadata: Metadata = {
   facebook: {
     appId: "2422218498121617",
   },
+  keywords: [
+    "pomypetshop",
+    "pomypetshopsoctrang",
+    "petshop",
+    "petshopsoctrang",
+    "thucung",
+    "thucungsoctrang",
+    "thucungpomy",
+    "thucungpomysoctrang",
+    "POMY Petshop",
+    "Cửa Hàng Thú Cưng Pomy Sóc Trăng",
+    "Cửa Hàng Thú Cưng Sóc Trăng",
+    "petshop Sóc Trăng",
+  ],
 };
 
 export default function ServiceLayout({

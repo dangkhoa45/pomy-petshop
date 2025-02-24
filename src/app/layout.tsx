@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
-    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
+    images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
     icon: "pomypetshopsoctrang.com/favicon.ico",

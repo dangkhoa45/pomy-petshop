@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "POMY PETSHOP",
     images: [
       {
-        url: "/images/cua-hang-pomy-petshop-1.jpg",
+        url: "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
         width: 1200,
         height: 630,
         alt: "POMY PETSHOP - Dịch vụ thú cưng chuyên nghiệp",
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - DỊCH VỤ",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
-    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
+    images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "https://pomypetshopsoctrang.com/favicon.ico",
+    shortcut: "https://pomypetshopsoctrang.com/favicon.ico",
   },
   robots: {
     index: true,

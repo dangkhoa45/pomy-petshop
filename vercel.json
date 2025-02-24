@@ -1,6 +1,9 @@
 {
-    "redirects": [
-      { "source": "http://pomypetshopsoctrang.com", "destination": "https://pomypetshopsoctrang.com", "permanent": true }
-    ]
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://pomypetshopsoctrang.com",
+      "permanent": true
+    }
+  ]
 }
-  

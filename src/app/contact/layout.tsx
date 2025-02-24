@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     images: ["https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg"],
   },
   icons: {
-    icon: "https://pomypetshopsoctrang.com/favicon.ico",
-    shortcut: "https://pomypetshopsoctrang.com/favicon.ico",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   robots: {
     index: true,

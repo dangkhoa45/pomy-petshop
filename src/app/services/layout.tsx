@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "https://pomypetshopsoctrang.com/favicon.ico",
-    shortcut: "https://pomypetshopsoctrang.com/favicon.ico",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   robots: {
     index: true,

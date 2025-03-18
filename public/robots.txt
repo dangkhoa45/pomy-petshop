@@ -1,9 +1,6 @@
 # *
 User-agent: *
 Allow: /
-Allow: /about/
-Allow: /services/
-Allow: /contact/
 
 # Host
 Host: https://pomypetshopsoctrang.com

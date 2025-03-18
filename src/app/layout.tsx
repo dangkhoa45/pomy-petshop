@@ -44,7 +44,7 @@ export const metadata: Metadata = {
       "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     images: [
       {
-        url: "/images/cua-hang-pomy-petshop-1.jpg",
+        url: "/images/pomy-petshop-logo.jpg",
         width: 1200,
         height: 630,
         alt: "Pomy Petshop - Dịch vụ thú cưng tại Sóc Trăng",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại Pomy Petshop.",
-    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
+    images: ["/images/pomy-petshop-logo.jpg"],
   },
   icons: {
     icon: "/pomy-petshop.png",

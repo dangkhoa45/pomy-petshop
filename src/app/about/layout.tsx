@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "POMY PETSHOP",
     images: [
       {
-        url: "/images/cua-hang-pomy-petshop-1.jpg",
+        url: "/images/pomy-petshop-logo.jpg",
         width: 1200,
         height: 630,
         alt: "Giới thiệu POMY PETSHOP - Nơi yêu thương thú cưng",
@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - GIỚI THIỆU",
     description:
       "Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng tại POMY PETSHOP.",
-    images: ["/images/cua-hang-pomy-petshop-1.jpg"],
+    images: ["/images/pomy-petshop-logo.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/pomy-petshop.png",
+    shortcut: "/pomy-petshop.png",
   },
   robots: {
     index: true,
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-snippet": -1,
+      "max-snippet": -2,
       "max-image-preview": "large",
-      "max-video-preview": -1,
+      "max-video-preview": -2,
     },
   },
   alternates: {

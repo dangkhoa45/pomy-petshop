@@ -118,7 +118,7 @@ function HeroSection() {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() =>
-                router.push("https://www.facebook.com/cuahangthucungPOMY")
+                router.push("https://www.facebook.com/PetshopPomy")
               }
             >
               Đặt Lịch Ngay

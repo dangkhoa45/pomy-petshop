@@ -63,7 +63,7 @@ function QuestionSection() {
               <p className="leading-relaxed text-base">
                 <span className="text-pink-600 font-dosis font-bold">
                   <a
-                    href="https://www.facebook.com/cuahangthucungPOMY"
+                    href="https://www.facebook.com/PetshopPomy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline"

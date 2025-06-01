@@ -76,7 +76,7 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://www.facebook.com/cuahangthucungPOMY"
+              href="https://www.facebook.com/PetshopPomy"
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-500 hover:text-pink-900 flex items-center space-x-2"
@@ -151,7 +151,7 @@ export default function Header() {
           <div className="lg:w-2/5 inline-flex lg:justify-end mt-6 lg:mt-0">
             <button className="inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition duration-300 group hover:scale-105">
               <FaPhoneAlt />
-              <Link href="https://www.facebook.com/cuahangthucungPOMY">
+              <Link href="https://www.facebook.com/PetshopPomy">
                 <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300 text-white">
                   Đặt SPA - Hotel
                 </span>

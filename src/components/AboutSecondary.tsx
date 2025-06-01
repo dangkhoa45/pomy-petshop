@@ -92,7 +92,7 @@ export default function AboutSecondary() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                router.push("https://www.facebook.com/cuahangthucungPOMY");
+                router.push("https://www.facebook.com/PetshopPomy");
               }}
             >
               Liên hệ với chúng tôi

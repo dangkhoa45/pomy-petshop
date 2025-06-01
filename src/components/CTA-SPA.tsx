@@ -22,7 +22,7 @@ const CTA: React.FC = () => {
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <Link
-            href="https://www.facebook.com/cuahangthucungPOMY"
+            href="https://www.facebook.com/PetshopPomy"
             className="bg-pink-600 hover:bg-pink-700 text-white py-3 px-6 rounded-lg font-medium text-lg shadow-lg transform hover:scale-105 transition-transform"
           >
             Liên hệ ngay với chúng tôi

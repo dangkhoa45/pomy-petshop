@@ -52,7 +52,7 @@ function Footer() {
           </p>
           <div className="flex flex-col space-y-3">
             <a
-              href="https://www.facebook.com/cuahangthucungPOMY"
+              href="https://www.facebook.com/PetshopPomy"
               target="_blank"
               rel="noopener noreferrer"
               className=" flex  space-x-2 hover:underline text-pink-600 hover:animate-bounce"
@@ -138,7 +138,7 @@ function Footer() {
           </p>
           <div
             className="fb-page"
-            data-href="https://www.facebook.com/cuahangthucungPOMY"
+            data-href="https://www.facebook.com/PetshopPomy"
             data-tabs=""
             data-width="340"
             data-height="70"
@@ -148,10 +148,10 @@ function Footer() {
             data-show-facepile="false"
           >
             <blockquote
-              cite="https://www.facebook.com/cuahangthucungPOMY"
+              cite="https://www.facebook.com/PetshopPomy"
               className="fb-xfbml-parse-ignore "
             >
-              <a href="https://www.facebook.com/cuahangthucungPOMY">
+              <a href="https://www.facebook.com/PetshopPomy">
                 Pomy Petshop Fanpage
               </a>
             </blockquote>

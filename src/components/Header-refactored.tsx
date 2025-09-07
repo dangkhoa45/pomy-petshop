@@ -117,10 +117,10 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <span className="md:hidden ml-3 text-3xl font-extrabold text-pink-700">
-                POMY Petshop
+                {BUSINESS_INFO.name}
               </span>
               <span className="md:hidden ml-3 text-sm font-extrabold text-green-600">
-                Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
+                {BUSINESS_INFO.tagline}
               </span>
             </div>
           </motion.a>
@@ -128,7 +128,7 @@ export default function Header() {
           <div className="lg:w-2/5 inline-flex lg:justify-end mt-6 lg:mt-0">
             <button className="inline-flex items-center bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition duration-300 group hover:scale-105">
               <FaPhoneAlt />
-              <Link href="https://www.facebook.com/PetshopPomy">
+              <Link href={BUSINESS_INFO.facebook}>
                 <span className="ml-3 group-hover:text-pink-200 transition-colors duration-300 text-white">
                   Đặt SPA - Hotel
                 </span>

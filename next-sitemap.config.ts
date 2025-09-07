@@ -1,5 +1,6 @@
-/** @type {import('next-sitemap').IConfig} */
-module.exports = {
+import type { IConfig } from 'next-sitemap';
+
+const config: IConfig = {
     siteUrl: process.env.SITE_URL || "https://pomypetshopsoctrang.com",
     generateRobotsTxt: true,
     generateIndexSitemap: true,
@@ -29,14 +30,14 @@ module.exports = {
     },
     transform: async (config, path) => {
         // Custom priority and changefreq based on page importance
-        const customPriority = {
+        const customPriority: Record<string, number> = {
             '/': 1.0,
             '/services': 0.9,
             '/about': 0.8,
             '/contact': 0.7,
         };
 
-        const customChangefreq = {
+        const customChangefreq: Record<string, 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'> = {
             '/': 'daily',
             '/services': 'weekly',
             '/about': 'monthly',
@@ -60,3 +61,5 @@ module.exports = {
         '/500',
     ],
 };
+
+module.exports = config;

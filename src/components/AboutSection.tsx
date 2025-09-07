@@ -3,43 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { fadeInRight, scaleIn, buttonVariant } from "@/shared/animations";
 
 export default function AboutSection() {
   const router = useRouter();
-
-  const textVariant = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
-  const imageVariant = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
-  const buttonVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, delay: 0.8 },
-    },
-  };
 
   return (
     <section className="bg-transparent text-gray-700 body-font">
       <div className="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
         <motion.div
           className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0"
-          variants={imageVariant}
+          variants={scaleIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -57,17 +31,16 @@ export default function AboutSection() {
               src="/images/pomy-petshop-14.jpg"
               width={512}
               height={512}
-              layout="intrinsic"
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               quality={80}
-              loading={"lazy"}
+              loading="lazy"
             />
           </motion.div>
         </motion.div>
 
         <motion.div
           className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center"
-          variants={textVariant}
+          variants={fadeInRight}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}

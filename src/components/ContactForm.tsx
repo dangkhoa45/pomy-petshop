@@ -74,9 +74,9 @@ export default function ContactForm() {
           variants={formVariant}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h1 className="text-4xl font-extrabold text-pink-500 mb-6">
+          <h2 className="text-4xl font-extrabold text-pink-500 mb-6">
             Liên Hệ Với Chúng Tôi
-          </h1>
+          </h2>
           <p className="text-lg text-gray-600 leading-relaxed mb-4 max-w-xl">
             Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy để lại thông
             tin, và đội ngũ của chúng tôi sẽ liên lạc lại trong thời gian sớm

@@ -7,7 +7,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pomypetshopsoctrang.com"),
-  title: "Pomy petshop | Cửa hàng thú cưng Sóc Trăng ",
+  title: {
+    default: "POMY PETSHOP | Cửa hàng thú cưng Sóc Trăng - Cắt tỉa, Vệ sinh, Khách sạn thú cưng",
+    template: "%s | POMY PETSHOP - Dịch vụ thú cưng Sóc Trăng"
+  },
   description:
     "Pomy petshop - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh, khách sạn cho thú cưng. Uy tín - Chất lượng - Giá tốt.",
   keywords: [

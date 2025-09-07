@@ -45,9 +45,9 @@ export default function AboutSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h1 className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500">
+          <h2 className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500">
             Chúng Tôi Là Ai?
-          </h1>
+          </h2>
           <p className="mb-8 leading-relaxed text-lg text-gray-600">
             Chúng tôi là đội ngũ chuyên gia tận tâm cung cấp các dịch vụ chăm
             sóc thú cưng như cắt tỉa, vệ sinh, và khách sạn thú cưng. Với trang

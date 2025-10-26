@@ -1,9 +1,8 @@
 import Head from 'next/head';
+import { SITE_URL } from '@/shared/constants';
 import { 
   organizationSchema, 
   businessSchema, 
-  serviceSchema, 
-  faqSchema,
   breadcrumbSchema 
 } from '@/shared/schema';
 
@@ -13,8 +12,8 @@ interface SEOProps {
   canonicalUrl?: string;
   ogImage?: string;
   noindex?: boolean;
-  schema?: any;
-  additionalSchemas?: any[];
+  schema?: Record<string, unknown>;
+  additionalSchemas?: Record<string, unknown>[];
   keywords?: string[];
   pageType?: 'website' | 'article' | 'service';
   breadcrumbs?: { name: string; url: string }[];
@@ -23,7 +22,7 @@ interface SEOProps {
 export default function EnhancedSEO({
   title = "POMY PETSHOP | Cửa hàng thú cưng Sóc Trăng",
   description = "Pomy petshop - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh, khách sạn cho thú cưng. Uy tín - Chất lượng - Giá tốt.",
-  canonicalUrl = "https://pomypetshopsoctrang.com",
+  canonicalUrl = SITE_URL,
   ogImage = "/images/pomy-petshop-logo.jpg",
   noindex = false,
   schema,
@@ -69,7 +68,7 @@ export default function EnhancedSEO({
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`https://pomypetshopsoctrang.com${ogImage}`} />
+      <meta property="og:image" content={`${SITE_URL}${ogImage}`} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={pageType} />
       <meta property="og:site_name" content="POMY PETSHOP" />
@@ -79,7 +78,7 @@ export default function EnhancedSEO({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https://pomypetshopsoctrang.com${ogImage}`} />
+      <meta name="twitter:image" content={`${SITE_URL}${ogImage}`} />
 
       {/* Additional SEO Meta Tags */}
       <meta name="author" content="POMY PETSHOP" />

@@ -1,7 +1,8 @@
+import { SITE_URL } from "@/shared/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pomypetshopsoctrang.com"),
+  metadataBase: new URL(SITE_URL),
   title: "POMY PETSHOP - LIÊN HỆ",
   description:
     "Liên hệ với POMY PETSHOP tại 31 Phú Lợi, Sóc Trăng để được tư vấn về dịch vụ cắt tỉa, vệ sinh, và khách sạn thú cưng. Chúng tôi luôn sẵn sàng hỗ trợ bạn!",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     title: "POMY PETSHOP - LIÊN HỆ",
     description:
       "POMY PETSHOP - Nơi cung cấp các dịch vụ thú cưng chất lượng tại Sóc Trăng. Liên hệ ngay để được tư vấn và hỗ trợ tận tâm!",
-    url: "https://pomypetshopsoctrang.com/contact",
+    url: `${SITE_URL}/contact`,
     siteName: "POMY PETSHOP",
     images: [
       {
@@ -70,11 +71,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://pomypetshopsoctrang.com/contact",
-    languages: {
-      "vi-VN": "https://pomypetshopsoctrang.com/vi",
-      "en-US": "https://pomypetshopsoctrang.com/en",
-    },
+    canonical: `${SITE_URL}/contact`,
   },
   verification: {
     google:

@@ -1,12 +1,13 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { SITE_URL } from "@/shared/constants";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pomypetshopsoctrang.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "POMY PETSHOP | Cửa hàng thú cưng Sóc Trăng - Cắt tỉa, Vệ sinh, Khách sạn thú cưng",
     template: "%s | POMY PETSHOP - Dịch vụ thú cưng Sóc Trăng"
@@ -40,12 +41,12 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
+      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     description:
       "Cửa hàng thú cưng Pomy pet shop uy tín tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng chuyên nghiệp.",
-    url: "https://pomypetshopsoctrang.com",
+    url: SITE_URL,
     siteName:
-      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
+      "Pomy petshop | Cửa hàng thú cưng Sóc Trăng - Tắm - Cắt Tỉa, Vaccine, Khách Sạn Thú Cưng",
     images: [
       {
         url: "/images/pomy-petshop-logo.jpg",
@@ -81,11 +82,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://pomypetshopsoctrang.com",
-    languages: {
-      "vi-VN": "https://pomypetshopsoctrang.com/vi",
-      "en-US": "https://pomypetshopsoctrang.com/en",
-    },
+    canonical: SITE_URL,
   },
   verification: {
     google:

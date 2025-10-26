@@ -1,15 +1,16 @@
 // JSON-LD Schema Generator for various page types
+import { SITE_URL } from "./constants";
 
 export const generateLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": ["PetStore", "LocalBusiness"],
   "name": "POMY PETSHOP",
   "image": [
-    "https://pomypetshopsoctrang.com/images/pomy-petshop-logo.jpg",
-    "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-1.jpg",
-    "https://pomypetshopsoctrang.com/images/cua-hang-pomy-petshop-2.jpg"
+    `${SITE_URL}/images/pomy-petshop-logo.jpg`,
+    `${SITE_URL}/images/cua-hang-pomy-petshop-1.jpg`,
+    `${SITE_URL}/images/cua-hang-pomy-petshop-2.jpg`
   ],
-  "url": "https://pomypetshopsoctrang.com",
+  "url": SITE_URL,
   "telephone": "+84-070-803-9333",
   "email": "tust3000@gmail.com",
   "address": {
@@ -109,10 +110,10 @@ export const generateWebsiteSchema = () => ({
   "@type": "WebSite",
   "name": "POMY PETSHOP",
   "alternateName": "Pomy Petshop Sóc Trăng",
-  "url": "https://pomypetshopsoctrang.com",
+  "url": SITE_URL,
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://pomypetshopsoctrang.com/search?q={search_term_string}",
+    "target": `${SITE_URL}/search?q={search_term_string}`,
     "query-input": "required name=search_term_string"
   },
   "sameAs": [
@@ -128,7 +129,7 @@ export const generateServiceSchema = (serviceName: string, description: string, 
   "provider": {
     "@type": "Organization",
     "name": "POMY PETSHOP",
-    "url": "https://pomypetshopsoctrang.com"
+    "url": SITE_URL
   },
   "areaServed": {
     "@type": "City",
@@ -171,7 +172,7 @@ export const generateArticleSchema = (title: string, description: string, publis
     "name": "POMY PETSHOP",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pomypetshopsoctrang.com/images/pomy-petshop-logo.jpg"
+      "url": `${SITE_URL}/images/pomy-petshop-logo.jpg`
     }
   },
   "datePublished": publishDate,

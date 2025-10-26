@@ -1,3 +1,6 @@
+// Site URL Configuration
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://pomypetshopsoctrang.com";
+
 // Business Information Constants
 export const BUSINESS_INFO = {
   name: "POMY PETSHOP",

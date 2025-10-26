@@ -1,11 +1,13 @@
+import { SITE_URL } from "./constants";
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "POMY PETSHOP",
   "alternateName": "Pomy Petshop Sóc Trăng",
-  "url": "https://pomypetshopsoctrang.com",
-  "logo": "https://pomypetshopsoctrang.com/images/pomy-petshop-logo.jpg",
-  "image": "https://pomypetshopsoctrang.com/images/pomy-petshop-logo.jpg",
+  "url": SITE_URL,
+  "logo": `${SITE_URL}/images/pomy-petshop-logo.jpg`,
+  "image": `${SITE_URL}/images/pomy-petshop-logo.jpg`,
   "description": "Cửa hàng thú cưng POMY PETSHOP tại Sóc Trăng - Dịch vụ cắt tỉa, vệ sinh, khách sạn thú cưng chuyên nghiệp",
   "address": {
     "@type": "PostalAddress",
@@ -22,7 +24,7 @@ export const organizationSchema = {
   },
   "sameAs": [
     "https://www.facebook.com/pomypetshopsoctrang",
-    "https://pomypetshopsoctrang.com"
+    SITE_URL
   ],
   "foundingDate": "2020",
   "numberOfEmployees": "5-10",
@@ -33,8 +35,8 @@ export const businessSchema = {
   "@context": "https://schema.org",
   "@type": "PetStore",
   "name": "POMY PETSHOP",
-  "image": "https://pomypetshopsoctrang.com/images/pomy-petshop-logo.jpg",
-  "url": "https://pomypetshopsoctrang.com",
+  "image": `${SITE_URL}/images/pomy-petshop-logo.jpg`,
+  "url": SITE_URL,
   "telephone": "+84-070-803-9333",
   "address": {
     "@type": "PostalAddress",

@@ -4,177 +4,196 @@ import { BUSINESS_INFO, SITE_URL, SOCIAL_MEDIA } from "./constants";
 export const generateLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": ["PetStore", "LocalBusiness"],
-  "name": BUSINESS_INFO.name,
-  "image": [
-    `${SITE_URL}${BUSINESS_INFO.logo}`
-  ],
-  "url": SITE_URL,
-  "telephone": BUSINESS_INFO.phone,
-  "email": BUSINESS_INFO.email,
-  "address": {
+  name: BUSINESS_INFO.name,
+  image: [`${SITE_URL}${BUSINESS_INFO.logo}`],
+  url: SITE_URL,
+  telephone: BUSINESS_INFO.phone,
+  email: BUSINESS_INFO.email,
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": BUSINESS_INFO.address,
-    "addressCountry": "VN"
+    streetAddress: BUSINESS_INFO.address,
+    addressCountry: "VN",
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": 9.6,
-    "longitude": 105.97
+    latitude: 9.6,
+    longitude: 105.97,
   },
-  "openingHoursSpecification": [
+  openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "08:00",
-      "closes": "18:00"
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "08:00",
+      closes: "18:00",
     },
     {
-      "@type": "OpeningHoursSpecification", 
-      "dayOfWeek": "Sunday",
-      "opens": "08:00",
-      "closes": "17:00"
-    }
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "08:00",
+      closes: "17:00",
+    },
   ],
-  "priceRange": "$$",
-  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-  "currenciesAccepted": "VND",
-  "aggregateRating": {
+  priceRange: "$$",
+  paymentAccepted: "Cash, Credit Card, Bank Transfer",
+  currenciesAccepted: "VND",
+  aggregateRating: {
     "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "127"
+    ratingValue: "4.8",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: "127",
   },
-  "review": [
+  review: [
     {
       "@type": "Review",
-      "author": {
+      author: {
         "@type": "Person",
-        "name": "Nguyễn Minh"
+        name: "Nguyễn Minh",
       },
-      "reviewRating": {
+      reviewRating: {
         "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
+        ratingValue: "5",
+        bestRating: "5",
       },
-      "reviewBody": "Dịch vụ tuyệt vời, nhân viên chuyên nghiệp và tận tâm với thú cưng."
-    }
+      reviewBody:
+        "Dịch vụ tuyệt vời, nhân viên chuyên nghiệp và tận tâm với thú cưng.",
+    },
   ],
-  "hasOfferCatalog": {
+  hasOfferCatalog: {
     "@type": "OfferCatalog",
-    "name": "Dịch vụ thú cưng",
-    "itemListElement": [
+    name: "Dịch vụ thú cưng",
+    itemListElement: [
       {
         "@type": "Offer",
-        "itemOffered": {
+        itemOffered: {
           "@type": "Service",
-          "name": "Cắt tỉa lông thú cưng",
-          "description": "Dịch vụ cắt tỉa lông chuyên nghiệp cho chó mèo với nhiều kiểu dáng"
-        }
+          name: "Cắt tỉa lông thú cưng",
+          description:
+            "Dịch vụ cắt tỉa lông chuyên nghiệp cho chó mèo với nhiều kiểu dáng",
+        },
       },
       {
         "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service", 
-          "name": "Tắm vệ sinh thú cưng",
-          "description": "Tắm rửa, vệ sinh toàn thân cho thú cưng với sản phẩm chuyên dụng"
-        }
+        itemOffered: {
+          "@type": "Service",
+          name: "Tắm vệ sinh thú cưng",
+          description:
+            "Tắm rửa, vệ sinh toàn thân cho thú cưng với sản phẩm chuyên dụng",
+        },
       },
       {
         "@type": "Offer",
-        "itemOffered": {
+        itemOffered: {
           "@type": "Service",
-          "name": "Vaccine & chăm sóc sức khỏe",
-          "description": "Tiêm vaccine, xổ giun và chăm sóc sức khỏe tổng quát cho thú cưng"
-        }
+          name: "Vaccine & chăm sóc sức khỏe",
+          description:
+            "Tiêm vaccine, xổ giun và chăm sóc sức khỏe tổng quát cho thú cưng",
+        },
       },
       {
         "@type": "Offer",
-        "itemOffered": {
+        itemOffered: {
           "@type": "Service",
-          "name": "Khách sạn thú cưng",
-          "description": "Dịch vụ lưu trú, chăm sóc thú cưng 24/7 khi chủ đi vắng"
-        }
-      }
-    ]
-  }
+          name: "Khách sạn thú cưng",
+          description:
+            "Dịch vụ lưu trú, chăm sóc thú cưng 24/7 khi chủ đi vắng",
+        },
+      },
+    ],
+  },
 });
 
 export const generateWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": BUSINESS_INFO.name,
-  "url": SITE_URL,
-  "potentialAction": {
+  name: BUSINESS_INFO.name,
+  url: SITE_URL,
+  potentialAction: {
     "@type": "SearchAction",
-    "target": `${SITE_URL}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
+    target: `${SITE_URL}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
   },
-  "sameAs": [
-    SOCIAL_MEDIA.facebook.url
-  ]
+  sameAs: [SOCIAL_MEDIA.facebook.url],
 });
 
-export const generateServiceSchema = (serviceName: string, description: string, price?: string) => ({
+export const generateServiceSchema = (
+  serviceName: string,
+  description: string,
+  price?: string
+) => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": serviceName,
-  "description": description,
-  "provider": {
+  name: serviceName,
+  description: description,
+  provider: {
     "@type": "Organization",
-    "name": BUSINESS_INFO.name,
-    "url": SITE_URL
+    name: BUSINESS_INFO.name,
+    url: SITE_URL,
   },
-  "areaServed": {
+  areaServed: {
     "@type": "City",
-    "name": "Sóc Trăng"
+    name: "Sóc Trăng",
   },
-  "serviceType": "Pet Care Service",
+  serviceType: "Pet Care Service",
   ...(price && {
-    "offers": {
+    offers: {
       "@type": "Offer",
-      "price": price,
-      "priceCurrency": "VND"
-    }
-  })
+      price: price,
+      priceCurrency: "VND",
+    },
+  }),
 });
 
-export const generateFAQSchema = (faqs: { question: string; answer: string }[]) => ({
-  "@context": "https://schema.org", 
+export const generateFAQSchema = (
+  faqs: { question: string; answer: string }[]
+) => ({
+  "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
+  mainEntity: faqs.map((faq) => ({
     "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
+    name: faq.question,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
+      text: faq.answer,
+    },
+  })),
 });
 
-export const generateArticleSchema = (title: string, description: string, publishDate: string, image?: string) => ({
+export const generateArticleSchema = (
+  title: string,
+  description: string,
+  publishDate: string,
+  image?: string
+) => ({
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": title,
-  "description": description,
-  "author": {
+  headline: title,
+  description: description,
+  author: {
     "@type": "Organization",
-    "name": "POMY PETSHOP"
+    name: "POMY PETSHOP",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "POMY PETSHOP",
-    "logo": {
+    name: "POMY PETSHOP",
+    logo: {
       "@type": "ImageObject",
-      "url": `${SITE_URL}/images/pomy-petshop-logo.jpg`
-    }
+      url: `${SITE_URL}/images/pomy-petshop-logo.jpg`,
+    },
   },
-  "datePublished": publishDate,
-  "dateModified": publishDate,
+  datePublished: publishDate,
+  dateModified: publishDate,
   ...(image && {
-    "image": {
-      "@type": "ImageObject", 
-      "url": image
-    }
-  })
+    image: {
+      "@type": "ImageObject",
+      url: image,
+    },
+  }),
 });

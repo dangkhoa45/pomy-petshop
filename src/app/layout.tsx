@@ -6,7 +6,10 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import siteMeta from "@/data/site-metadata.json";
-import { generateLocalBusinessSchema, generateWebsiteSchema } from "@/shared/schema-generators";
+import {
+  generateLocalBusinessSchema,
+  generateWebsiteSchema,
+} from "@/shared/schema-generators";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

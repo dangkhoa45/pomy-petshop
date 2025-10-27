@@ -24,7 +24,7 @@ Tổng hợp công nghệ, thư viện và cấu hình dự án theo trạng th�
 
 ## 4) SEO & Analytics
 
-- Metadata chuẩn hoá trong `src/app/layout.tsx` và các `layout.tsx` của route con (title, description, OG, Twitter, robots, alternates, verification, facebook appId). Dữ liệu metadata được tách sang JSON tại `src/data/seo/` (site-metadata.json, meta-*.json).
+- Metadata chuẩn hoá trong `src/app/layout.tsx` và các `layout.tsx` của route con (title, description, OG, Twitter, robots, alternates, verification, facebook appId). Dữ liệu metadata được tách sang JSON tại `src/data/seo/` (site-metadata.json, meta-\*.json).
 - Sitemap và robots dùng App Router: `src/app/sitemap.ts`, `src/app/robots.ts` (không phụ thuộc script bên ngoài).
 - Schema.org JSON-LD: ĐÃ inject ở RootLayout (LocalBusiness/PetStore + WebSite). Bộ generator tại `src/shared/schema-generators.ts` (Service, FAQ, Article, Breadcrumb) sẵn sàng để dùng ở các route.
 - @vercel/analytics và @vercel/speed-insights được render trong `RootLayout`.

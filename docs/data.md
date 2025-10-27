@@ -77,11 +77,11 @@ Sử dụng type an toàn ở nơi tiêu thụ. Ví dụ:
 
 ## 6) Thêm mới dữ liệu
 
-1) Chọn thư mục theo mục đích (seo/business/services/content/about/contact/statistics).
-2) Tạo file JSON tên rõ nghĩa (vd: `pricing-grooming.json`).
-3) Import vào component/layout cần dùng qua alias `@/data/...`.
-4) Nếu cấu trúc mới, khai báo type tương ứng trong component.
-5) Chạy lint/build để xác nhận không lỗi.
+1. Chọn thư mục theo mục đích (seo/business/services/content/about/contact/statistics).
+2. Tạo file JSON tên rõ nghĩa (vd: `pricing-grooming.json`).
+3. Import vào component/layout cần dùng qua alias `@/data/...`.
+4. Nếu cấu trúc mới, khai báo type tương ứng trong component.
+5. Chạy lint/build để xác nhận không lỗi.
 
 ## 7) JSON-LD & SEO
 

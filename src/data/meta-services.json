@@ -31,7 +31,12 @@
     "description": "POMY PETSHOP - Cửa hàng thú cưng tại Sóc Trăng. Dịch vụ cắt tỉa, vệ sinh và khách sạn thú cưng uy tín, tận tâm và chuyên nghiệp.",
     "siteName": "POMY PETSHOP",
     "images": [
-      { "url": "/images/pomy-petshop-logo.jpg", "width": 1200, "height": 630, "alt": "POMY PETSHOP - Dịch vụ thú cưng chuyên nghiệp" }
+      {
+        "url": "/images/pomy-petshop-logo.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "POMY PETSHOP - Dịch vụ thú cưng chuyên nghiệp"
+      }
     ],
     "locale": "vi_VN",
     "type": "website"
@@ -43,7 +48,19 @@
     "images": ["/images/pomy-petshop-logo.jpg"]
   },
   "icons": { "icon": "/pomy-petshop.png", "shortcut": "/pomy-petshop.png" },
-  "robots": { "index": true, "follow": true, "googleBot": { "index": true, "follow": true, "max-snippet": -4, "max-image-preview": "large", "max-video-preview": -4 } },
-  "verification": { "google": "google-site-verification=w_erDInrT5fGiLu7Ft-JEfRKvADe4xeYOyN9zx_73kw" },
+  "robots": {
+    "index": true,
+    "follow": true,
+    "googleBot": {
+      "index": true,
+      "follow": true,
+      "max-snippet": -4,
+      "max-image-preview": "large",
+      "max-video-preview": -4
+    }
+  },
+  "verification": {
+    "google": "google-site-verification=w_erDInrT5fGiLu7Ft-JEfRKvADe4xeYOyN9zx_73kw"
+  },
   "facebook": { "appId": "2422218498121617" }
 }

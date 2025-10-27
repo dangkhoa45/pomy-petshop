@@ -35,3 +35,18 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # pomy-petshop
+
+## Project Docs
+
+- Requirements and goals: `docs/requirements.md`
+- Design guide: `docs/design.md`
+- Tech stack: `docs/stack.md`
+- Roadmap & tasks: `docs/task.md`
+- Data architecture: `docs/data.md`
+
+Key directories:
+
+- App routes and pages: `src/app`
+- Components: `src/components`
+- Shared utilities and constants: `src/shared`
+- Centralized data (JSON): `src/data` (grouped by purpose: seo, business, services, content, about, contact, statistics)

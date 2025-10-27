@@ -25,12 +25,14 @@ Layout gợi ý:
 
 ## 3. Màu sắc & Typography
 
-- Nền tổng thể nhạt: `bg-gray-50`, gradient nhẹ ở hero `from-green-100 to-pink-200`.
+- Nền tổng thể nhạt: `bg-gray-50`, gradient nhẹ ở hero `from-green-100 to-pink-200` (đang dùng thực tế trên các trang).
 - Văn bản: màu xám đậm `text-gray-800`/`text-gray-900`.
-- Điểm nhấn: xanh lá/hồng nhạt, dùng tiết chế cho CTA/hover.
-- Font:
-  - Heading: `font-heading` (CSS var -> Poppins), `font-bold`, tracking-[-0.02em].
-  - Body: `font-body` (CSS var -> Poppins), line-height thoáng.
+- Điểm nhấn: xanh lá/hồng, dùng tiết chế cho CTA/hover.
+- Font (theo code hiện tại trong `globals.css`):
+  - Heading: `font-heading` -> biến CSS `--font-heading` (mặc định "Gluten").
+  - Body: `font-body` -> biến CSS `--font-body` (mặc định "Gluten").
+  - Secondary/decorative: `--font-secondary` ("Pacifico").
+  - Lưu ý: `@fontsource/poppins` có cài nhưng chưa dùng; nếu đổi font về Poppins cần chuẩn hoá lại biến.
 
 ## 4. Components & Patterns
 
@@ -53,16 +55,16 @@ Nguyên tắc dựng component:
 ## 5. Hình ảnh
 
 - Dùng Next/Image, chỉ rõ `width`/`height` hoặc `fill` + container tương ứng.
-- Sử dụng định dạng WebP/AVIF (đã bật trong `next.config.ts`).
+- Định dạng WebP/AVIF đã bật trong `next.config.ts`.
 - Thiết lập `priority` cho ảnh hero quan trọng; `loading="lazy"` cho phần dưới.
-- Tối ưu SEO: `alt` mô tả đúng nội dung.
+- Tối ưu SEO: `alt` mô tả đúng nội dung; domain ngoài (i.pravatar.cc) đã được allowlist.
 
 ## 6. SEO On-page
 
-- Heading hierarchy: 1 H1/ trang, tiếp theo H2/H3 logic.
+- Heading hierarchy: 1 H1/trang, tiếp theo H2/H3 logic.
 - Meta title/description ngắn gọn, có từ khoá địa phương (Sóc Trăng).
 - Liên kết nội bộ giữa các trang dịch vụ.
-- Structured data: Organization, PetStore, Service, FAQ, Breadcrumb.
+- Structured data: đã chuẩn bị sẵn trong `src/shared/schema*.ts` nhưng chưa được render ra DOM; đề xuất inject bằng `<script type="application/ld+json">` ở layout/route tương ứng.
 
 ## 7. Accessibility (a11y)
 
@@ -76,6 +78,7 @@ Nguyên tắc dựng component:
 - Dùng Framer Motion nhẹ nhàng: fade/slide khi scroll tới; tránh lạm dụng.
 - Thời gian transition ngắn (150–250ms), easing mượt.
 - Tránh animation liên tục gây mệt mắt; tắt trên `prefers-reduced-motion` nếu cần.
+- Slider sử dụng Swiper ở Hero và Gallery; Testimonials dùng custom slider + `react-swipeable`.
 
 ## 9. Ví dụ style Tailwind chung
 
@@ -88,3 +91,4 @@ Nguyên tắc dựng component:
 - Kiểm tra trên Chrome, Safari, Firefox (desktop/mobile).
 - Kiểm tra thực tế trên thiết bị Android/iOS phổ biến.
 - Dùng Lighthouse/Axe để rà soát performance & a11y.
+- Lưu ý: Mã hiện có chặn right-click và một số tổ hợp phím (F12, Ctrl+Shift+I/C, Ctrl+U) ở các trang; cân nhắc tắt khi kiểm thử a11y để không ảnh hưởng trải nghiệm.

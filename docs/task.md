@@ -1,76 +1,85 @@
-# Roadmap & Tiến độ dự án
+# Roadmap & tiến độ (đồng bộ thực tế)
 
-Tài liệu quản lý công việc, roadmap và tiến độ cho website POMY PETSHOP.
+Tài liệu quản lý công việc, roadmap và tiến độ cho POMY PETSHOP.
 
-## 1. Trạng thái hiện tại
+## 1) Trạng thái hiện tại
 
-- Kiến trúc Next.js 15 App Router hoàn chỉnh (layout, metadata, routes cơ bản).
-- Bộ component UI chính đã có: Header, Footer, Hero, About, Services, FAQ, Stats, Contact, Testimonials, Gallery.
-- SEO kỹ thuật tốt: Metadata, OG/Twitter, Structured Data, Sitemap/Robots.
-- Tối ưu hiệu năng: Terser, splitChunks, Image optimization, headers cache ảnh.
+- Kiến trúc Next.js 15 App Router hoàn chỉnh (layout, metadata, các route cơ bản).
+- Component chính: Header, Footer, Hero, About, Services, FAQ, Stats, ContactForm, Testimonials, Gallery.
+- SEO kỹ thuật: Metadata per-route, OG/Twitter, robots, sitemap (App Router). Schemas đã có file nhưng chưa inject.
+- Hiệu năng: Terser + splitChunks, Image optimization, headers cache ảnh, optimizeCss.
 
-## 2. Mốc (Milestones)
+## 2) Mốc (Milestones)
 
-- M1: Hoàn thiện cấu trúc & SEO nền tảng — Done
-- M2: Hoàn thiện nội dung trang dịch vụ chi tiết — Planned
-- M3: Form liên hệ có backend xử lý & gửi mail — Planned
+- M1: Khởi tạo kiến trúc + SEO nền tảng — Done
+- M2: Trang chi tiết dịch vụ + nội dung SEO — Planned
+- M3: Backend form liên hệ + gửi mail — Planned
 - M4: Tối ưu Lighthouse & a11y nâng cao — Planned
-- M5: Triển khai analytics dashboard & theo dõi chuyển đổi — Planned
+- M5: Analytics events/conversion — Planned
 
-## 3. Backlog chi tiết
+## 3) Backlog chi tiết
 
 ### Nội dung & Trang
 
-- [ ] Trang chi tiết từng dịch vụ (SEO content, structured data Service).
-- [ ] Bảng giá minh bạch, CTA rõ ràng.
-- [ ] Blog/Articles (SEO hub) với phân loại, tags.
+- [ ] Trang chi tiết từng dịch vụ (SEO content, Service schema).
+- [ ] Bảng giá chi tiết; CTA rõ ràng.
+- [ ] Blog/Articles (content hub) khi có nội dung.
 
 ### Tính năng
 
-- [ ] API route xử lý form liên hệ (reCAPTCHA V3, rate-limit).
-- [ ] Tích hợp email (Resend/SendGrid) hoặc gửi về Facebook/Zalo.
-- [ ] Tối ưu ảnh (tạo preset, lazyload nâng cao, LQIP/blur placeholder).
+- [ ] API route xử lý form liên hệ (reCAPTCHA V3, rate-limit, honeypot).
+- [ ] Tích hợp email (Resend/SendGrid) hoặc kênh Facebook/Zalo.
+- [ ] Tối ưu ảnh (preset size, blur placeholder/LQIP).
 
 ### SEO & Analytics
 
-- [ ] Kiểm tra structured data với Rich Results Test; sửa cảnh báo/note.
-- [ ] Thêm Breadcrumb schema cho các trang con.
+- [ ] Inject JSON-LD (Organization/PetStore/Service/FAQ/Breadcrumb) vào các trang tương ứng.
+- [ ] Kiểm tra Rich Results; xử lý cảnh báo.
 - [ ] Theo dõi sự kiện (CTA click, form submit) qua Vercel Analytics/GA4.
+- [ ] Cân nhắc bật script `next-sitemap` (build-time) hoặc giữ App Router approach hiện tại.
 
 ### Hiệu năng & A11y
 
-- [ ] Kiểm tra CLS/LCP/TTI thực tế; tối ưu thứ tự tải.
-- [ ] Kiểm tra contrast màu, focus ring, keyboard nav.
-- [ ] Tối ưu critical CSS & preload assets cần thiết.
+- [ ] Theo dõi CLS/LCP/TTI; tối ưu thứ tự tải.
+- [ ] Rà soát contrast, focus ring, keyboard nav.
+- [ ] Tối ưu critical CSS; preload assets cần thiết.
+- [ ] Xem xét bỏ chặn right-click/devtools để không ảnh hưởng a11y/UX.
 
-## 4. Quy ước & Tiêu chuẩn
+### Tooling
 
-- Code: TypeScript strict, ESLint + Prettier.
-- Import alias: `@/*` trỏ `src/*`.
-- CSS: Tailwind utilities, tránh CSS tùy biến nếu không cần.
-- Component: tách nhỏ, stateless khi có thể; SSR-friendly.
-- Commit: thông điệp rõ ràng theo tác vụ (feat/fix/docs/chore/refactor).
+- [ ] Thêm Prettier config thống nhất format.
+- [ ] Cân nhắc bật `@tailwindcss/typography` trong `tailwind.config.ts` nếu dùng prose.
 
-## 5. Tiến độ (Kanban gợi ý)
+## 4) Quy ước & Tiêu chuẩn
+
+- Code: TypeScript strict, ESLint (flat config) đang áp dụng.
+- Import alias: `@/*` -> `src/*`.
+- CSS: Tailwind utilities là chính; hạn chế CSS thuần ngoài `globals.css`.
+- Component: tách nhỏ, stateless khi có thể; thân thiện SSR/SSG.
+- Commit: chuẩn hoá theo feat/fix/docs/chore/refactor.
+
+## 5) Tiến độ (Kanban gợi ý)
 
 - Todo:
-  - Trang dịch vụ chi tiết (3 trang).
+  - Trang dịch vụ chi tiết.
   - API gửi mail cho form liên hệ.
-  - GA4 events cho CTA.
+  - GA4/Vercel events cho CTA.
+  - Inject JSON-LD schema.
 - In Progress:
-  - (điền khi bắt đầu mỗi task)
+  - (cập nhật khi bắt đầu công việc)
 - Done:
-  - Thiết lập cấu hình Next/Tailwind/TS/ESLint.
-  - Thêm metadata/SEO cơ bản.
+  - Cấu hình Next/Tailwind/TS/ESLint.
+  - Metadata/SEO cơ bản (App Router sitemap/robots).
 
-## 6. Rủi ro & Giảm thiểu
+## 6) Rủi ro & Giảm thiểu
 
-- Thiếu nội dung hình ảnh: Thu thập nội dung trước khi tối ưu SEO on-page.
-- Tải ảnh chậm: Dùng Next/Image, thiết lập kích thước phù hợp, CDN Vercel.
+- Thiếu nội dung hình ảnh: chuẩn bị nội dung trước khi tối ưu SEO on-page.
+- Tải ảnh chậm: dùng Next/Image + kích thước hợp lý + CDN Vercel.
 - SPAM form: reCAPTCHA + rate-limit + honeypot.
+- A11y bị ảnh hưởng bởi chặn phím/chuột: chỉ bật trong môi trường demo nếu thật sự cần.
 
-## 7. Liên kết tham chiếu
+## 7) Liên kết tham chiếu
 
 - Mã nguồn: `src/app`, `src/components`, `src/shared`.
 - Cấu hình: `next.config.ts`, `tsconfig.json`, `tailwind.config.ts`, `eslint.config.mjs`.
-- SEO schemas: `src/shared/schema.ts`.
+- SEO schemas: `src/shared/schema.ts`, `src/shared/schema-generators.ts`.

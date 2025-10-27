@@ -5,39 +5,9 @@ import { useRouter } from "next/navigation";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-interface HeroImage {
-  id: number;
-  image: string;
-  alt: string;
-}
-
-const HeroImages: HeroImage[] = [
-  {
-    id: 1,
-    image: "/images/cua-hang-pomy-petshop-1.jpg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    id: 2,
-    image: "/images/cua-hang-pomy-petshop-2.jpg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    id: 3,
-    image: "/images/cua-hang-pomy-petshop-3.jpg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    id: 4,
-    image: "/images/cua-hang-pomy-petshop-4.jpg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    id: 5,
-    image: "/images/cua-hang-pomy-petshop-5.jpg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-];
+import heroImages from "@/data/hero-images.json";
+type HeroImage = { id: number; image: string; alt: string };
+const HeroImages: HeroImage[] = heroImages as HeroImage[];
 
 function HeroSection() {
   const router = useRouter();

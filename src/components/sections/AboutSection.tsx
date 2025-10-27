@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { fadeInRight, scaleIn, buttonVariant } from "@/shared/animations";
+import data from "@/data/about-section.json";
 
 export default function AboutSection() {
   const router = useRouter();
@@ -27,11 +28,11 @@ export default function AboutSection() {
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
-              alt="cua-hang-pomy-petshop"
-              src="/images/pomy-petshop-14.jpg"
+              alt={data.image.alt}
+              src={data.image.src}
               width={512}
               height={512}
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               quality={80}
               loading="lazy"
             />
@@ -46,13 +47,10 @@ export default function AboutSection() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h2 className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-500">
-            Chúng Tôi Là Ai?
+            {data.title}
           </h2>
           <p className="mb-8 leading-relaxed text-lg text-gray-600">
-            Chúng tôi là đội ngũ chuyên gia tận tâm cung cấp các dịch vụ chăm
-            sóc thú cưng như cắt tỉa, vệ sinh, và khách sạn thú cưng. Với trang
-            thiết bị hiện đại và kinh nghiệm dày dặn, chúng tôi cam kết mang đến
-            sự thoải mái và an tâm nhất cho bạn và người bạn bốn chân của mình.
+            {data.paragraph}
           </p>
           <motion.div
             className="flex justify-center"
@@ -69,7 +67,7 @@ export default function AboutSection() {
                 router.push("/about");
               }}
             >
-              Tìm Hiểu Thêm
+              {data.buttons.primary}
             </motion.button>
             <motion.button
               className="ml-4 inline-flex text-pink-500 bg-white border border-pink-500 py-3 px-8 focus:outline-none hover:bg-pink-50 rounded-full text-lg shadow-md transition-all"
@@ -79,7 +77,7 @@ export default function AboutSection() {
                 router.push("/services");
               }}
             >
-              Dịch Vụ Của Chúng Tôi
+              {data.buttons.secondary}
             </motion.button>
           </motion.div>
         </motion.div>

@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+import contactData from "@/data/contact-section.json";
 
 interface FormData {
   fullName: string;
@@ -58,7 +59,7 @@ function ContactSection() {
     <section className="text-gray-600 body-font relative">
       <div className="md:absolute md:inset-0 relative w-full h-64 lg:h-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251614.56590602727!2d105.68246306370904!3d9.810194529754948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a053003293b1ad%3A0x5faaec4d5b0ae7c!2sPOMY%20Petshop!5e0!3m2!1svi!2s!4v1736144668602!5m2!1svi!2s"
+          src={contactData.mapEmbedSrc}
           width="100%"
           height="100%"
           style={{ filter: " contrast(1.2) opacity(0.6)" }}
@@ -82,11 +83,10 @@ function ContactSection() {
             </p>
           )}
           <h2 className="text-gray-900 text-lg mb-1 font-semibold title-font">
-            Liên Hệ Với Chúng Tôi
+            {contactData.heading}
           </h2>
           <p className="leading-relaxed mb-5 text-gray-600">
-            Hãy để lại thông tin và chúng tôi sẽ liên hệ lại với bạn trong thời
-            gian sớm nhất.
+            {contactData.intro}
           </p>
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
@@ -167,7 +167,7 @@ function ContactSection() {
             </button>
           </form>
           <p className="text-xs text-gray-500 mt-3">
-            Cảm ơn bạn đã tin tưởng chúng tôi!
+            {contactData.desktopNote}
           </p>
         </div>
       </div>
@@ -181,16 +181,15 @@ function ContactSection() {
             </p>
           )}
           <h2 className="text-gray-900 text-lg mb-1 font-semibold title-font">
-            Liên Hệ Với Chúng Tôi
+            {contactData.heading}
           </h2>
           <p className="leading-relaxed mb-5 text-gray-600">
-            Hãy để lại thông tin và chúng tôi sẽ liên hệ lại với bạn trong thời
-            gian sớm nhất.
+            {contactData.intro}
           </p>
 
           {isSubmitted ? (
             <div className="text-center text-pink-500 font-medium">
-              Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.
+              {contactData.submitSuccess}
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -273,9 +272,7 @@ function ContactSection() {
             </form>
           )}
 
-          <p className="text-xs text-gray-500 mt-3">
-            Chúng tôi luôn sẵn sàng lắng nghe ý kiến và phản hồi từ bạn.
-          </p>
+          <p className="text-xs text-gray-500 mt-3">{contactData.mobileNote}</p>
         </div>
       </div>
     </section>

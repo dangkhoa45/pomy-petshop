@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import data from "@/data/about-secondary.json";
 
 export default function AboutSecondary() {
   const router = useRouter();
@@ -53,8 +54,8 @@ export default function AboutSecondary() {
           >
             <Image
               className="object-cover object-center rounded-lg shadow-lg"
-              alt="pomy-petshop-who-am-i"
-              src="/images/cua-hang-pomy-petshop-1.jpg"
+              alt={data.image.alt}
+              src={data.image.src}
               layout="fill"
               objectFit="cover"
             />
@@ -69,16 +70,13 @@ export default function AboutSecondary() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <span className="sm:text-md text-sm font-bold title-font mb-2 text-green-600">
-            Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng
+            {data.tagline}
           </span>
           <h1 className="title-font sm:text-5xl text-4xl mb-6 font-extrabold text-pink-600">
-            Cửa hàng chăm sóc thú cưng POMY PETSHOP
+            {data.title}
           </h1>
           <p className="mb-8 leading-relaxed text-lg text-gray-600">
-            Chúng tôi là đội ngũ chuyên gia tận tâm cung cấp các dịch vụ chăm
-            sóc thú cưng như cắt tỉa, vệ sinh, và khách sạn thú cưng. Với trang
-            thiết bị hiện đại và kinh nghiệm dày dặn, chúng tôi cam kết mang đến
-            sự thoải mái và an tâm nhất cho bạn và người bạn bốn chân của mình.
+            {data.paragraph}
           </p>
           <motion.div
             className="w-full"
@@ -95,9 +93,8 @@ export default function AboutSecondary() {
                 router.push("https://www.facebook.com/PetshopPomy");
               }}
             >
-              Liên hệ với chúng tôi
+              {data.buttons.primary}
             </motion.button>
-            
           </motion.div>
         </motion.div>
       </div>

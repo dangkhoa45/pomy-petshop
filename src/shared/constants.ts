@@ -1,65 +1,46 @@
 // Site URL Configuration
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://pomypetshopsoctrang.com";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://pomypetshopsoctrang.com";
 
-// Business Information Constants
-export const BUSINESS_INFO = {
-  name: "POMY PETSHOP",
-  phone: "070 803 9333",
-  email: "tust3000@gmail.com",
-  address: "31 Phú Lợi, Phường 2, Sóc Trăng, TP Sóc Trăng, Việt Nam",
-  facebook: "https://www.facebook.com/PetshopPomy",
-  mapsUrl: "https://maps.app.goo.gl/g8ENXpPKNb9vrRET9",
-  tagline: "Cắt Tỉa, Vệ Sinh, Khách Sạn Thú Cưng",
-  logo: "/images/pomy-petshop-logo.jpg",
-} as const;
+// Centralized data imports (JSON)
+import business from "@/data/business.json";
+import navLinks from "@/data/nav-links.json";
+import statistics from "@/data/statistics.json";
+import services from "@/data/services.json";
+
+// Business Information Constants (from JSON)
+export const BUSINESS_INFO = business as {
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  facebook: string;
+  mapsUrl: string;
+  tagline: string;
+  logo: string;
+};
 
 // Navigation Links
-export const NAV_LINKS = [
-  { path: "/", label: "Trang chủ" },
-  { path: "/about", label: "Giới thiệu" },
-  { path: "/services", label: "Dịch vụ" },
-  { path: "/contact", label: "Liên hệ" },
-] as const;
+export const NAV_LINKS = navLinks as ReadonlyArray<{
+  path: string;
+  label: string;
+}>;
 
 // Statistics Data
-export const STATISTICS = [
-  { 
-    key: "petsCared", 
-    value: 1000, 
-    label: "Thú cưng đã chăm sóc",
-    icon: "PetsCared"
-  },
-  { 
-    key: "happyClients", 
-    value: 800, 
-    label: "Số lượng đánh giá 5 sao",
-    icon: "StartIcon"
-  },
-  { 
-    key: "dailyBookings", 
-    value: 100, 
-    label: "Đặt lịch hàng ngày",
-    icon: "CalendarIcon"
-  },
-  { 
-    key: "hotelRooms", 
-    value: 500, 
-    label: "Sự kiện cho thú cưng",
-    icon: "EventIcon"
-  },
-] as const;
+export const STATISTICS = statistics as ReadonlyArray<{
+  key: string;
+  value: number;
+  label: string;
+  icon: string;
+}>;
 
 // Services List
-export const SERVICES = [
-  "Cắt tỉa lông",
-  "Vệ sinh toàn thân", 
-  "Khách sạn thú cưng",
-] as const;
+export const SERVICES = services as ReadonlyArray<string>;
 
-// Social Media
+// Social Media (derive from business/facebook for backward-compat if needed)
 export const SOCIAL_MEDIA = {
   facebook: {
-    url: "https://www.facebook.com/PetshopPomy",
-    name: "Fanpage: Pomy Petshop"
-  }
+    url: BUSINESS_INFO.facebook,
+    name: `Fanpage: ${BUSINESS_INFO.name}`,
+  },
 } as const;

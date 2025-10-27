@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "Bảng giá dịch vụ khách sạn cho chó mèo",
+    "intro": "Đảm bảo thú cưng của bạn có không gian thoải mái, sạch sẽ và an toàn nhất. Chúng tôi chăm sóc bé yêu như chính gia đình của bạn!"
+  },
+  "title": "Khách sạn thú cưng tại POMY Petshop",
+  "paragraphs": [
+    "Tại POMY Petshop, chúng tôi tự hào mang đến dịch vụ khách sạn thú cưng cao cấp, nơi bé yêu của bạn được tận hưởng một không gian nghỉ dưỡng hiện đại, tiện nghi và đầy đủ tiêu chuẩn an toàn."
+  ],
+  "highlights": [
+    {
+      "title": "Phòng nghỉ riêng biệt:",
+      "body": "Được vệ sinh sạch sẽ mỗi ngày, đảm bảo không gian thoáng mát và an toàn tuyệt đối."
+    },
+    {
+      "title": "Chế độ dinh dưỡng cá nhân hóa:",
+      "body": "Chúng tôi cung cấp thực đơn đặc biệt phù hợp với từng giống chó mèo, đảm bảo sức khỏe và khẩu vị của từng bé."
+    },
+    {
+      "title": "Hoạt động giải trí:",
+      "body": "Bé được tham gia các hoạt động vui chơi, vận động và giao lưu hàng ngày, giúp bé không chỉ khỏe mạnh mà còn luôn vui vẻ."
+    },
+    {
+      "title": "Chăm sóc sức khỏe toàn diện:",
+      "body": "Đội ngũ nhân viên luôn theo dõi sức khỏe của bé, đảm bảo bé yêu được chăm sóc kịp thời và chu đáo."
+    },
+    {
+      "title": "Camera giám sát:",
+      "body": "Dịch vụ cung cấp tùy chọn giám sát trực tuyến, giúp bạn yên tâm theo dõi bé yêu mọi lúc, mọi nơi."
+    }
+  ],
+  "images": [
+    {
+      "src": "/images/pomy-petshop-hotel.jpeg",
+      "alt": "Dịch vụ khách sạn thú cưng tại Pomy Petshop"
+    },
+    {
+      "src": "/images/pomy-petshop-khach-san-1.jpeg",
+      "alt": "Phòng khách sạn cho thú cưng 1"
+    },
+    {
+      "src": "/images/pomy-petshop-khach-san-2.jpeg",
+      "alt": "Phòng khách sạn cho thú cưng 2"
+    },
+    {
+      "src": "/images/pomy-petshop-khach-san-3.jpeg",
+      "alt": "Phòng khách sạn cho thú cưng 3"
+    }
+  ]
+}

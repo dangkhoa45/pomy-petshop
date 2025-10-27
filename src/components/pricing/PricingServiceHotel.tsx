@@ -5,30 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import pricingHotel from "@/data/pricing-hotel.json";
 
-interface ImageObject {
-  src: string;
-  alt: string;
-}
-
-const images: ImageObject[] = [
-  {
-    src: "/images/pomy-petshop-hotel.jpeg",
-    alt: "Dịch vụ khách sạn thú cưng tại Pomy Petshop",
-  },
-  {
-    src: "/images/pomy-petshop-khach-san-1.jpeg",
-    alt: "Phòng khách sạn cho thú cưng 1",
-  },
-  {
-    src: "/images/pomy-petshop-khach-san-2.jpeg",
-    alt: "Phòng khách sạn cho thú cưng 2",
-  },
-  {
-    src: "/images/pomy-petshop-khach-san-3.jpeg",
-    alt: "Phòng khách sạn cho thú cưng 3",
-  },
-];
+// images data comes from JSON; no local interface needed
 
 const PricingServiceHotel: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -61,7 +40,6 @@ const PricingServiceHotel: React.FC = () => {
         <AnimatePresence>
           {isModalOpen && (
             <Modal
-              images={images}
               selectedImageIndex={selectedImageIndex}
               closeModal={closeModal}
             />
@@ -80,11 +58,10 @@ const HeaderSection: React.FC = () => (
     transition={{ duration: 1, ease: "easeOut" }}
   >
     <h1 className="text-xl md:text-2xl font-semibold title-font mb-2 text-pink-600">
-      Bảng giá dịch vụ khách sạn cho chó mèo
+      {pricingHotel.header.title}
     </h1>
     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-      Đảm bảo thú cưng của bạn có không gian thoải mái, sạch sẽ và an toàn nhất.
-      Chúng tôi chăm sóc bé yêu như chính gia đình của bạn!
+      {pricingHotel.header.intro}
     </p>
   </motion.div>
 );
@@ -103,8 +80,8 @@ const HotelImage: React.FC<{ openModal: (index: number) => void }> = ({
     <div className="relative w-[400px] h-[640px] m-2">
       <Image
         className="rounded-lg shadow-lg object-cover object-center mb-6 transition-transform duration-300"
-        src="/images/pomy-petshop-hotel.jpeg"
-        alt="Dịch vụ khách sạn thú cưng tại Pomy Petshop"
+        src={pricingHotel.images[0].src}
+        alt={pricingHotel.images[0].alt}
         layout="fill"
         objectFit="cover"
       />
@@ -125,20 +102,17 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
     transition={{ duration: 1, ease: "easeOut" }}
   >
     <h2 className="md:text-xl text-lg text-pink-600 font-bold mb-2 md:mb-4">
-      Khách sạn thú cưng tại POMY Petshop
+      {pricingHotel.title}
     </h2>
     <div className="space-y-4">
-      <p>
-        Tại <span className="text-pink-600 font-semibold">POMY Petshop</span>,
-        chúng tôi tự hào mang đến dịch vụ khách sạn thú cưng cao cấp, nơi bé yêu
-        của bạn được tận hưởng một không gian nghỉ dưỡng hiện đại, tiện nghi và
-        đầy đủ tiêu chuẩn an toàn.
-      </p>
+      {pricingHotel.paragraphs.map((para, idx) => (
+        <p key={idx}>{para}</p>
+      ))}
       <ServiceHighlights />
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-      {images.slice(1).map((image, index) => (
+      {pricingHotel.images.slice(1).map((image, index) => (
         <motion.div
           key={index}
           className="relative w-full h-[200px] rounded-lg shadow-md overflow-hidden cursor-pointer"
@@ -163,47 +137,19 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
 
 const ServiceHighlights = () => (
   <ul className="list-disc ml-6 space-y-2">
-    <li>
-      <strong className="font-semibold text-green-600">
-        Phòng nghỉ riêng biệt:
-      </strong>{" "}
-      Được vệ sinh sạch sẽ mỗi ngày, đảm bảo không gian thoáng mát và an toàn
-      tuyệt đối.
-    </li>
-    <li>
-      <strong className="font-semibold text-green-600">
-        Chế độ dinh dưỡng cá nhân hóa:
-      </strong>{" "}
-      Chúng tôi cung cấp thực đơn đặc biệt phù hợp với từng giống chó mèo, đảm
-      bảo sức khỏe và khẩu vị của từng bé.
-    </li>
-    <li>
-      <strong className="font-semibold text-green-600">
-        Hoạt động giải trí:
-      </strong>{" "}
-      Bé được tham gia các hoạt động vui chơi, vận động và giao lưu hàng ngày,
-      giúp bé không chỉ khỏe mạnh mà còn luôn vui vẻ.
-    </li>
-    <li>
-      <strong className="font-semibold text-green-600">
-        Chăm sóc sức khỏe toàn diện:
-      </strong>{" "}
-      Đội ngũ nhân viên luôn theo dõi sức khỏe của bé, đảm bảo bé yêu được chăm
-      sóc kịp thời và chu đáo.
-    </li>
-    <li>
-      <strong className="font-semibold text-green-600">Camera giám sát:</strong>{" "}
-      Dịch vụ cung cấp tùy chọn giám sát trực tuyến, giúp bạn yên tâm theo dõi
-      bé yêu mọi lúc, mọi nơi.
-    </li>
+    {pricingHotel.highlights.map((h, idx) => (
+      <li key={idx}>
+        <strong className="font-semibold text-green-600">{h.title}</strong>{" "}
+        {h.body}
+      </li>
+    ))}
   </ul>
 );
 
 const Modal: React.FC<{
-  images: ImageObject[];
   selectedImageIndex: number;
   closeModal: () => void;
-}> = ({ images, selectedImageIndex, closeModal }) => (
+}> = ({ selectedImageIndex, closeModal }) => (
   <motion.div
     className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
     initial={{ opacity: 0 }}
@@ -228,7 +174,7 @@ const Modal: React.FC<{
         initialSlide={selectedImageIndex}
         className="w-full h-full"
       >
-        {images.map((image, index) => (
+        {pricingHotel.images.map((image, index) => (
           <SwiperSlide key={index}>
             <motion.div
               className="relative w-full h-full"

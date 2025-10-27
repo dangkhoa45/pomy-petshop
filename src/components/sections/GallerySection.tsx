@@ -7,46 +7,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import gallery from "@/data/gallery-images.json";
 
 export interface GalleryImage {
   src: string;
   alt: string;
 }
-
-export const galleryImages: GalleryImage[] = [
-  {
-    src: "/images/pomy-petshop-4.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-5.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-6.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-7.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-8.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-9.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-10.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-  {
-    src: "/images/pomy-petshop-11.jpeg",
-    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
-  },
-];
+export const galleryImages: GalleryImage[] = gallery as GalleryImage[];
 
 const GallerySection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);

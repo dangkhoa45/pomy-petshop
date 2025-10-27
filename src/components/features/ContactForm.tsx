@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { BUSINESS_INFO } from "@/shared/constants";
 
 interface FormData {
   fullName: string;
@@ -83,10 +84,14 @@ export default function ContactForm() {
             nhất.
           </p>
           <p className="text-base text-gray-500 pb-2">
-            <a href="mailto:tust3000@gmail.com">📧 Email: tust3000@gmail.com</a>
+            <a href={`mailto:${BUSINESS_INFO.email}`}>
+              📧 Email: {BUSINESS_INFO.email}
+            </a>
           </p>
           <p className="text-base text-gray-500">
-            <a href="tel:0708039333">📞 Hotline: 070 803 9333</a>
+            <a href={`tel:${BUSINESS_INFO.phone.replace(/\s+/g, "")}`}>
+              📞 Hotline: {BUSINESS_INFO.phone}
+            </a>
           </p>
         </motion.div>
 

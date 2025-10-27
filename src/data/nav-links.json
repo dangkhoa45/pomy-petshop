@@ -1,0 +1,6 @@
+[
+  { "path": "/", "label": "Trang chủ" },
+  { "path": "/about", "label": "Giới thiệu" },
+  { "path": "/services", "label": "Dịch vụ" },
+  { "path": "/contact", "label": "Liên hệ" }
+]

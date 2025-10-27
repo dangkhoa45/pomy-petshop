@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import gallery from "@/data/gallery-images.json";
+import copy from "@/data/feature-service.json";
+import { BUSINESS_INFO } from "@/shared/constants";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
 import Typical from "react-typical";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { galleryImages } from "../sections/GallerySection";
+const galleryImages = gallery as { src: string; alt: string }[];
 
 const FeatureService = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -51,20 +54,18 @@ const FeatureService = () => {
           className="text-center mb-8"
         >
           <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-600 font-poppins">
-            Dịch vụ spa - hotel chuyên nghiệp cho thú cưng tại
+            {copy.title}
             <br />
             <span className="text-2xl md:text-4xl font-bold">
               <Typical
-                steps={["POMY Petshop", 1500, "31 Phú Lợi - Sóc Trăng", 1500]}
+                steps={[BUSINESS_INFO.name, 1500, BUSINESS_INFO.address, 1500]}
                 loop={Infinity}
                 wrapper="span"
               />
             </span>
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            Chúng tôi cung cấp các dịch vụ cắt tỉa, vệ sinh, và khách sạn thú
-            cưng chuyên nghiệp, giúp thú cưng của bạn luôn khỏe mạnh và đáng
-            yêu. Hãy để chúng tôi chăm sóc người bạn bốn chân của bạn.
+            {copy.intro}
           </p>
         </motion.div>
 

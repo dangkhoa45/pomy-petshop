@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Khách sạn thú cưng",
+    "subtitle": "Dịch vụ trông giữ thú cưng",
+    "description": "Mang đến sự thoải mái và yên tâm tối đa khi bạn vắng nhà. Dịch vụ khách sạn của chúng tôi được trang bị không gian hiện đại, sạch sẽ và thoáng mát, kèm theo đội ngũ chăm sóc tận tâm, chuyên nghiệp. Chúng tôi cam kết tạo ra một không gian như 'ngôi nhà thứ hai' cho thú cưng của bạn.",
+    "image": "/images/pomy-petshop-hotel.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Cắt tỉa",
+    "subtitle": "Dịch vụ cắt tỉa thú cưng",
+    "description": "Để thú cưng của bạn luôn tỏa sáng với những kiểu cắt tỉa đẹp mắt và phong cách nhất! Đội ngũ thợ lành nghề của chúng tôi sử dụng các kỹ thuật tiên tiến và dụng cụ hiện đại để tạo ra vẻ ngoài hoàn hảo, phù hợp với từng giống loài và cá tính riêng của thú cưng.",
+    "image": "/images/pomy-service-2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Vệ sinh",
+    "subtitle": "Dịch vụ vệ sinh",
+    "description": "Chăm sóc sức khỏe thú cưng không chỉ là trách nhiệm mà còn là niềm đam mê của chúng tôi. Dịch vụ vệ sinh của Pomy Petshop bao gồm tắm rửa, làm sạch lông, và các liệu pháp khử trùng chuyên sâu. Chúng tôi đảm bảo mang lại sự thoải mái và thư giãn tối ưu cho thú cưng của bạn.",
+    "image": "/images/pomy-service-3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "tiêm vaccine, xổ giun",
+    "subtitle": "Dịch vụ tiêm vaccine, xổ giun",
+    "description": "Đừng để các bệnh tật tiềm ẩn làm ảnh hưởng đến sức khỏe thú cưng của bạn. Chúng tôi cung cấp các liệu trình tiêm vaccine và xổ giun chuyên nghiệp, đảm bảo an toàn tuyệt đối với quy trình đạt chuẩn. Hãy để chúng tôi đồng hành trong việc bảo vệ thú cưng của bạn khỏi các nguy cơ bệnh tật.",
+    "image": "/images/tiem-vaccine-cho-cho.jpg"
+  }
+]

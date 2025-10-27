@@ -1,8 +1,29 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import statsData from "@/data/statistics-secondary.json";
+
+type StatsData = {
+  heading?: string;
+  intro?: string;
+  values: {
+    petsCared: number;
+    happyClients: number;
+    servicesOffered: number;
+    yearsExperience: number;
+  };
+  labels: {
+    petsCared: string;
+    happyClients: string;
+    servicesOffered: string;
+    yearsExperience: string;
+  };
+  image: { src: string; alt: string };
+};
+
+const data: StatsData = statsData as StatsData;
 
 function StatisticSecondary() {
   const [stats, setStats] = useState({
@@ -27,10 +48,11 @@ function StatisticSecondary() {
   };
 
   const handleAnimationStart = () => {
-    animateNumber(1000, "petsCared");
-    animateNumber(800, "happyClients");
-    animateNumber(100, "servicesOffered");
-    animateNumber(500, "yearsExperience");
+    const values = data.values;
+    animateNumber(values.petsCared, "petsCared");
+    animateNumber(values.happyClients, "happyClients");
+    animateNumber(values.servicesOffered, "servicesOffered");
+    animateNumber(values.yearsExperience, "yearsExperience");
   };
 
   const cardVariant = {
@@ -72,11 +94,11 @@ function StatisticSecondary() {
             viewport={{ once: true, amount: 0.5 }}
           >
             <h1 className="sm:text-4xl text-3xl font-extrabold title-font mb-4 text-pink-500">
-              Thành Tựu Của Chúng Tôi
+              {data.heading || "Thành Tựu Của Chúng Tôi"}
             </h1>
             <p className="leading-relaxed text-lg text-gray-600">
-              Chúng tôi tự hào đã mang lại sự hài lòng và chăm sóc tận tình cho
-              hàng nghìn khách hàng và thú cưng.
+              {data.intro ||
+                "Chúng tôi tự hào đã mang lại sự hài lòng và chăm sóc tận tình cho hàng nghìn khách hàng và thú cưng."}
             </p>
           </motion.div>
 
@@ -96,7 +118,7 @@ function StatisticSecondary() {
                 {stats.petsCared}+
               </h2>
               <p className="leading-relaxed text-sm md:text-md text-gray-600">
-                Thú cưng đã chăm sóc
+                {data.labels.petsCared}
               </p>
             </motion.div>
             <motion.div
@@ -107,7 +129,7 @@ function StatisticSecondary() {
                 {stats.happyClients}+
               </h2>
               <p className="leading-relaxed text-sm md:text-md text-gray-600">
-                Số lượng đánh giá 5 sao
+                {data.labels.happyClients}
               </p>
             </motion.div>
             <motion.div
@@ -118,8 +140,7 @@ function StatisticSecondary() {
                 {stats.servicesOffered}+
               </h2>
               <p className="leading-relaxed text-sm md:text-md text-gray-600">
-                {" "}
-                Đặt lịch hàng ngày
+                {data.labels.servicesOffered}
               </p>
             </motion.div>
             <motion.div
@@ -130,7 +151,7 @@ function StatisticSecondary() {
                 {stats.yearsExperience}+
               </h2>
               <p className="leading-relaxed text-sm md:text-md text-gray-600">
-                Sự kiện cho thú cưng
+                {data.labels.yearsExperience}
               </p>
             </motion.div>
           </motion.div>
@@ -145,8 +166,8 @@ function StatisticSecondary() {
         >
           <Image
             className="object-cover object-center w-full h-full"
-            src="/images/pomy-petshop-12.jpeg"
-            alt="cat-tia-ve-sinh-khach-san-thu-cung"
+            src={data.image.src}
+            alt={data.image.alt}
             width={600}
             height={300}
             layout="responsive"

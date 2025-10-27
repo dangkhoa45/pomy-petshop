@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useSwipeable } from "react-swipeable";
+import testimonialsData from "@/data/testimonials.json";
 
 interface Testimonial {
   id: number;
@@ -13,49 +14,7 @@ interface Testimonial {
   message: string;
   image: string;
 }
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Nguyễn Thị Mai",
-    role: "Chủ nhân của Bông (Cún Cưng)",
-    message:
-      "Tôi thật sự hài lòng với dịch vụ tại Pomy Petshop. Các bạn nhân viên rất tận tâm và chuyên nghiệp. Bông nhà tôi luôn vui vẻ và sạch sẽ mỗi khi trở về. Cảm ơn các bạn rất nhiều!",
-    image: `https://i.pravatar.cc/150?img=1`,
-  },
-  {
-    id: 2,
-    name: "Phạm Văn Tú",
-    role: "Chủ nhân của Miu (Mèo Cưng)",
-    message:
-      "Dịch vụ ở đây rất tuyệt vời! Miu nhà tôi thường rất nhát người, nhưng các bạn đã chăm sóc rất nhẹ nhàng và chu đáo. Tôi sẽ giới thiệu Pomy Petshop cho tất cả bạn bè của mình.",
-    image: `https://i.pravatar.cc/150?img=2`,
-  },
-  {
-    id: 3,
-    name: "Lê Minh Huy",
-    role: "Chủ nhân của Béo (Cún Cưng)",
-    message:
-      "Pomy Petshop không chỉ là nơi chăm sóc thú cưng mà còn là nơi tôi hoàn toàn tin tưởng. Đội ngũ rất nhiệt tình, tư vấn cẩn thận. Béo nhà tôi lúc nào cũng sạch sẽ và thơm tho. Rất đáng để trải nghiệm!",
-    image: `https://i.pravatar.cc/150?img=3`,
-  },
-  {
-    id: 4,
-    name: "Trần Thị Hoa",
-    role: "Chủ nhân của Mimi (Mèo Cưng)",
-    message:
-      "Mimi rất kén chọn nhưng khi đến Pomy Petshop, tôi cảm thấy yên tâm vì cách chăm sóc chu đáo. Mỗi lần trở về, Mimi đều vui vẻ hơn. Cảm ơn các bạn rất nhiều!",
-    image: `https://i.pravatar.cc/150?img=4`,
-  },
-  {
-    id: 5,
-    name: "Hoàng Văn Sơn",
-    role: "Chủ nhân của Lu (Chó Pug)",
-    message:
-      "Tôi đã thử nhiều nơi nhưng Pomy Petshop là địa chỉ duy nhất mà tôi hoàn toàn tin tưởng. Lu luôn sạch sẽ và thơm tho khi tôi đón về.",
-    image: `https://i.pravatar.cc/150?img=5`,
-  },
-];
+const testimonials: Testimonial[] = testimonialsData as Testimonial[];
 
 function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0);

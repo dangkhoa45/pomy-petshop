@@ -1,0 +1,20 @@
+{
+  "heading": "Thành Tựu Của Chúng Tôi",
+  "intro": "Chúng tôi tự hào đã mang lại sự hài lòng và chăm sóc tận tình cho hàng nghìn khách hàng và thú cưng.",
+  "values": {
+    "petsCared": 1000,
+    "happyClients": 800,
+    "servicesOffered": 100,
+    "yearsExperience": 500
+  },
+  "labels": {
+    "petsCared": "Thú cưng đã chăm sóc",
+    "happyClients": "Số lượng đánh giá 5 sao",
+    "servicesOffered": "Đặt lịch hàng ngày",
+    "yearsExperience": "Sự kiện cho thú cưng"
+  },
+  "image": {
+    "src": "/images/pomy-petshop-12.jpeg",
+    "alt": "cat-tia-ve-sinh-khach-san-thu-cung"
+  }
+}

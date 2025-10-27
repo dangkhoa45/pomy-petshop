@@ -1,0 +1,48 @@
+{
+  "header": {
+    "title": "Bảng giá dịch vụ tắm vệ sinh, cạo cắt và tỉa lông cho chó mèo",
+    "intro": "Bảng giá đã bao gồm đầy đủ các quy trình spa tại POMY petshop. Dịch vụ có thể phát sinh thêm phụ phí theo yêu cầu thêm của Khách hàng."
+  },
+  "sections": [
+    {
+      "title": "1. Kiểm tra và tắm vệ sinh sạch sẽ",
+      "items": [
+        "Bé yêu sẽ được kiểm tra da và lông kỹ lưỡng, giúp phát hiện sớm các vấn đề như viêm da, nấm hay ký sinh trùng.",
+        "Tắm thư giãn với sữa tắm an toàn, giúp làm sạch mọi vết bẩn và mang lại cảm giác sảng khoái.",
+        "Vệ sinh chuyên sâu những vùng nhạy cảm như hậu môn và tuyến mùi để bé luôn thơm tho, dễ chịu."
+      ]
+    },
+    {
+      "title": "2. Sấy khô và vệ sinh chi tiết",
+      "items": [
+        "Sấy khô toàn bộ lông, giúp bé không chỉ sạch mà còn có bộ lông mềm mượt như nhung.",
+        "Làm sạch kỹ lưỡng tai và lòng bàn chân, loại bỏ bụi bẩn và vi khuẩn để bé luôn khỏe mạnh.",
+        "Cắt tỉa móng cẩn thận, vừa an toàn vừa giúp bé tự tin tung tăng khắp nơi."
+      ]
+    },
+    {
+      "title": "3. Cắt tỉa lông – Bé yêu, phong cách yêu!",
+      "items": [
+        "Chải chuốt, gỡ rối những phần lông khó chịu để bé thoải mái hơn.",
+        "Tạo kiểu lông theo ý thích, từ dễ thương đáng yêu đến phong cách cá tính, giúp bé 'nổi bật trong mọi ánh nhìn'.",
+        "Vệ sinh vùng nhạy cảm, đảm bảo bé luôn gọn gàng, sạch sẽ và tự tin."
+      ]
+    },
+    {
+      "title": "4. Dưỡng lông – Hoàn hảo từng sợi lông",
+      "items": [
+        "Thoa kem dưỡng đặc biệt để lông của bé mềm mại, óng ả và khỏe mạnh.",
+        "Xịt nước hoa cao cấp dành riêng cho thú cưng, mang đến hương thơm dễ chịu kéo dài cả tuần.",
+        "Dịch vụ nhuộm lông độc đáo theo yêu cầu, tạo nét riêng cho bé yêu."
+      ]
+    }
+  ],
+  "image": {
+    "src": "/images/pomy-service-1.jpg",
+    "alt": "Dịch vụ cắt tỉa thú cưng và vệ sinh Pomy Petshop"
+  },
+  "caption": {
+    "line1": "Hình ảnh dịch vụ cắt tỉa và vệ sinh tại POMY petshop",
+    "line2": "31 Phú Lợi - Sóc Trăng"
+  }
+}

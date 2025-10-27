@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import data from "@/data/question-service.json";
+import data from "@/data/services/faq/question-service.json";
 
 function QuestionService() {
   return (

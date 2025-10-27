@@ -2,8 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import gallery from "@/data/gallery-images.json";
-import copy from "@/data/feature-service.json";
+import gallery from "@/data/content/gallery-images.json";
+import copy from "@/data/services/features/feature-service.json";
 import { BUSINESS_INFO } from "@/shared/constants";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";

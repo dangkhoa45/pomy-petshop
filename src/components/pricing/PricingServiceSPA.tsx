@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import pricingSpa from "@/data/pricing-spa.json";
+import pricingSpa from "@/data/services/pricing/pricing-spa.json";
 
 function PricingServiceSPA() {
   const [isModalOpen, setIsModalOpen] = useState(false);

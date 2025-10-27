@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import data from "@/data/question-section.json";
+import data from "@/data/content/question-section.json";
 
 function QuestionSection() {
   const [isOpen, setIsOpen] = useState(false);

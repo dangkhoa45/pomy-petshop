@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import pricingHotel from "@/data/pricing-hotel.json";
+import pricingHotel from "@/data/services/pricing/pricing-hotel.json";
 
 // images data comes from JSON; no local interface needed
 

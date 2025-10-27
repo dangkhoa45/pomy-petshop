@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import heroImages from "@/data/hero-images.json";
+import heroImages from "@/data/content/hero-images.json";
 type HeroImage = { id: number; image: string; alt: string };
 const HeroImages: HeroImage[] = heroImages as HeroImage[];
 

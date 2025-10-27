@@ -3,10 +3,10 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://pomypetshopsoctrang.com";
 
 // Centralized data imports (JSON)
-import business from "@/data/business.json";
-import navLinks from "@/data/nav-links.json";
-import statistics from "@/data/statistics.json";
-import services from "@/data/services.json";
+import business from "@/data/business/business.json";
+import navLinks from "@/data/business/nav-links.json";
+import statistics from "@/data/statistics/statistics.json";
+import services from "@/data/services/services.json";
 
 // Business Information Constants (from JSON)
 export const BUSINESS_INFO = business as {

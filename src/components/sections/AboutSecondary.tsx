@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import data from "@/data/about-secondary.json";
+import data from "@/data/about/about-secondary.json";
 
 export default function AboutSecondary() {
   const router = useRouter();

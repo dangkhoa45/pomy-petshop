@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/shared/constants";
 import type { Metadata } from "next";
-import routeMeta from "@/data/meta-contact.json";
+import routeMeta from "@/data/seo/meta-contact.json";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -7,7 +7,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import gallery from "@/data/gallery-images.json";
+import gallery from "@/data/content/gallery-images.json";
 
 export interface GalleryImage {
   src: string;

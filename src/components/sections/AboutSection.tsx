@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { fadeInRight, scaleIn, buttonVariant } from "@/shared/animations";
-import data from "@/data/about-section.json";
+import data from "@/data/about/about-section.json";
 
 export default function AboutSection() {
   const router = useRouter();

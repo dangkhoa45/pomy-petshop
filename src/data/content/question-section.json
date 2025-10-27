@@ -1,0 +1,24 @@
+{
+  "headingPrefix": "Lý do",
+  "heading": "Tại sao nên chọn POMY Petshop?",
+  "tagline": "Chúng tôi cam kết mang lại sự chăm sóc tốt nhất cho thú cưng của bạn.",
+  "reasons": [
+    {
+      "title": "Chăm sóc tận tâm và chu đáo",
+      "body": "Pomy Petshop luôn đặt sức khỏe và hạnh phúc của thú cưng lên hàng đầu, mang đến sự yên tâm và tin tưởng tuyệt đối cho bạn.",
+      "link": "https://www.facebook.com/PetshopPomy"
+    },
+    {
+      "title": "Đội ngũ giàu kinh nghiệm",
+      "body": "Với đội ngũ bác sĩ thú y chuyên nghiệp và tận tâm, chúng tôi cam kết mang lại sự chăm sóc tốt nhất cho thú cưng của bạn."
+    },
+    {
+      "title": "Trang thiết bị hiện đại",
+      "body": "Phòng khám được trang bị các thiết bị y tế tiên tiến, đảm bảo chẩn đoán chính xác và điều trị hiệu quả."
+    }
+  ],
+  "image": {
+    "src": "/images/pomy-petshop-1.jpg",
+    "alt": "pomy-petshop"
+  }
+}

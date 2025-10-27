@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import contactData from "@/data/contact-section.json";
+import contactData from "@/data/contact/contact-section.json";
 
 interface FormData {
   fullName: string;

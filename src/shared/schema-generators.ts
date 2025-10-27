@@ -1,24 +1,19 @@
 // JSON-LD Schema Generator for various page types
-import { SITE_URL } from "./constants";
+import { BUSINESS_INFO, SITE_URL, SOCIAL_MEDIA } from "./constants";
 
 export const generateLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": ["PetStore", "LocalBusiness"],
-  "name": "POMY PETSHOP",
+  "name": BUSINESS_INFO.name,
   "image": [
-    `${SITE_URL}/images/pomy-petshop-logo.jpg`,
-    `${SITE_URL}/images/cua-hang-pomy-petshop-1.jpg`,
-    `${SITE_URL}/images/cua-hang-pomy-petshop-2.jpg`
+    `${SITE_URL}${BUSINESS_INFO.logo}`
   ],
   "url": SITE_URL,
-  "telephone": "+84-070-803-9333",
-  "email": "tust3000@gmail.com",
+  "telephone": BUSINESS_INFO.phone,
+  "email": BUSINESS_INFO.email,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "31 Phú Lợi",
-    "addressLocality": "Sóc Trăng",
-    "addressRegion": "Sóc Trăng",
-    "postalCode": "95000",
+    "streetAddress": BUSINESS_INFO.address,
     "addressCountry": "VN"
   },
   "geo": {
@@ -108,8 +103,7 @@ export const generateLocalBusinessSchema = () => ({
 export const generateWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "POMY PETSHOP",
-  "alternateName": "Pomy Petshop Sóc Trăng",
+  "name": BUSINESS_INFO.name,
   "url": SITE_URL,
   "potentialAction": {
     "@type": "SearchAction",
@@ -117,7 +111,7 @@ export const generateWebsiteSchema = () => ({
     "query-input": "required name=search_term_string"
   },
   "sameAs": [
-    "https://www.facebook.com/pomypetshopsoctrang"
+    SOCIAL_MEDIA.facebook.url
   ]
 });
 
@@ -128,7 +122,7 @@ export const generateServiceSchema = (serviceName: string, description: string, 
   "description": description,
   "provider": {
     "@type": "Organization",
-    "name": "POMY PETSHOP",
+    "name": BUSINESS_INFO.name,
     "url": SITE_URL
   },
   "areaServed": {

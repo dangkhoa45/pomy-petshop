@@ -6,7 +6,7 @@ Tài liệu quản lý công việc, roadmap và tiến độ cho POMY PETSHOP.
 
 - Kiến trúc Next.js 15 App Router hoàn chỉnh (layout, metadata, các route cơ bản).
 - Component chính: Header, Footer, Hero, About, Services, FAQ, Stats, ContactForm, Testimonials, Gallery.
-- SEO kỹ thuật: Metadata per-route, OG/Twitter, robots, sitemap (App Router). Schemas đã có file nhưng chưa inject.
+- SEO kỹ thuật: Metadata per-route (nguồn từ `src/data/seo/*.json`), OG/Twitter, robots, sitemap (App Router). JSON-LD đã inject site-wide (LocalBusiness/WebSite) ở RootLayout.
 - Hiệu năng: Terser + splitChunks, Image optimization, headers cache ảnh, optimizeCss.
 
 ## 2) Mốc (Milestones)
@@ -33,7 +33,7 @@ Tài liệu quản lý công việc, roadmap và tiến độ cho POMY PETSHOP.
 
 ### SEO & Analytics
 
-- [ ] Inject JSON-LD (Organization/PetStore/Service/FAQ/Breadcrumb) vào các trang tương ứng.
+- [ ] Inject JSON-LD bổ sung (Service/FAQ/Breadcrumb) ở các trang tương ứng. (LocalBusiness/WebSite đã có ở RootLayout.)
 - [ ] Kiểm tra Rich Results; xử lý cảnh báo.
 - [ ] Theo dõi sự kiện (CTA click, form submit) qua Vercel Analytics/GA4.
 - [ ] Cân nhắc bật script `next-sitemap` (build-time) hoặc giữ App Router approach hiện tại.
@@ -82,4 +82,4 @@ Tài liệu quản lý công việc, roadmap và tiến độ cho POMY PETSHOP.
 
 - Mã nguồn: `src/app`, `src/components`, `src/shared`.
 - Cấu hình: `next.config.ts`, `tsconfig.json`, `tailwind.config.ts`, `eslint.config.mjs`.
-- SEO schemas: `src/shared/schema.ts`, `src/shared/schema-generators.ts`.
+- SEO schemas: `src/shared/schema.ts`, `src/shared/schema-generators.ts`. Metadata JSON: `src/data/seo/`. Data guide: `docs/data.md`.

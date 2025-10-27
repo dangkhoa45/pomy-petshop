@@ -64,7 +64,7 @@ Nguyên tắc dựng component:
 - Heading hierarchy: 1 H1/trang, tiếp theo H2/H3 logic.
 - Meta title/description ngắn gọn, có từ khoá địa phương (Sóc Trăng).
 - Liên kết nội bộ giữa các trang dịch vụ.
-- Structured data: đã chuẩn bị sẵn trong `src/shared/schema*.ts` nhưng chưa được render ra DOM; đề xuất inject bằng `<script type="application/ld+json">` ở layout/route tương ứng.
+- Structured data: ĐÃ inject JSON-LD ở RootLayout cho LocalBusiness (PetStore) và WebSite thông qua `<script type="application/ld+json">` (xem `src/app/layout.tsx`). Có sẵn generator cho Service/FAQ/Breadcrumb trong `src/shared/schema-generators.ts`; có thể inject bổ sung tại layout của route tương ứng khi cần.
 
 ## 7. Accessibility (a11y)
 
@@ -91,4 +91,10 @@ Nguyên tắc dựng component:
 - Kiểm tra trên Chrome, Safari, Firefox (desktop/mobile).
 - Kiểm tra thực tế trên thiết bị Android/iOS phổ biến.
 - Dùng Lighthouse/Axe để rà soát performance & a11y.
-- Lưu ý: Mã hiện có chặn right-click và một số tổ hợp phím (F12, Ctrl+Shift+I/C, Ctrl+U) ở các trang; cân nhắc tắt khi kiểm thử a11y để không ảnh hưởng trải nghiệm.
+- Lưu ý: Nếu có logic chặn right-click và một số tổ hợp phím (F12, Ctrl+Shift+I/C, Ctrl+U), cân nhắc tắt khi kiểm thử a11y để không ảnh hưởng trải nghiệm.
+
+## 11. Dữ liệu UI (data-driven)
+
+- Nội dung UI đã được chuyển hoá sang JSON theo nhóm mục đích tại `src/data/*` (seo, business, services, content, about, contact, statistics).
+- Component chỉ đọc dữ liệu từ JSON (không hard-code), giúp bảo trì và tái sử dụng dễ dàng.
+- Quy ước và chi tiết xem thêm: `docs/data.md`.

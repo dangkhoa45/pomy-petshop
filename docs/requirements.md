@@ -20,7 +20,7 @@ Tài liệu mô tả mục tiêu, phạm vi và yêu cầu của POMY PETSHOP th
 ## 3) Yêu cầu chức năng (đã triển khai)
 
 - App Router Next.js 15 tại `src/app` cho các route `/`, `/about`, `/services`, `/contact`.
-- Metadata tập trung trong `src/app/layout.tsx` và từng `layout.tsx` của route con.
+- Metadata tập trung trong `src/app/layout.tsx` và từng `layout.tsx` của route con, nguồn dữ liệu được chuẩn hoá qua JSON tại `src/data/seo/*.json`.
 - Sitemap `app/sitemap.ts` và robots `app/robots.ts` trả về cấu trúc chuẩn Next (không dùng script ngoài).
 - Tối ưu ảnh bằng Next/Image; domain allowlist cấu hình trong `next.config.ts`.
 - Contact form phía client có validate cơ bản (độ dài/số điện thoại) và thông báo trạng thái.
@@ -29,7 +29,7 @@ Tài liệu mô tả mục tiêu, phạm vi và yêu cầu của POMY PETSHOP th
 
 ## 4) Yêu cầu phi chức năng
 
-- SEO: metadata, canonical, OpenGraph, Twitter; JSON-LD schemas đã có sẵn trong `src/shared/schema*.ts` nhưng chưa được inject vào DOM.
+- SEO: metadata, canonical, OpenGraph, Twitter; JSON-LD đã được INJECT mức site-wide cho LocalBusiness (PetStore) và WebSite tại `src/app/layout.tsx`. Generator cho Service/FAQ/Breadcrumb có trong `src/shared/schema-generators.ts` để mở rộng ở route cần thiết.
 - Hiệu năng: bật `optimizeCss`, `optimizePackageImports` (framer-motion, swiper), loại bỏ console/debugger, cache ảnh lâu dài.
 - Header bảo mật: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy.
 - A11y: sử dụng ngôn ngữ `lang="vi"`, heading rõ ràng, aria-label cho Header/Footer; lưu ý hiện trang có chặn context menu và một số tổ hợp phím (ảnh hưởng UX/a11y — nên cân nhắc bỏ ở backlog).
@@ -47,14 +47,14 @@ Tài liệu mô tả mục tiêu, phạm vi và yêu cầu của POMY PETSHOP th
 
 - Build production không lỗi TypeScript; ESLint pass.
 - Sitemap và robots hoạt động đúng tại `/sitemap.xml`, `/robots.txt` (App Router).
-- OG/Twitter/robots/metadata hiển thị đúng trên mỗi trang theo layout.
+- OG/Twitter/robots/metadata hiển thị đúng trên mỗi trang theo layout, nguồn từ `src/data/seo/*.json`.
 - UI responsive, không vỡ layout ở breakpoint chính; form validate hoạt động.
 
 ## 7) Hướng mở rộng (Backlog ưu tiên)
 
 - Trang chi tiết dịch vụ (service detail) + nội dung SEO, bảng giá chi tiết.
 - API route xử lý form liên hệ, tích hợp Resend/SendGrid/Zalo/Facebook; chống spam (reCAPTCHA, rate-limit, honeypot).
-- Inject JSON-LD schemas vào các trang (Organization/PetStore/Service/FAQ/Breadcrumb).
+- Inject JSON-LD bổ sung tại các trang (Service/FAQ/Breadcrumb) ngoài LocalBusiness/WebSite đã có ở RootLayout.
 - Bật và cấu hình `next-sitemap` (script build) nếu muốn xuất file tĩnh song song với App Router, hoặc giữ nguyên cách hiện tại.
 - i18n đa ngôn ngữ (vi, en) — đã có alternates/canonical cơ bản.
 - Bổ sung Prettier và/hoặc áp dụng `@tailwindcss/typography` nơi cần thiết.

@@ -1,12 +1,13 @@
-"use client"
-import AboutSection from "@/components/AboutSection";
-import ContactForm from "@/components/ContactForm";
-import GallerySection from "@/components/GallerySection";
-import HeroSection from "@/components/HeroSection";
-import QuestionSection from "@/components/QuestionSection";
-import ServiceSection from "@/components/ServiceSection";
-import StatisticSection from "@/components/StatisticSection";
-import TestimonialSection from "@/components/TestimonialSection";
+"use client";
+import {
+  AboutSection,
+  GallerySection,
+  HeroSection,
+  ServiceSection,
+  StatisticSection,
+  TestimonialSection,
+} from "@/components/sections";
+import { ContactForm, QuestionSection } from "@/components/features";
 import { useEffect } from "react";
 
 export default function Home() {

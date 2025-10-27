@@ -1,9 +1,7 @@
-"use client"
-import CTA from "@/components/CTA-SPA";
-import FeatureService from "@/components/FeatureService";
-import PricingServiceHotel from "@/components/PricingServiceHotel";
-import PricingServiceSPA from "@/components/PricingServiceSPA";
-import QuestionService from "@/components/QuestionService";
+"use client";
+import { CTA } from "@/components/shared";
+import { FeatureService, QuestionService } from "@/components/features";
+import { PricingServiceHotel, PricingServiceSPA } from "@/components/pricing";
 import { useEffect } from "react";
 
 function ServicePage() {

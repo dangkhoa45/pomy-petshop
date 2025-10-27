@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Swiper CSS - Import globally once */
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 :root {
   --font-heading: "Gluten", "Arial", sans-serif;
   --font-body: "Gluten", "Roboto", sans-serif;

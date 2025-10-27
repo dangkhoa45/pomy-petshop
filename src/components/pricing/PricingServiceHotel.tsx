@@ -1,14 +1,10 @@
-"use client"
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 interface ImageObject {
   src: string;
@@ -101,7 +97,7 @@ const HotelImage: React.FC<{ openModal: (index: number) => void }> = ({
     initial={{ scale: 0.9, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 1, ease: "easeOut" }}
-    whileHover={{ scale: 1.05 }} 
+    whileHover={{ scale: 1.05 }}
     onClick={() => openModal(0)}
   >
     <div className="relative w-[400px] h-[640px] m-2">
@@ -148,7 +144,7 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
           className="relative w-full h-[200px] rounded-lg shadow-md overflow-hidden cursor-pointer"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }} 
+          whileHover={{ scale: 1.05 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: index * 0.2 }}
           onClick={() => openModal(index + 1)}

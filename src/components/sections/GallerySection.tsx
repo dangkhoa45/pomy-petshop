@@ -1,15 +1,54 @@
-"use client"
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
-import Typical from "react-typical";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { galleryImages } from "./GallerySection";
 
-const FeatureService = () => {
+export interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+export const galleryImages: GalleryImage[] = [
+  {
+    src: "/images/pomy-petshop-4.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-5.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-6.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-7.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-8.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-9.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-10.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+  {
+    src: "/images/pomy-petshop-11.jpeg",
+    alt: "cat-tia-ve-sinh-khach-san-thu-cung",
+  },
+];
+
+const GallerySection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const handleNextImage = () => {
@@ -37,36 +76,17 @@ const FeatureService = () => {
   });
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="text-gray-600 body-font"
-    >
-      <div className="container px-5 py-8 mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
-          <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-600 font-poppins">
-            Dịch vụ spa - hotel chuyên nghiệp cho thú cưng tại
-            <br />
-            <span className="text-2xl md:text-4xl font-bold">
-              <Typical
-                steps={["POMY Petshop", 1500, "31 Phú Lợi - Sóc Trăng", 1500]}
-                loop={Infinity}
-                wrapper="span"
-              />
-            </span>
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-12 mx-auto">
+        <div className="flex flex-col text-center w-full mb-8">
+          <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-pink-500">
+            Bộ Sưu Tập Hình Ảnh
           </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            Chúng tôi cung cấp các dịch vụ cắt tỉa, vệ sinh, và khách sạn thú
-            cưng chuyên nghiệp, giúp thú cưng của bạn luôn khỏe mạnh và đáng
-            yêu. Hãy để chúng tôi chăm sóc người bạn bốn chân của bạn.
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
+            Xem lại những khoảnh khắc và không gian tuyệt vời qua bộ sưu tập ảnh
+            của chúng tôi.
           </p>
-        </motion.div>
+        </div>
 
         <Swiper
           modules={[Navigation, Autoplay]}
@@ -95,12 +115,16 @@ const FeatureService = () => {
                   width={500}
                   height={300}
                   className="object-cover"
+                  priority={index === 0}
+                  quality={80}
+                  loading={index === 0 ? undefined : "lazy"}
                 />
               </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+
       {selectedIndex !== null && (
         <div
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
@@ -120,6 +144,8 @@ const FeatureService = () => {
               width={800}
               height={500}
               className="rounded-lg"
+              quality={80}
+              loading="lazy"
             />
             <button
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-600 rounded-full p-2"
@@ -136,8 +162,8 @@ const FeatureService = () => {
           </motion.div>
         </div>
       )}
-    </motion.section>
+    </section>
   );
 };
 
-export default FeatureService;
+export default GallerySection;

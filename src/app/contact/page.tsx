@@ -1,5 +1,5 @@
-"use client"
-import ContactSection from "@/components/ContactSection";
+"use client";
+import { ContactSection } from "@/components/sections";
 import { useEffect } from "react";
 
 function ContactPage() {

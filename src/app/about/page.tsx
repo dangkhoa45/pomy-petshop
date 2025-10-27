@@ -1,9 +1,11 @@
-"use client"
-import AboutSecondary from "@/components/AboutSecondary";
-import QuestionSection from "@/components/QuestionSection";
-import ServiceSection from "@/components/ServiceSection";
-import StatisticSecondary from "@/components/StatisticSecondary";
-import TestimonialSection from "@/components/TestimonialSection";
+"use client";
+import {
+  AboutSecondary,
+  ServiceSection,
+  StatisticSecondary,
+  TestimonialSection,
+} from "@/components/sections";
+import { QuestionSection } from "@/components/features";
 import { useEffect } from "react";
 
 function AboutPage() {

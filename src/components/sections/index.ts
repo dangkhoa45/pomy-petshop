@@ -1,0 +1,9 @@
+export { default as AboutSection } from "./AboutSection";
+export { default as AboutSecondary } from "./AboutSecondary";
+export { default as ContactSection } from "./ContactSection";
+export { default as GallerySection } from "./GallerySection";
+export { default as HeroSection } from "./HeroSection";
+export { default as ServiceSection } from "./ServiceSection";
+export { default as StatisticSection } from "./StatisticSection";
+export { default as StatisticSecondary } from "./StatisticSecondary";
+export { default as TestimonialSection } from "./TestimonialSection";

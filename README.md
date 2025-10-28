@@ -2,6 +2,11 @@
 
 POMY PETSHOP là website giới thiệu dịch vụ thú cưng tại Sóc Trăng, xây dựng bằng Next.js 15 (App Router) và TypeScript. Giao diện sử dụng Tailwind CSS và hoạt ảnh với Framer Motion, hỗ trợ trình chiếu ảnh bằng Swiper. Nội dung được quản lý tập trung bằng các tệp JSON trong `src/data` (SEO, thông tin doanh nghiệp, danh mục dịch vụ, bảng giá, FAQ, hình ảnh, v.v.), giúp dễ bảo trì và mở rộng.
 
+## 🌐 Deployment Links
+
+- 🟢 **Production:** [https://pomypetshopsoctrang.vercel.app](https://pomypetshopsoctrang.vercel.app)
+- 🧪 **Testing/Staging:** [https://testing-pomy-petshopsoctrang.vercel.app](https://testing-pomy-petshopsoctrang.vercel.app)
+
 - Công nghệ chính: Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion, Swiper, React Icons.
 - Phân tích/đo hiệu năng: Vercel Analytics và Speed Insights được tích hợp trong layout.
 - SEO & Sitemap: Sử dụng Next Metadata, chèn JSON-LD (LocalBusiness, WebSite, Service, FAQ, Article) qua `schema-generators`, cấu hình `robots.txt`/`sitemap.xml` động và `next-sitemap` để sinh sitemap mở rộng.
@@ -17,7 +22,7 @@ POMY PETSHOP là website giới thiệu dịch vụ thú cưng tại Sóc Trăng
 
 Cấu trúc thư mục trọng tâm và chức năng chính của từng phần:
 
-```
+```text
 .
 ├─ eslint.config.mjs                  # Cấu hình ESLint
 ├─ next.config.ts                     # Cấu hình Next.js: ảnh, headers, tối ưu build, redirects

@@ -1,7 +1,9 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
 import data from "@/data/content/question-section.json";
 
 function QuestionSection() {

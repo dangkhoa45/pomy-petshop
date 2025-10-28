@@ -1,10 +1,12 @@
-"use client"
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaAngleRight, FaFacebook, FaHome, FaPhoneAlt } from "react-icons/fa";
+
 import { BUSINESS_INFO, NAV_LINKS, SERVICES } from "@/shared/constants";
 
 function Footer() {
@@ -76,7 +78,10 @@ function Footer() {
           <h3 className="text-lg font-semibold text-pink-500">Về chúng tôi</h3>
           <ul className="list-none space-y-2">
             {NAV_LINKS.map(({ path, label }, index) => (
-              <li key={index} className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300">
+              <li
+                key={index}
+                className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300"
+              >
                 <FaAngleRight className="mr-2" />
                 <Link href={path}>{label}</Link>
               </li>
@@ -95,7 +100,10 @@ function Footer() {
           </h3>
           <ul className="list-none space-y-2">
             {SERVICES.map((service, index) => (
-              <li key={index} className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300 italic">
+              <li
+                key={index}
+                className="flex items-center text-gray-600 hover:text-pink-500 transition duration-300 italic"
+              >
                 <FaAngleRight className="mr-2" />{" "}
                 <Link href="/services">{service}</Link>
               </li>
@@ -111,17 +119,19 @@ function Footer() {
           <h3 className="text-lg font-semibold text-pink-500">Liên hệ</h3>
           <p className="text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <FaHome className="mr-2" />
-            <Link href={BUSINESS_INFO.mapsUrl}>
-              {BUSINESS_INFO.address}
-            </Link>
+            <Link href={BUSINESS_INFO.mapsUrl}>{BUSINESS_INFO.address}</Link>
           </p>
           <p className="text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <FaPhoneAlt className="mr-2" />
-            <Link href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}>{BUSINESS_INFO.phone}</Link>
+            <Link href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, "")}`}>
+              {BUSINESS_INFO.phone}
+            </Link>
           </p>
           <p className=" text-sm hover:text-pink-500 text-gray-600 flex items-center italic">
             <BiLogoGmail className="mr-2" />
-            <Link href={`mailto:${BUSINESS_INFO.email}`}>{BUSINESS_INFO.email}</Link>
+            <Link href={`mailto:${BUSINESS_INFO.email}`}>
+              {BUSINESS_INFO.email}
+            </Link>
           </p>
           <div
             className="fb-page"
@@ -138,9 +148,7 @@ function Footer() {
               cite={BUSINESS_INFO.facebook}
               className="fb-xfbml-parse-ignore "
             >
-              <a href={BUSINESS_INFO.facebook}>
-                {BUSINESS_INFO.name} Fanpage
-              </a>
+              <a href={BUSINESS_INFO.facebook}>{BUSINESS_INFO.name} Fanpage</a>
             </blockquote>
           </div>
         </motion.div>

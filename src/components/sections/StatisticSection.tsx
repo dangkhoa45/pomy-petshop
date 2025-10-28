@@ -1,11 +1,14 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
+
 import CalendarIcon from "@public/icons/CalendarIcon";
 import EventIcon from "@public/icons/EventIcon";
 import PetsCared from "@public/icons/PetsCared";
 import StartIcon from "@public/icons/StartIcon";
-import { fadeInUp, fadeInRight, staggerContainer } from "@/shared/animations";
+
+import { fadeInRight, fadeInUp, staggerContainer } from "@/shared/animations";
 import { STATISTICS } from "@/shared/constants";
 
 function StatisticSection() {

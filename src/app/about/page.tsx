@@ -1,12 +1,14 @@
 "use client";
+
+import { useEffect } from "react";
+
+import { QuestionSection } from "@/components/features";
 import {
   AboutSecondary,
   ServiceSection,
   StatisticSecondary,
   TestimonialSection,
 } from "@/components/sections";
-import { QuestionSection } from "@/components/features";
-import { useEffect } from "react";
 
 function AboutPage() {
   useEffect(() => {

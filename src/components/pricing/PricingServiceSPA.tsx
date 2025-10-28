@@ -1,7 +1,9 @@
 "use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
 import pricingSpa from "@/data/services/pricing/pricing-spa.json";
 
 function PricingServiceSPA() {

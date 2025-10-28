@@ -1,6 +1,8 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
+
 import cta from "@/data/content/cta/cta-spa.json";
 import { BUSINESS_INFO } from "@/shared/constants";
 

@@ -1,8 +1,10 @@
 "use client";
-import { CTA } from "@/components/shared";
+
+import { useEffect } from "react";
+
 import { FeatureService, QuestionService } from "@/components/features";
 import { PricingServiceHotel, PricingServiceSPA } from "@/components/pricing";
-import { useEffect } from "react";
+import { CTA } from "@/components/shared";
 
 function ServicePage() {
   useEffect(() => {

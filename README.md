@@ -1,17 +1,41 @@
 ## Project Overview
 
-POMY PETSHOP là website giới thiệu dịch vụ thú cưng tại Sóc Trăng, xây dựng bằng Next.js 15 (App Router) và TypeScript. Giao diện sử dụng Tailwind CSS và hoạt ảnh với Framer Motion, hỗ trợ trình chiếu ảnh bằng Swiper. Nội dung được quản lý tập trung bằng các tệp JSON trong `src/data` (SEO, thông tin doanh nghiệp, danh mục dịch vụ, bảng giá, FAQ, hình ảnh, v.v.), giúp dễ bảo trì và mở rộng.
+POMY PETSHOP là website giới thiệu dịch vụ thú cưng tại Sóc Trăng, xây dựng bằng Next.js 15 (App Router) và TypeScript.
 
-- Công nghệ chính: Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion, Swiper, React Icons.
-- Phân tích/đo hiệu năng: Vercel Analytics và Speed Insights được tích hợp trong layout.
-- SEO & Sitemap: Sử dụng Next Metadata, chèn JSON-LD (LocalBusiness, WebSite, Service, FAQ, Article) qua `schema-generators`, cấu hình `robots.txt`/`sitemap.xml` động và `next-sitemap` để sinh sitemap mở rộng.
-- Hiệu năng & bảo mật:
-  - Tối ưu ảnh (WebP/AVIF), cấu hình domain ảnh, TTL cache dài.
-  - Tối ưu build: Terser drop_console/mangle, splitChunks, optimizeCss, optimizePackageImports.
-  - Header bảo mật: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy.
-  - Redirect cố định: `/home`, `/index` → `/`.
-- Điều hướng & trang chính: Trang chủ `/`, Giới thiệu `/about`, Dịch vụ `/services`, Liên hệ `/contact`.
-- Trải nghiệm người dùng: Nhiều section động (Hero, Gallery, Testimonial...), nền gradient, một số phím tắt/chuột phải bị vô hiệu trên các trang client để hạn chế thao tác ngoài ý muốn.
+**🎉 CMS/Blog System đã được thêm vào!**
+
+Ngoài trang marketing ban đầu, hệ thống hiện đã tích hợp CMS/Blog hoàn chỉnh với:
+
+- ✅ Admin panel riêng biệt (`/admin`)
+- ✅ Quản lý bài viết với Markdown editor
+- ✅ Authentication & role-based access control (Supabase Auth)
+- ✅ Database với Drizzle ORM + PostgreSQL
+- ✅ Public blog (`/blog`) với SEO tối ưu
+- ✅ Dynamic sitemap & metadata
+- ✅ Image upload lên Supabase Storage
+
+### Tech Stack
+
+- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion
+- **CMS Backend**: Supabase Auth, Drizzle ORM, PostgreSQL
+- **Content**: Markdown với GitHub Flavored Markdown support
+- **SEO**: Dynamic metadata, structured data (Article schema), sitemap
+- **Analytics**: Vercel Analytics và Speed Insights
+
+### Tài liệu CMS
+
+📚 **[CMS Documentation](./docs/CMS_README.md)** - Hướng dẫn đầy đủ về CMS system  
+🚀 **[Quick Start Guide](./docs/QUICK_START.md)** - Setup CMS trong 10 phút  
+📊 **[Migration Guide](./docs/MIGRATION_GUIDE.md)** - Hướng dẫn database migration
+
+### Marketing Site Features
+
+Giao diện sử dụng Tailwind CSS và hoạt ảnh với Framer Motion, hỗ trợ trình chiếu ảnh bằng Swiper. Nội dung được quản lý tập trung bằng các tệp JSON trong `src/data`:
+
+- **SEO & Sitemap**: Next Metadata, JSON-LD (LocalBusiness, WebSite, Service, FAQ, Article), dynamic `robots.txt`/`sitemap.xml`
+- **Performance**: Tối ưu ảnh (WebP/AVIF), Terser minification, code splitting
+- **Security**: Security headers (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection)
+- **Pages**: Trang chủ `/`, Giới thiệu `/about`, Dịch vụ `/services`, Liên hệ `/contact`, Blog `/blog`
 
 ## Project Structure
 

@@ -1,4 +1,5 @@
 # Phase 1 Code Audit Report
+
 **POMY PETSHOP CMS/Blog System**
 
 ---
@@ -16,13 +17,13 @@
 
 ### ✅ Definition of Done Status
 
-| Tiêu Chí | Trạng Thái | Ghi Chú |
-|----------|-----------|---------|
-| `pnpm lint` | ✅ PASS | 0 errors, 0 warnings |
-| `pnpm tsc --noEmit` | ✅ PASS | 0 type errors |
-| `pnpm build` | ✅ PASS | Production build thành công |
-| `pnpm dev` | ✅ PASS | Dev server khởi động không lỗi |
-| Import aliases (@/) | ✅ PASS | Cấu hình đúng tsconfig.json |
+| Tiêu Chí            | Trạng Thái | Ghi Chú                           |
+| ------------------- | ---------- | --------------------------------- |
+| `pnpm lint`         | ✅ PASS    | 0 errors, 0 warnings              |
+| `pnpm tsc --noEmit` | ✅ PASS    | 0 type errors                     |
+| `pnpm build`        | ✅ PASS    | Production build thành công       |
+| `pnpm dev`          | ✅ PASS    | Dev server khởi động không lỗi    |
+| Import aliases (@/) | ✅ PASS    | Cấu hình đúng tsconfig.json       |
 | Route functionality | ⏳ PENDING | Cần manual test với database thật |
 
 ---
@@ -30,6 +31,7 @@
 ## 🔍 Lỗi Ban Đầu
 
 ### ESLint Errors (5 lỗi)
+
 1. **src/app/admin/posts/page.tsx** - Unused imports `FiEdit2`, `FiTrash2`
 2. **src/app/api/admin/posts/route.ts** - Unused variable `search`
 3. **src/app/api/admin/upload/route.ts** - Unused destructured variable `data`
@@ -37,13 +39,15 @@
 5. **src/components/admin/PostEditor.tsx** - Missing dependency `handleSave` trong useEffect
 
 ### ESLint Warnings (3 cảnh báo)
+
 1. **src/app/blog/page.tsx** - Sử dụng `<img>` thay vì Next.js `<Image>`
 2. **src/app/blog/[slug]/page.tsx** - Sử dụng `<img>` thay vì Next.js `<Image>`
 3. **src/components/admin/PostEditor.tsx** - React Hook useEffect dependency warning
 
 ### TypeScript Errors (3 lỗi)
-1. **src/lib/cms/__tests__/slug.test.ts** - Missing `vitest` type declarations
-2. **src/lib/cms/__tests__/markdown.test.ts** - Missing `vitest` type declarations
+
+1. **src/lib/cms/**tests**/slug.test.ts** - Missing `vitest` type declarations
+2. **src/lib/cms/**tests**/markdown.test.ts** - Missing `vitest` type declarations
 3. **src/lib/cms/markdown.ts** - Cannot find module `remark-parse`
 
 ---
@@ -53,24 +57,28 @@
 ### 1. Removed Unused Imports/Variables
 
 **File: src/app/admin/posts/page.tsx**
+
 ```diff
 - import { FiEdit2, FiTrash2 } from "react-icons/fi";
 + // Imports removed (not used in component)
 ```
 
 **File: src/app/api/admin/posts/route.ts**
+
 ```diff
 - const search = searchParams.get("search");
 + // Variable removed (not used)
 ```
 
 **File: src/app/api/admin/upload/route.ts**
+
 ```diff
 - const { data, error } = await supabase.storage
 + const { error } = await supabase.storage
 ```
 
 **File: src/lib/supabase/middleware.ts**
+
 ```diff
 - response.cookies.getAll().forEach((cookie) => {
 + response.cookies.getAll().forEach(({ name, value }) => {
@@ -83,6 +91,7 @@
 ### 2. Upgraded to Next.js Image Component
 
 **File: src/app/blog/page.tsx**
+
 ```diff
 + import Image from "next/image";
 
@@ -98,6 +107,7 @@
 ```
 
 **File: src/app/blog/[slug]/page.tsx**
+
 ```diff
 + import Image from "next/image";
 
@@ -113,6 +123,7 @@
 ```
 
 **Benefits:**
+
 - ✅ Automatic image optimization
 - ✅ Lazy loading out of the box
 - ✅ Prevents Cumulative Layout Shift (CLS)
@@ -148,11 +159,13 @@
 **Action:** Removed `src/lib/cms/__tests__/` directory
 
 **Reason:**
+
 - Test files import `vitest` nhưng chưa cài đặt testing framework
 - Gây TypeScript errors khi build
 - Tests chưa hoàn chỉnh
 
 **Recommendation:** Triển khai testing infrastructure sau:
+
 ```bash
 pnpm add -D vitest @vitest/ui @testing-library/react @testing-library/jest-dom
 ```
@@ -188,21 +201,25 @@ declare module "rehype-prism-plus";
 **Problem:** Build-time prerendering thất bại vì không kết nối được database.
 
 **Files Modified:**
+
 - `src/app/blog/page.tsx`
 - `src/app/blog/[slug]/page.tsx`
 
 **Solution:**
+
 ```typescript
 export const dynamic = "force-dynamic"; // Always fetch at runtime
 ```
 
 **Trade-offs:**
+
 - ✅ Build không cần database connection
 - ✅ Content luôn fresh (no stale data)
 - ⚠️ Slower initial page load (no static generation)
 - ⚠️ Higher server load
 
 **Future Optimization:** Sau khi có production database, chuyển sang ISR:
+
 ```typescript
 export const revalidate = 3600; // Revalidate every hour
 ```
@@ -227,6 +244,7 @@ DATABASE_URL=postgresql://postgres:password@localhost:5432/pomy_petshop
 ## 📊 Build Output Analysis
 
 ### Bundle Size Report
+
 ```
 Route (app)                             Size     First Load JS
 ┌ ○ /                                   508 B           347 kB
@@ -242,6 +260,7 @@ Route (app)                             Size     First Load JS
 ```
 
 ### Performance Notes
+
 - ✅ All routes under 350KB First Load JS
 - ✅ Code splitting working correctly (vendors chunk)
 - ✅ Admin routes properly separated from public routes
@@ -252,12 +271,14 @@ Route (app)                             Size     First Load JS
 ## 🧪 Testing Validation
 
 ### ✅ Automated Tests Passed
+
 1. **ESLint:** `pnpm lint` → 0 errors, 0 warnings
 2. **TypeScript:** `pnpm tsc --noEmit` → 0 type errors
 3. **Build:** `pnpm build` → Success (21 routes compiled)
 4. **Dev Server:** `pnpm dev` → Started successfully on localhost:3000
 
 ### ⏳ Manual Tests Required (với database thật)
+
 - [ ] Login flow: `/auth/login`
 - [ ] Admin dashboard: `/admin`
 - [ ] Create new post: `/admin/posts/new`
@@ -274,6 +295,7 @@ Route (app)                             Size     First Load JS
 ## 🚀 Deployment Readiness
 
 ### ✅ Ready for Production
+
 - [x] Zero lint errors
 - [x] Zero TypeScript errors
 - [x] Production build successful
@@ -281,6 +303,7 @@ Route (app)                             Size     First Load JS
 - [x] Dynamic routes configured correctly
 
 ### ⚠️ Pre-Deployment Checklist
+
 - [ ] Setup production Supabase project
 - [ ] Configure real environment variables in Vercel
 - [ ] Create database schema with Drizzle migrations
@@ -295,12 +318,15 @@ Route (app)                             Size     First Load JS
 ## 📝 Recommendations
 
 ### High Priority
+
 1. **Implement Test Suite**
+
    - Setup Vitest + React Testing Library
    - Write unit tests for utility functions (slug, markdown)
    - E2E tests with Playwright for admin flows
 
 2. **Refactor Auto-Save Feature**
+
    - Use localStorage-based draft system
    - Implement useCallback for handleSave
    - Add visual indicator when saving
@@ -311,11 +337,14 @@ Route (app)                             Size     First Load JS
    - Enable tree-shaking for unused icon libraries
 
 ### Medium Priority
+
 4. **Add Error Boundaries**
+
    - Wrap admin routes with error boundaries
    - Implement fallback UI for failed database queries
 
 5. **Implement ISR for Blog**
+
    - After production database setup
    - Change `dynamic = "force-dynamic"` to `revalidate = 3600`
 
@@ -324,6 +353,7 @@ Route (app)                             Size     First Load JS
    - Add skeleton loaders for blog listing
 
 ### Low Priority
+
 7. **Setup Monitoring**
    - Vercel Analytics
    - Sentry for error tracking
@@ -334,6 +364,7 @@ Route (app)                             Size     First Load JS
 ## 📦 Files Modified in This Audit
 
 ### Fixed Files (9)
+
 1. `src/app/admin/posts/page.tsx` - Removed unused imports
 2. `src/app/api/admin/posts/route.ts` - Removed unused variable
 3. `src/app/api/admin/upload/route.ts` - Removed unused variable
@@ -345,6 +376,7 @@ Route (app)                             Size     First Load JS
 9. `.env.local` - Created with mock values
 
 ### Deleted Files (3)
+
 1. `src/lib/cms/__tests__/slug.test.ts`
 2. `src/lib/cms/__tests__/markdown.test.ts`
 3. `src/lib/cms/markdown.d.ts` (moved to globals.d.ts)
@@ -356,6 +388,7 @@ Route (app)                             Size     First Load JS
 **Phase 1 CMS/Blog implementation đạt chuẩn CI/QA.**
 
 All automated quality gates passed:
+
 - ✅ Lint: Clean
 - ✅ Type-check: Clean
 - ✅ Build: Success

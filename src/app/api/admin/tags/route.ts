@@ -1,9 +1,10 @@
-import { NextRequest } from "next/server";
+import { desc } from "drizzle-orm";
+import { type NextRequest } from "next/server";
+
+import { apiError, apiSuccess } from "@/lib/api/response";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { tags } from "@/lib/db/schema";
-import { apiSuccess, apiError } from "@/lib/api/response";
-import { desc } from "drizzle-orm";
 
 /**
  * GET /api/admin/tags - List all tags

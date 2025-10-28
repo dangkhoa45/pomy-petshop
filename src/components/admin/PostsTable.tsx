@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FiEdit2, FiTrash2, FiEye } from "react-icons/fi";
+import { FiEdit2, FiEye, FiTrash2 } from "react-icons/fi";
+
 import type { Post } from "@/lib/db/schema";
 
 interface PostsTableProps {

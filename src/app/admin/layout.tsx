@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/lib/auth";
-import AdminSidebar from "@/components/admin/AdminSidebar";
+
 import AdminNavbar from "@/components/admin/AdminNavbar";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import { getCurrentUser } from "@/lib/auth";
 
 export default async function AdminLayout({
   children,

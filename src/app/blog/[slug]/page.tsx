@@ -1,12 +1,12 @@
-import { notFound } from "next/navigation";
+import { and, eq } from "drizzle-orm";
+import { type Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { estimateReadingTime, markdownToHtml } from "@/lib/cms/markdown";
 import { db } from "@/lib/db";
 import { posts } from "@/lib/db/schema";
-import { eq, and } from "drizzle-orm";
-import { Metadata } from "next";
-import Link from "next/link";
-import { markdownToHtml } from "@/lib/cms/markdown";
-import { estimateReadingTime } from "@/lib/cms/markdown";
 
 export const dynamic = "force-dynamic"; // Always fetch at runtime
 

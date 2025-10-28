@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
 import { FiLogOut, FiUser } from "react-icons/fi";
+
 import type { AuthUser } from "@/lib/auth";
+import { createClient } from "@/lib/supabase/client";
 
 interface AdminNavbarProps {
   user: AuthUser;

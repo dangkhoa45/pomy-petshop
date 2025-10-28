@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
+
 import type { Post } from "@/lib/db/schema";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";

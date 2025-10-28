@@ -1,21 +1,22 @@
-import { NextRequest } from "next/server";
-import { requireAuth, canPerformAction } from "@/lib/auth";
-import { db } from "@/lib/db";
+import { eq } from "drizzle-orm";
+import { type NextRequest } from "next/server";
+
 import {
-  posts,
-  postCategories,
-  postTags,
-  postRevisions,
-} from "@/lib/db/schema";
-import {
-  apiSuccess,
   apiError,
   apiForbidden,
   apiNotFound,
+  apiSuccess,
 } from "@/lib/api/response";
 import { updatePostSchema } from "@/lib/api/validation";
-import { markdownToHtml, generateExcerpt } from "@/lib/cms/markdown";
-import { eq } from "drizzle-orm";
+import { canPerformAction, requireAuth } from "@/lib/auth";
+import { generateExcerpt, markdownToHtml } from "@/lib/cms/markdown";
+import { db } from "@/lib/db";
+import {
+  postCategories,
+  postRevisions,
+  posts,
+  postTags,
+} from "@/lib/db/schema";
 
 interface RouteParams {
   params: Promise<{ id: string }>;

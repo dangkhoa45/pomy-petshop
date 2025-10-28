@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { FiEye, FiSave } from "react-icons/fi";
+
 import { generateSlug } from "@/lib/cms/slug";
-import { FiSave, FiEye } from "react-icons/fi";
 
 interface PostEditorProps {
   postId?: string;

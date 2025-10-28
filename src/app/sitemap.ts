@@ -1,8 +1,9 @@
-import { SITE_URL } from "@/shared/constants";
-import { MetadataRoute } from "next";
+import { type MetadataRoute } from "next";
+import { eq } from "drizzle-orm";
+
 import { db } from "@/lib/db";
 import { posts } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
+import { SITE_URL } from "@/shared/constants";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static routes

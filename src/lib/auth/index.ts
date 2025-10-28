@@ -1,7 +1,8 @@
-import { createClient } from "@/lib/supabase/server";
+import { eq } from "drizzle-orm";
+
 import { db } from "@/lib/db";
 import { members, profiles } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
+import { createClient } from "@/lib/supabase/server";
 
 export type UserRole = "admin" | "editor" | "author" | "viewer";
 

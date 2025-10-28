@@ -1,10 +1,12 @@
-"use client"
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaAngleRight, FaFacebook, FaHome, FaPhoneAlt } from "react-icons/fa";
+
 import { BUSINESS_INFO, NAV_LINKS, SERVICES } from "@/shared/constants";
 
 function Footer() {

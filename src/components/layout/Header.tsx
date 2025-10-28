@@ -1,4 +1,4 @@
-"use client"  
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -6,8 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaFacebook, FaPhoneAlt } from "react-icons/fa";
-import { navVariants, linkVariants } from "@/shared/animations";
+
+import { linkVariants, navVariants } from "@/shared/animations";
 import { BUSINESS_INFO, NAV_LINKS } from "@/shared/constants";
+
 import type { NavLink } from "@/shared/types";
 
 export default function Header() {

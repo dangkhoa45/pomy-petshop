@@ -1,9 +1,10 @@
-import Link from "next/link";
+import { type Metadata } from "next";
+import { desc, eq } from "drizzle-orm";
 import Image from "next/image";
+import Link from "next/link";
+
 import { db } from "@/lib/db";
 import { posts } from "@/lib/db/schema";
-import { eq, desc } from "drizzle-orm";
-import { Metadata } from "next";
 
 export const dynamic = "force-dynamic"; // Always fetch at runtime
 

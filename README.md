@@ -53,22 +53,54 @@ Dự án được cấu trúc theo các thư mục chức năng chính để d�
 
 ```text
 .
-├── docs/              # Tài liệu chi tiết về yêu cầu, thiết kế, stack, và CMS.
-├── drizzle/           # Chứa các file migration của Drizzle ORM.
-├── public/            # Tài nguyên tĩnh (hình ảnh, icons).
+├── docs/                    # Tài liệu chi tiết về yêu cầu, thiết kế, stack, và CMS.
+├── drizzle/                 # Chứa các file migration của Drizzle ORM.
+├── public/                  # Tài nguyên tĩnh (hình ảnh, icons).
 ├── src/
-│   ├── app/           # App Router: Chứa các route, layout, và trang của ứng dụng.
-│   │   ├── admin/     # Các route cho trang quản trị (CMS).
-│   │   ├── api/       # API routes cho các tác vụ backend.
-│   │   └── blog/      # Route cho trang blog public.
-│   ├── components/    # Các component React tái sử dụng.
-│   ├── data/          # Nguồn dữ liệu tĩnh (JSON) cho nội dung website.
-│   ├── lib/           # Chứa logic nghiệp vụ (auth, db, cms).
-│   └── shared/        # Các hằng số, kiểu dữ liệu, và tiện ích dùng chung.
-├── next.config.ts     # Cấu hình Next.js.
-├── tailwind.config.ts # Cấu hình Tailwind CSS.
-└── package.json       # Quản lý script và các gói phụ thuộc.
+│   ├── app/                 # App Router: Chứa các route, layout, và trang của ứng dụng.
+│   │   ├── (site)/          # ✨ Route group cho website public
+│   │   │   ├── layout.tsx   # Layout với Header, Footer, SEO
+│   │   │   ├── page.tsx     # Trang chủ
+│   │   │   ├── about/       # Trang giới thiệu
+│   │   │   ├── services/    # Trang dịch vụ
+│   │   │   ├── contact/     # Trang liên hệ
+│   │   │   └── blog/        # Blog public
+│   │   ├── (admin)/         # 🔒 Route group cho admin CMS
+│   │   │   └── admin/       # Khu vực quản trị
+│   │   │       ├── layout.tsx    # Layout với Sidebar + Navbar
+│   │   │       ├── page.tsx      # Dashboard
+│   │   │       ├── posts/        # Quản lý bài viết
+│   │   │       └── settings/     # Cài đặt hệ thống
+│   │   ├── auth/            # Authentication routes (login, etc.)
+│   │   ├── api/             # API routes cho các tác vụ backend.
+│   │   └── layout.tsx       # Root layout (minimal)
+│   ├── components/          # Các component React tái sử dụng.
+│   │   ├── admin/           # Components dành riêng cho admin
+│   │   ├── layout/          # Header, Footer cho site
+│   │   ├── sections/        # Sections cho trang public
+│   │   └── shared/          # Components dùng chung
+│   ├── data/                # Nguồn dữ liệu tĩnh (JSON) cho nội dung website.
+│   ├── lib/                 # Chứa logic nghiệp vụ (auth, db, cms).
+│   ├── types/               # TypeScript types và interfaces.
+│   └── shared/              # Các hằng số, kiểu dữ liệu, và tiện ích dùng chung.
+├── middleware.ts            # Middleware bảo vệ admin routes
+├── next.config.ts           # Cấu hình Next.js.
+├── tailwind.config.ts       # Cấu hình Tailwind CSS.
+└── package.json             # Quản lý script và các gói phụ thuộc.
 ```
+
+### 🎯 Kiến trúc mới (Route Groups)
+
+Dự án sử dụng **Route Groups** của Next.js để tách biệt hoàn toàn:
+
+- **(site)**: Website public với layout đầy đủ (Header, Footer, SEO)
+- **(admin)**: Admin CMS với layout riêng (Sidebar, Navbar, Auth check)
+
+**Lợi ích:**
+- ✅ Tách biệt hoàn toàn UI và logic
+- ✅ Dễ dàng maintain và mở rộng
+- ✅ Type safety với TypeScript strict mode
+- ✅ Bảo mật tốt hơn với middleware
 
 ---
 

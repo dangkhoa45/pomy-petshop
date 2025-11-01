@@ -171,11 +171,11 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   placeholder="Viết nội dung bằng Markdown..."
-                  className="w-full h-[500px] font-mono text-sm border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full h-[652px] font-mono text-sm border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               ) : (
                 <div
-                  className="prose max-w-none p-4 border border-gray-300 rounded-lg min-h-[500px]"
+                  className="prose max-w-none p-4 border border-gray-300 rounded-lg min-h-[658px]"
                   dangerouslySetInnerHTML={{
                     __html: content.replace(/\n/g, "<br/>"),
                   }}

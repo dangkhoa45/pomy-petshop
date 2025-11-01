@@ -9,9 +9,12 @@ const imageDomains = [
 ];
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+let supabaseHostname: string | undefined;
+
 try {
   if (supabaseUrl) {
     const host = new URL(supabaseUrl).hostname;
+    supabaseHostname = host;
     if (host && !imageDomains.includes(host)) imageDomains.push(host);
   }
 } catch {
@@ -26,11 +29,11 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
     // Optionally, restrict remote patterns to the storage public path
-    remotePatterns: supabaseUrl
+    remotePatterns: supabaseHostname
       ? [
           {
             protocol: "https",
-            hostname: new URL(supabaseUrl).hostname,
+            hostname: supabaseHostname,
             pathname: "/storage/v1/object/public/**",
           },
         ]

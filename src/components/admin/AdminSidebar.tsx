@@ -41,8 +41,14 @@ export default function AdminSidebar({ role }: AdminSidebarProps) {
       <nav className="p-4 space-y-1">
         {filteredNavigation.map((item) => {
           const Icon = item.icon;
+          
+          // Improved active state detection
+          // For Dashboard (/admin), only match exact path
+          // For other routes, match exact path or child routes
           const isActive =
-            pathname === item.href || pathname?.startsWith(item.href + "/");
+            item.href === "/admin"
+              ? pathname === "/admin"
+              : pathname === item.href || pathname?.startsWith(item.href + "/");
 
           return (
             <Link

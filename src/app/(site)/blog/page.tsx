@@ -11,7 +11,7 @@ interface Post {
   slug: string;
   excerpt: string | null;
   featuredImage: string | null;
-  publishedAt: Date | null;
+  publishedAt: string | null;
   category?: string | null;
   viewCount: number;
 }
@@ -38,7 +38,7 @@ export default function BlogPage() {
     fetchPosts();
   }, []);
 
-  const formatDate = (date: Date | null) => {
+  const formatDate = (date: string | null) => {
     if (!date) return "";
     return new Date(date).toLocaleDateString("vi-VN", {
       year: "numeric",
@@ -173,7 +173,7 @@ export default function BlogPage() {
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <div className="flex flex-col gap-1">
                       <time
-                        dateTime={post.publishedAt?.toISOString()}
+                        dateTime={post.publishedAt || undefined}
                         className="text-xs text-gray-500"
                       >
                         {formatDate(post.publishedAt)}

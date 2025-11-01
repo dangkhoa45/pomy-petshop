@@ -13,7 +13,7 @@ interface Post {
   excerpt: string | null;
   contentHtml: string;
   featuredImage: string | null;
-  publishedAt: Date | null;
+  publishedAt: string | null;
   viewCount: number;
   readingTime: number;
   category?: string | null;
@@ -53,7 +53,7 @@ export default function BlogPostPage() {
     fetchPost();
   }, [slug, router]);
 
-  const formatDate = (date: Date | null) => {
+  const formatDate = (date: string | null) => {
     if (!date) return "";
     return new Date(date).toLocaleDateString("vi-VN", {
       year: "numeric",
@@ -209,7 +209,7 @@ export default function BlogPostPage() {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  <time dateTime={post.publishedAt?.toISOString()}>
+                  <time dateTime={post.publishedAt || undefined}>
                     {formatDate(post.publishedAt)}
                   </time>
                 </div>

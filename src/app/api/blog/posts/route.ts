@@ -26,15 +26,12 @@ export async function GET() {
       .orderBy(desc(posts.publishedAt));
 
     // Group posts by ID and take first category
-    const uniquePosts = publishedPosts.reduce(
-      (acc, post) => {
-        if (!acc[post.id]) {
-          acc[post.id] = post;
-        }
-        return acc;
-      },
-      {} as Record<string, (typeof publishedPosts)[0]>
-    );
+    const uniquePosts = publishedPosts.reduce((acc, post) => {
+      if (!acc[post.id]) {
+        acc[post.id] = post;
+      }
+      return acc;
+    }, {} as Record<string, (typeof publishedPosts)[0]>);
 
     return NextResponse.json(Object.values(uniquePosts));
   } catch (error) {

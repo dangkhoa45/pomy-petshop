@@ -2,5 +2,6 @@
   { "path": "/", "label": "Trang chủ" },
   { "path": "/about", "label": "Giới thiệu" },
   { "path": "/services", "label": "Dịch vụ" },
+  { "path": "/blog", "label": "Blog" },
   { "path": "/contact", "label": "Liên hệ" }
 ]

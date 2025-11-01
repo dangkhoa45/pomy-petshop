@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
 import statsData from "@/data/statistics/statistics-secondary.json";
 
 type StatsData = {

@@ -1,6 +1,8 @@
 "use client";
-import { ContactSection } from "@/components/sections";
+
 import { useEffect } from "react";
+
+import { ContactSection } from "@/components/sections";
 
 function ContactPage() {
   useEffect(() => {

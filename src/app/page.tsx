@@ -1,4 +1,8 @@
 "use client";
+
+import { useEffect } from "react";
+
+import { ContactForm, QuestionSection } from "@/components/features";
 import {
   AboutSection,
   GallerySection,
@@ -7,8 +11,6 @@ import {
   StatisticSection,
   TestimonialSection,
 } from "@/components/sections";
-import { ContactForm, QuestionSection } from "@/components/features";
-import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {

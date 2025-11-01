@@ -1,15 +1,18 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Typical from "react-typical";
+import { useSwipeable } from "react-swipeable";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import gallery from "@/data/content/gallery-images.json";
 import copy from "@/data/services/features/feature-service.json";
 import { BUSINESS_INFO } from "@/shared/constants";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useSwipeable } from "react-swipeable";
-import Typical from "react-typical";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 const galleryImages = gallery as { src: string; alt: string }[];
 
 const FeatureService = () => {

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useSwipeable } from "react-swipeable";
+
 import testimonialsData from "@/data/content/testimonials.json";
 
 interface Testimonial {

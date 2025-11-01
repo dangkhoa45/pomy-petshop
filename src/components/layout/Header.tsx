@@ -1,4 +1,4 @@
-"use client"  
+"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -6,8 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaFacebook, FaPhoneAlt } from "react-icons/fa";
-import { navVariants, linkVariants } from "@/shared/animations";
+
+import { linkVariants, navVariants } from "@/shared/animations";
 import { BUSINESS_INFO, NAV_LINKS } from "@/shared/constants";
+
 import type { NavLink } from "@/shared/types";
 
 export default function Header() {
@@ -33,11 +35,13 @@ export default function Header() {
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
           <div className="flex items-center space-x-4">
             <a
-              href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}
+              href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, "")}`}
               className="flex items-center space-x-1 text-gray-600 hover:text-pink-500"
             >
               <FaPhoneAlt className="text-red-400 font-bold" />
-              <span className="pl-1 text-red-400 font-bold">{BUSINESS_INFO.phone}</span>
+              <span className="pl-1 text-red-400 font-bold">
+                {BUSINESS_INFO.phone}
+              </span>
             </a>
             <span className="text-gray-600">|</span>
             <a
@@ -112,7 +116,7 @@ export default function Header() {
                 alt={`${BUSINESS_INFO.name} Logo`}
                 className="rounded-full"
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
               />
             </div>
             <div className="flex flex-col">

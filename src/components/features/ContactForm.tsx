@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+
 import { BUSINESS_INFO } from "@/shared/constants";
 
 interface FormData {

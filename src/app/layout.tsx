@@ -1,15 +1,17 @@
-import { Footer, Header } from "@/components/layout";
-import { SITE_URL } from "@/shared/constants";
+import { type Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
-import Script from "next/script";
-import "./globals.css";
+
+import { Footer, Header } from "@/components/layout";
 import siteMeta from "@/data/seo/site-metadata.json";
+import { SITE_URL } from "@/shared/constants";
 import {
   generateLocalBusinessSchema,
   generateWebsiteSchema,
 } from "@/shared/schema-generators";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

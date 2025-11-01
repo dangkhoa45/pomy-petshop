@@ -49,7 +49,7 @@ export default function PostsTable({ posts: initialPosts }: PostsTableProps) {
               onClick={() => setFilter(status)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 filter === status
-                  ? "bg-blue-100 text-blue-700"
+                  ? "bg-blue-100 text-blue-700 font-semibold"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
             >
@@ -68,16 +68,16 @@ export default function PostsTable({ posts: initialPosts }: PostsTableProps) {
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Tiêu đề
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Trạng thái
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Cập nhật
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Thao tác
               </th>
             </tr>
@@ -91,12 +91,14 @@ export default function PostsTable({ posts: initialPosts }: PostsTableProps) {
               </tr>
             ) : (
               filteredPosts.map((post) => (
-                <tr key={post.id} className="hover:bg-gray-50">
+                <tr key={post.id} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-gray-900">
+                    <div className="text-sm font-semibold text-gray-900">
                       {post.title}
                     </div>
-                    <div className="text-sm text-gray-500">{post.slug}</div>
+                    <div className="text-sm text-gray-500 font-mono">
+                      {post.slug}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span

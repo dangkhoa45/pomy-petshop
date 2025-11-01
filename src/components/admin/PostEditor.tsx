@@ -100,13 +100,13 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
   return (
     <div className="space-y-6">
       {/* Toolbar */}
-      <div className="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 flex items-center justify-between">
         <div className="flex gap-2">
           <button
             onClick={() => setMode("write")}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === "write"
-                ? "bg-blue-100 text-blue-700"
+                ? "bg-blue-100 text-blue-700 font-semibold"
                 : "text-gray-600 hover:bg-gray-100"
             }`}
           >
@@ -116,7 +116,7 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
             onClick={() => setMode("preview")}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === "preview"
-                ? "bg-blue-100 text-blue-700"
+                ? "bg-blue-100 text-blue-700 font-semibold"
                 : "text-gray-600 hover:bg-gray-100"
             }`}
           >
@@ -129,7 +129,7 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
           <button
             onClick={() => handleSave("draft")}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 disabled:opacity-50 transition-colors"
           >
             <FiSave className="w-4 h-4" />
             Lưu nháp
@@ -137,7 +137,7 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
           <button
             onClick={() => handleSave("published")}
             disabled={loading}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
           >
             {loading ? "Đang lưu..." : "Xuất bản"}
           </button>
@@ -148,13 +148,13 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-white rounded-lg shadow p-6 space-y-4">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-4">
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Tiêu đề bài viết..."
-              className="w-full text-3xl font-bold border-none focus:outline-none focus:ring-0"
+              className="w-full text-3xl font-heading font-bold text-gray-900 border-none focus:outline-none focus:ring-0 placeholder:text-gray-400"
             />
 
             <input
@@ -162,7 +162,7 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               placeholder="slug-bai-viet"
-              className="w-full text-sm text-gray-600 border-none focus:outline-none focus:ring-0"
+              className="w-full text-sm text-gray-500 font-mono border-none focus:outline-none focus:ring-0 placeholder:text-gray-400"
             />
 
             <div className="border-t pt-4">
@@ -188,8 +188,10 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
         {/* Sidebar */}
         <div className="space-y-4">
           {/* SEO Settings */}
-          <div className="bg-white rounded-lg shadow p-4 space-y-3">
-            <h3 className="font-semibold text-gray-900">SEO</h3>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 space-y-3">
+            <h3 className="font-heading font-semibold text-gray-900 text-base">
+              SEO
+            </h3>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -238,8 +240,10 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
           </div>
 
           {/* Excerpt */}
-          <div className="bg-white rounded-lg shadow p-4 space-y-3">
-            <h3 className="font-semibold text-gray-900">Trích dẫn</h3>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 space-y-3">
+            <h3 className="font-heading font-semibold text-gray-900 text-base">
+              Trích dẫn
+            </h3>
             <textarea
               value={excerpt}
               onChange={(e) => setExcerpt(e.target.value)}
@@ -250,8 +254,8 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
           </div>
 
           {/* Markdown Cheat Sheet */}
-          <div className="bg-white rounded-lg shadow p-4 space-y-2">
-            <h3 className="font-semibold text-gray-900 text-sm">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 space-y-2">
+            <h3 className="font-heading font-semibold text-gray-900 text-sm">
               Markdown Quick Guide
             </h3>
             <div className="text-xs space-y-1 text-gray-600 font-mono">

@@ -39,7 +39,7 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="admin-layout min-h-screen bg-gray-50 font-sans">
       {/* Top navigation bar */}
       <AdminNavbar user={user} />
 

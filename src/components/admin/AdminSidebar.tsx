@@ -48,14 +48,14 @@ export default function AdminSidebar({ role }: AdminSidebarProps) {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-blue-50 text-blue-700"
+                  ? "bg-blue-50 text-blue-700 font-semibold"
                   : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
               }`}
             >
-              <Icon className="w-5 h-5" />
-              {item.name}
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              <span className="leading-tight">{item.name}</span>
             </Link>
           );
         })}

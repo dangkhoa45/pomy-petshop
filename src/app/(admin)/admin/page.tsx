@@ -37,8 +37,10 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="mt-2 text-gray-600">Tổng quan hệ thống CMS</p>
+        <h1 className="text-3xl font-heading font-bold text-gray-900 tracking-tight">
+          Dashboard
+        </h1>
+        <p className="mt-2 text-gray-600 text-sm">Tổng quan hệ thống CMS</p>
       </div>
 
       {/* Stats */}
@@ -64,9 +66,9 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Recent Posts */}
-      <div className="bg-white rounded-lg shadow">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-heading font-semibold text-gray-900">
             Bài viết mới nhất
           </h2>
           <Link
@@ -121,20 +123,20 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 className="text-lg font-heading font-semibold text-gray-900 mb-4">
           Thao tác nhanh
         </h2>
         <div className="flex gap-4">
           <Link
             href="/admin/posts/new"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
           >
             Tạo bài viết mới
           </Link>
           <Link
             href="/admin/categories"
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
           >
             Quản lý chuyên mục
           </Link>
@@ -159,11 +161,13 @@ function StatCard({ title, value, icon: Icon, color }: StatCardProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="mt-2 text-3xl font-bold text-gray-900">{value}</p>
+          <p className="mt-2 text-3xl font-heading font-bold text-gray-900 tracking-tight">
+            {value}
+          </p>
         </div>
         <div className={`p-3 rounded-lg ${colorClasses[color]}`}>
           <Icon className="w-6 h-6" />

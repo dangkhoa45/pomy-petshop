@@ -91,7 +91,10 @@ export default function PostsTable({ posts: initialPosts }: PostsTableProps) {
               </tr>
             ) : (
               filteredPosts.map((post) => (
-                <tr key={post.id} className="hover:bg-gray-50 transition-colors">
+                <tr
+                  key={post.id}
+                  className="hover:bg-gray-50 transition-colors"
+                >
                   <td className="px-6 py-4">
                     <div className="text-sm font-semibold text-gray-900">
                       {post.title}

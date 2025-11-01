@@ -1,9 +1,6 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { notFound } from "next/navigation";
 import { BlogContent } from "@/components/blog";
 
 interface Post {
@@ -22,61 +19,51 @@ interface Post {
   seoDescription?: string | null;
 }
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const router = useRouter();
-  const slug = params?.slug as string;
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
-  const [post, setPost] = useState<Post | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [relatedPosts, setRelatedPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!slug) return;
-
-      try {
-        const response = await fetch(`/api/blog/posts/${slug}`);
-        if (response.ok) {
-          const data = await response.json();
-          setPost(data.post);
-          setRelatedPosts(data.relatedPosts || []);
-        } else if (response.status === 404) {
-          router.push("/404");
-        }
-      } catch (error) {
-        console.error("Error fetching post:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [slug, router]);
-
-  const formatDate = (date: string | null) => {
-    if (!date) return "";
-    return new Date(date).toLocaleDateString("vi-VN", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+async function getPost(
+  slug: string
+): Promise<{ post: Post; relatedPosts: Post[] } | null> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const response = await fetch(`${baseUrl}/api/blog/posts/${slug}`, {
+      cache: "no-store",
     });
-  };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-r from-green-100 to-pink-200 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-pink-600"></div>
-          <p className="mt-4 text-gray-600">Đang tải bài viết...</p>
-        </div>
-      </div>
-    );
-  }
+    if (!response.ok) {
+      return null;
+    }
 
-  if (!post) {
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching post:", error);
     return null;
   }
+}
+
+function formatDate(date: string | null) {
+  if (!date) return "";
+  return new Date(date).toLocaleDateString("vi-VN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const data = await getPost(slug);
+
+  if (!data || !data.post) {
+    notFound();
+  }
+
+  const { post, relatedPosts } = data;
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-100 to-pink-200">

@@ -19,6 +19,10 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>): React.ReactNode {
-  return children;
+}>): React.JSX.Element {
+  return (
+    <html lang="vi">
+      <body className="flex flex-col min-h-screen bg-gray-50">{children}</body>
+    </html>
+  );
 }

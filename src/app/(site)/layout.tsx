@@ -43,8 +43,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout for public website (site)
+ * Site layout for public website
  * Includes header, footer, and JSON-LD structured data for SEO
+ * Note: <html> and <body> tags are in root layout
  */
 export default function SiteLayout({
   children,
@@ -52,37 +53,35 @@ export default function SiteLayout({
   children: React.ReactNode;
 }>): React.JSX.Element {
   return (
-    <html lang="vi">
-      <body className="flex flex-col min-h-screen bg-gray-50">
-        {/* Header navigation */}
-        <Header aria-label="Pomy Petshop Header" />
+    <>
+      {/* Header navigation */}
+      <Header aria-label="Pomy Petshop Header" />
 
-        {/* JSON-LD schemas for SEO */}
-        <Script
-          id="ld-local-business"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateLocalBusinessSchema()),
-          }}
-        />
-        <Script
-          id="ld-website"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateWebsiteSchema()),
-          }}
-        />
+      {/* JSON-LD schemas for SEO */}
+      <Script
+        id="ld-local-business"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateLocalBusinessSchema()),
+        }}
+      />
+      <Script
+        id="ld-website"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateWebsiteSchema()),
+        }}
+      />
 
-        {/* Main content area */}
-        <main className="flex-grow" role="main" aria-labelledby="main-content">
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </main>
+      {/* Main content area */}
+      <main className="flex-grow" role="main" aria-labelledby="main-content">
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </main>
 
-        {/* Footer section */}
-        <Footer aria-label="Pomy Petshop Footer" />
-      </body>
-    </html>
+      {/* Footer section */}
+      <Footer aria-label="Pomy Petshop Footer" />
+    </>
   );
 }

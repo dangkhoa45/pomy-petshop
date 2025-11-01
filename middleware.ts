@@ -4,7 +4,7 @@ import { updateSession } from "./src/lib/supabase/middleware";
 /**
  * Global middleware for authentication and session management
  * Protects admin routes and refreshes Supabase session tokens
- * 
+ *
  * @param request - Incoming Next.js request
  * @returns Response with updated session cookies
  */

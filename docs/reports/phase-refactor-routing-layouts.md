@@ -75,18 +75,21 @@ src/app/
 ### ✨ Tạo mới
 
 1. **`src/app/(site)/layout.tsx`**
+
    - Layout chính cho website public
    - Bao gồm Header, Footer, JSON-LD schemas
    - Metadata đầy đủ cho SEO
    - Analytics và Speed Insights
 
 2. **`src/app/(admin)/admin/layout.tsx`**
+
    - Layout riêng cho admin CMS
    - Sidebar navigation + top navbar
    - Authentication check tích hợp
    - Metadata với `robots: noindex`
 
 3. **`src/app/(admin)/admin/settings/page.tsx`**
+
    - Trang cài đặt hệ thống mới
    - Placeholder cho tính năng tương lai
 
@@ -108,6 +111,7 @@ src/app/
 ### ✏️ Chỉnh sửa
 
 1. **`src/app/layout.tsx`**
+
    - Đơn giản hóa thành root layout tối giản
    - Logic layout đã được chuyển sang route groups
 
@@ -128,11 +132,13 @@ src/app/
 ## 🔧 Lỗi ESLint và TypeScript đã khắc phục
 
 ### Trước refactor:
+
 - Một số component thiếu return type
 - Root layout có cấu trúc không tối ưu
 - Thiếu types cho layout props
 
 ### Sau refactor:
+
 ✅ **Zero ESLint warnings**  
 ✅ **Zero TypeScript errors**  
 ✅ **Tất cả function có return type rõ ràng**  
@@ -140,6 +146,7 @@ src/app/
 ✅ **Không còn `any` types**
 
 ### Kết quả lint:
+
 ```bash
 $ pnpm lint
 ✔ No ESLint warnings or errors
@@ -160,6 +167,7 @@ $ pnpm build
 ```
 
 ### Route Summary:
+
 - **Static Pages:** 7 (/, /about, /contact, /services, /auth/login, /robots.txt, /sitemap.xml)
 - **Dynamic Pages:** 12 (admin pages, blog pages, API routes)
 - **Total Routes:** 19
@@ -174,6 +182,7 @@ $ pnpm build
 **Vị trí:** `src/app/(site)/layout.tsx`
 
 **Chức năng:**
+
 - Bọc toàn bộ trang public (home, about, services, contact, blog)
 - Hiển thị Header navigation và Footer
 - Inject JSON-LD structured data cho SEO
@@ -182,6 +191,7 @@ $ pnpm build
 - Hỗ trợ tiếng Việt (`lang="vi"`)
 
 **Đặc điểm:**
+
 - Hoàn toàn độc lập với admin layout
 - Không import bất kỳ component admin nào
 - SEO-friendly với robots indexing enabled
@@ -194,6 +204,7 @@ $ pnpm build
 **Vị trí:** `src/app/(admin)/admin/layout.tsx`
 
 **Chức năng:**
+
 - Bọc toàn bộ trang quản trị (/admin, /admin/posts, /admin/settings)
 - Kiểm tra authentication trước khi render
 - Redirect về `/auth/login` nếu chưa đăng nhập
@@ -202,6 +213,7 @@ $ pnpm build
 - Main content area với padding và styling phù hợp
 
 **Đặc điểm:**
+
 - Metadata với `robots: noindex` để tránh index công khai
 - Title template: `%s | Pomy Admin`
 - Authentication bắt buộc (dùng `getCurrentUser()`)
@@ -209,6 +221,7 @@ $ pnpm build
 - Hoàn toàn tách biệt với site layout
 
 **Components sử dụng:**
+
 - `AdminNavbar`: Top bar với user info và logout
 - `AdminSidebar`: Left sidebar với menu điều hướng theo role
 
@@ -219,11 +232,13 @@ $ pnpm build
 **Vị trí:** `src/app/layout.tsx`
 
 **Chức năng:**
+
 - Layout tối giản chỉ wrap children
 - Không render UI elements
 - Cho phép route groups tự định nghĩa layout riêng
 
 **Lý do:**
+
 - Next.js yêu cầu root layout
 - Route groups (site) và (admin) có layout hoàn toàn khác nhau
 - Tránh conflict giữa hai loại layout
@@ -235,6 +250,7 @@ $ pnpm build
 **Vị trí:** `middleware.ts` (root)
 
 **Logic:**
+
 1. Chặn tất cả requests (trừ static files)
 2. Gọi `updateSession()` từ Supabase middleware
 3. Kiểm tra authentication token trong cookies
@@ -242,10 +258,12 @@ $ pnpm build
 5. Refresh session tokens tự động
 
 **Matcher config:**
+
 - Match: Tất cả routes
 - Exclude: `_next/static`, `_next/image`, `favicon.ico`, static assets
 
 **Bảo mật:**
+
 - Admin routes được bảo vệ 100%
 - Session được refresh tự động
 - Logout clear cookies và redirect
@@ -255,6 +273,7 @@ $ pnpm build
 ## 🚀 Cải tiến và Lợi ích
 
 ### Trước Refactor
+
 ❌ Layout admin và site dùng chung  
 ❌ Cấu trúc phẳng, khó phân biệt  
 ❌ SEO metadata có thể leak vào admin  
@@ -262,6 +281,7 @@ $ pnpm build
 ❌ Khó maintain và mở rộng
 
 ### Sau Refactor
+
 ✅ **Separation of Concerns:** Admin và site hoàn toàn độc lập  
 ✅ **Clean Architecture:** Route groups rõ ràng  
 ✅ **Type Safety:** TypeScript strict, zero `any`  
@@ -275,6 +295,7 @@ $ pnpm build
 ## 🧪 Kiểm tra Hoạt động
 
 ### Website Public (/)
+
 - ✅ Header và Footer hiển thị đúng
 - ✅ SEO metadata đầy đủ
 - ✅ JSON-LD schemas được inject
@@ -282,6 +303,7 @@ $ pnpm build
 - ✅ Responsive design
 
 ### Admin CMS (/admin)
+
 - ✅ Redirect về `/auth/login` khi chưa đăng nhập
 - ✅ Sidebar và Navbar hiển thị đúng sau login
 - ✅ Navigation theo role (admin/editor/author)
@@ -290,6 +312,7 @@ $ pnpm build
 - ✅ Settings page accessible
 
 ### Authentication
+
 - ✅ Login page tại `/auth/login`
 - ✅ Redirect về `/admin` sau login thành công
 - ✅ Logout clear session và redirect

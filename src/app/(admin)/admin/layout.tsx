@@ -48,9 +48,7 @@ export default async function AdminLayout({
         <AdminSidebar role={user.role} />
 
         {/* Main content area */}
-        <main className="flex-1 p-8 ml-64 mt-16">
-          {children}
-        </main>
+        <main className="flex-1 p-8 ml-64 mt-16">{children}</main>
       </div>
     </div>
   );

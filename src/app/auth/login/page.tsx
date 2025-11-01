@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,17 +17,22 @@ export default function LoginPage() {
     try {
       const supabase = createClient();
 
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) throw error;
 
-      router.push("/admin");
-      router.refresh();
+      if (data.session) {
+        // Wait a bit for session to be set
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        // Force hard navigation to ensure middleware processes the request
+        window.location.href = "/admin";
+      }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to login");
+      setError(err instanceof Error ? err.message : "Đăng nhập thất bại");
     } finally {
       setLoading(false);
     }

@@ -97,6 +97,7 @@ Dự án sử dụng **Route Groups** của Next.js để tách biệt hoàn to�
 - **(admin)**: Admin CMS với layout riêng (Sidebar, Navbar, Auth check)
 
 **Lợi ích:**
+
 - ✅ Tách biệt hoàn toàn UI và logic
 - ✅ Dễ dàng maintain và mở rộng
 - ✅ Type safety với TypeScript strict mode

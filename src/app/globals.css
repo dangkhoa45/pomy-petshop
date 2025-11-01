@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Gluten:wght@400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,15 +12,10 @@
 @import "highlight.js/styles/github-dark.css";
 
 :root {
-  /* Modern professional fonts for admin CMS */
+  /* Modern professional typography system */
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, sans-serif;
   --font-heading: "Poppins", system-ui, -apple-system, sans-serif;
-
-  /* Legacy fonts for public site (to be replaced gradually) */
-  --font-body: "Gluten", "Roboto", sans-serif;
-  --font-secondary: "Pacifico", "Comic Sans MS", cursive;
-  --font-legacy-heading: "Gluten", "Arial", sans-serif;
 
   --color-primary: #ec4899;
   --color-primary-hover: #db2777;
@@ -33,7 +26,7 @@
 }
 
 html {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -46,24 +39,27 @@ body {
   padding: 0;
   background-color: var(--color-background);
   color: var(--color-text);
+  font-family: var(--font-sans);
 }
 
-/* Default heading styles for public site */
+/* Default heading styles - Poppins for headings, Inter for body */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-legacy-heading);
-  line-height: 1.25;
+  font-family: var(--font-heading);
+  line-height: 1.3;
   margin-top: 0;
   margin-bottom: 0.5em;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h1 {
   font-size: 2rem;
+  font-weight: 700;
 }
 
 h2 {
@@ -101,12 +97,14 @@ button:hover {
   background-color: var(--color-primary);
 }
 
-.font-secondary {
-  font-family: var(--font-secondary);
-}
-
+/* Typography utility classes */
 .font-heading {
   font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
 }
 
 /* Admin CMS specific styles - Professional typography system */

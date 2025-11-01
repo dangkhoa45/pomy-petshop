@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -82,81 +81,11 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-100 to-pink-200">
       <article className="blog-root max-w-5xl mx-auto px-6 py-12">
-        {/* Breadcrumbs */}
-        <motion.nav
-          className="mb-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
-            <li>
-              <Link
-                href="/"
-                className="hover:text-pink-600 transition-colors duration-200"
-              >
-                Trang chủ
-              </Link>
-            </li>
-            <li>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="hover:text-pink-600 transition-colors duration-200"
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </li>
-            <li className="text-gray-800 font-medium truncate max-w-xs">
-              {post.title}
-            </li>
-          </ol>
-        </motion.nav>
-
         {/* Main Content Card */}
-        <motion.div
-          className="bg-white rounded-3xl shadow-xl overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           {/* Featured Image */}
           {post.featuredImage && (
-            <motion.div
-              className="relative w-full h-[400px] md:h-[500px] overflow-hidden"
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -166,16 +95,12 @@ export default function BlogPostPage() {
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </motion.div>
+            </div>
           )}
 
           {/* Header */}
           <div className="px-6 md:px-12 pt-8 pb-6">
-            <motion.header
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            <header>
               {/* Category Badge */}
               {post.category && (
                 <span className="inline-block text-sm font-medium text-pink-600 bg-pink-50 px-4 py-1.5 rounded-full mb-4">
@@ -256,28 +181,18 @@ export default function BlogPostPage() {
                   <span>{post.viewCount} lượt xem</span>
                 </div>
               </div>
-            </motion.header>
+            </header>
 
             {/* Content */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            <div className="mt-8">
               <BlogContent content={post.content || post.contentHtml} />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <motion.section
-            className="mt-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
+          <section className="mt-16">
             <h2 className="text-3xl font-heading font-bold text-gray-800 mb-8">
               Bài viết liên quan
             </h2>
@@ -312,16 +227,11 @@ export default function BlogPostPage() {
                 </Link>
               ))}
             </div>
-          </motion.section>
+          </section>
         )}
 
         {/* CTA Section */}
-        <motion.div
-          className="mt-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-3xl shadow-xl p-8 md:p-12 text-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
+        <div className="mt-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-3xl shadow-xl p-8 md:p-12 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
             Cần tư vấn về chăm sóc thú cưng? 🐾
           </h2>
@@ -343,7 +253,7 @@ export default function BlogPostPage() {
               Xem thêm bài viết
             </Link>
           </div>
-        </motion.div>
+        </div>
       </article>
 
       {/* Schema.org structured data */}

@@ -88,7 +88,7 @@ export default function Header() {
               <motion.div key={index} variants={linkVariants}>
                 <Link
                   href={path}
-                  className={`mr-5 relative group font-body ${
+                  className={`mr-5 relative group font-sans ${
                     isActive(path)
                       ? "text-pink-600 font-bold border-b-4 border-pink-600"
                       : "text-pink-500"

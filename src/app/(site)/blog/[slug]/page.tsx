@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import { BlogContent } from "@/components/blog";
 
 interface Post {
   id: string;
   title: string;
   slug: string;
   excerpt: string | null;
+  content: string;
   contentHtml: string;
   featuredImage: string | null;
   publishedAt: string | null;
@@ -79,7 +81,7 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-100 to-pink-200">
-      <article className="max-w-5xl mx-auto px-6 py-12">
+      <article className="blog-root max-w-5xl mx-auto px-6 py-12">
         {/* Breadcrumbs */}
         <motion.nav
           className="mb-8"
@@ -258,22 +260,13 @@ export default function BlogPostPage() {
 
             {/* Content */}
             <motion.div
-              className="mt-8 prose prose-lg max-w-none
-                prose-headings:font-heading prose-headings:font-bold prose-headings:text-gray-900 prose-headings:mb-4 prose-headings:mt-8
-                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
-                prose-a:text-pink-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-                prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-code:text-pink-600 prose-code:bg-pink-50 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-                prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:p-4
-                prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8
-                prose-blockquote:border-l-4 prose-blockquote:border-pink-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:bg-pink-50 prose-blockquote:py-2 prose-blockquote:rounded-r-lg
-                prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:text-gray-700 prose-li:mb-2"
+              className="mt-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-            />
+            >
+              <BlogContent content={post.content || post.contentHtml} />
+            </motion.div>
           </div>
         </motion.div>
 

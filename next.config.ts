@@ -1,13 +1,40 @@
 import type { NextConfig } from "next";
 import TerserPlugin from "terser-webpack-plugin";
 
+// Dynamically include Supabase Storage host for next/image
+const imageDomains = [
+  "dummyimage.com",
+  "i.pravatar.cc",
+  "pomypetshopsoctrang.com",
+];
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+try {
+  if (supabaseUrl) {
+    const host = new URL(supabaseUrl).hostname;
+    if (host && !imageDomains.includes(host)) imageDomains.push(host);
+  }
+} catch {
+  // ignore if env is missing or invalid
+}
+
 const nextConfig: NextConfig = {
   images: {
-    domains: ["dummyimage.com", "i.pravatar.cc", "pomypetshopsoctrang.com"],
+    domains: imageDomains,
     formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
+    // Optionally, restrict remote patterns to the storage public path
+    remotePatterns: supabaseUrl
+      ? [
+          {
+            protocol: "https",
+            hostname: new URL(supabaseUrl).hostname,
+            pathname: "/storage/v1/object/public/**",
+          },
+        ]
+      : undefined,
   },
 
   compiler: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiEye, FiSave } from "react-icons/fi";
 
@@ -25,6 +25,7 @@ interface PostEditorProps {
 export default function PostEditor({ postId, initialData }: PostEditorProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [title, setTitle] = useState(initialData?.title || "");
   const [slug, setSlug] = useState(initialData?.slug || "");
   const [content, setContent] = useState(initialData?.contentMarkdown || "");
@@ -37,6 +38,70 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
     initialData?.featuredImage || ""
   );
   const [mode, setMode] = useState<"write" | "preview">("write");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handlePickImage = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleUploadImage: React.ChangeEventHandler<HTMLInputElement> = async (
+    e
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploadingImage(true);
+
+      // Optional: client-side quick checks (server also validates)
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "image/gif",
+      ];
+      if (!allowedTypes.includes(file.type)) {
+        alert("Định dạng không hợp lệ. Chỉ hỗ trợ JPEG, PNG, WebP, GIF.");
+        return;
+      }
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      if (file.size > maxSize) {
+        alert("Kích thước ảnh vượt quá 5MB.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await res.json();
+      if (res.status === 401) {
+        alert(
+          "Phiên đăng nhập đã hết hạn hoặc chưa đăng nhập. Vui lòng đăng nhập lại."
+        );
+        try {
+          router.push("/auth/login");
+        } catch {}
+        return;
+      }
+      if (!res.ok || !result?.success) {
+        throw new Error(result?.error || "Tải ảnh thất bại");
+      }
+      const url: string | undefined = result?.data?.url;
+      if (!url) throw new Error("Không nhận được URL ảnh");
+      setFeaturedImage(url);
+      // reset input so the same file can be re-selected if needed
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    } catch (err) {
+      console.error("Upload image error:", err);
+      alert(err instanceof Error ? err.message : "Có lỗi khi tải ảnh lên");
+    } finally {
+      setUploadingImage(false);
+    }
+  };
 
   // Auto-generate slug from title
   useEffect(() => {
@@ -227,15 +292,53 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Featured Image URL
+                Featured Image
               </label>
+
+              {/* URL input (giữ tùy chọn nhập URL trực tiếp) */}
               <input
                 type="url"
                 value={featuredImage}
                 onChange={(e) => setFeaturedImage(e.target.value)}
-                placeholder="https://..."
+                placeholder="Dán URL ảnh hoặc dùng nút tải lên"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+
+              {/* Upload controls */}
+              <div className="mt-2 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handlePickImage}
+                  disabled={uploadingImage}
+                  className="px-3 py-1.5 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                >
+                  {uploadingImage ? "Đang tải ảnh..." : "Chọn ảnh & Tải lên"}
+                </button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleUploadImage}
+                />
+                {featuredImage && (
+                  <span className="text-xs text-gray-500 truncate">
+                    Đã chọn ảnh bìa
+                  </span>
+                )}
+              </div>
+
+              {/* Preview */}
+              {featuredImage && (
+                <div className="mt-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={featuredImage}
+                    alt="Featured preview"
+                    className="w-full aspect-video object-cover rounded-md border"
+                  />
+                </div>
+              )}
             </div>
           </div>
 

@@ -60,6 +60,7 @@ export async function GET(request: Request, { params }: RouteParams) {
 
     const post = {
       ...postResult,
+      content: postResult.contentMarkdown, // Send markdown content for client-side rendering
       contentHtml,
       readingTime,
       category: categoryResult?.category || null,

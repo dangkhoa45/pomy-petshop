@@ -1,7 +1,13 @@
 import { NextRequest } from "next/server";
 import { requireAuth } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
-import { apiSuccess, apiError, apiValidationError } from "@/lib/api/response";
+import {
+  apiSuccess,
+  apiError,
+  apiValidationError,
+  apiUnauthorized,
+  apiServerError,
+} from "@/lib/api/response";
 import { nanoid } from "nanoid";
 
 /**
@@ -49,7 +55,8 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Supabase upload error:", error);
-      return apiError("Failed to upload image", 500);
+      // Return the actual error message to help debugging/UX
+      return apiError(error.message || "Failed to upload image", 400);
     }
 
     // Get public URL
@@ -67,9 +74,11 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Error uploading image:", error);
-    return apiError(
-      error instanceof Error ? error.message : "Failed to upload image",
-      500
+    if (error instanceof Error && error.message === "Unauthorized") {
+      return apiUnauthorized();
+    }
+    return apiServerError(
+      error instanceof Error ? error.message : "Failed to upload image"
     );
   }
 }

@@ -132,8 +132,11 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
     }
 
     // Convert markdown to HTML if content changed
+    // If contentHtml is provided in request, use it; otherwise convert from markdown
     let contentHtml = existingPost.contentHtml;
-    if (postData.contentMarkdown) {
+    if (postData.contentHtml) {
+      contentHtml = postData.contentHtml;
+    } else if (postData.contentMarkdown) {
       contentHtml = await markdownToHtml(postData.contentMarkdown);
     }
 

@@ -5,6 +5,7 @@ export const createPostSchema = z.object({
   slug: z.string().min(1, "Slug is required").max(255).optional(),
   excerpt: z.string().max(500).optional(),
   contentMarkdown: z.string().min(1, "Content is required"),
+  contentHtml: z.string().optional(),
   featuredImage: z.string().url().optional().nullable(),
   status: z.enum(["draft", "published", "archived"]).default("draft"),
   seoTitle: z.string().max(60).optional().nullable(),

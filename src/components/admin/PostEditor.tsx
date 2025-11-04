@@ -3,8 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiEye, FiSave } from "react-icons/fi";
+import { marked } from "marked";
+import TurndownService from "turndown";
 
 import { generateSlug } from "@/lib/cms/slug";
+import TiptapEditor from "./TiptapEditor";
 
 interface PostEditorProps {
   postId?: string;
@@ -28,7 +31,10 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
   const [uploadingImage, setUploadingImage] = useState(false);
   const [title, setTitle] = useState(initialData?.title || "");
   const [slug, setSlug] = useState(initialData?.slug || "");
-  const [content, setContent] = useState(initialData?.contentMarkdown || "");
+  const [contentMarkdown, setContentMarkdown] = useState(
+    initialData?.contentMarkdown || ""
+  );
+  const [contentHtml, setContentHtml] = useState("");
   const [excerpt, setExcerpt] = useState(initialData?.excerpt || "");
   const [seoTitle, setSeoTitle] = useState(initialData?.seoTitle || "");
   const [seoDescription, setSeoDescription] = useState(
@@ -37,8 +43,27 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
   const [featuredImage, setFeaturedImage] = useState(
     initialData?.featuredImage || ""
   );
-  const [mode, setMode] = useState<"write" | "preview">("write");
+  const [editorMode, setEditorMode] = useState<"markdown" | "visual">(
+    "markdown"
+  );
+  const [previewMode, setPreviewMode] = useState<"write" | "preview">("write");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Initialize turndown service for HTML to Markdown conversion
+  const turndownService = useRef(
+    new TurndownService({
+      headingStyle: "atx",
+      codeBlockStyle: "fenced",
+    })
+  );
+
+  // Initialize contentHtml when component mounts
+  useEffect(() => {
+    if (initialData?.contentMarkdown) {
+      convertMarkdownToHtml(initialData.contentMarkdown).then(setContentHtml);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handlePickImage = () => {
     fileInputRef.current?.click();
@@ -110,8 +135,45 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
     }
   }, [title, postId]);
 
+  // Convert Markdown to HTML when switching to visual mode
+  const convertMarkdownToHtml = async (markdown: string) => {
+    try {
+      const html = await marked(markdown);
+      return html;
+    } catch (error) {
+      console.error("Error converting Markdown to HTML:", error);
+      return markdown;
+    }
+  };
+
+  // Convert HTML to Markdown when switching to markdown mode
+  const convertHtmlToMarkdown = (html: string) => {
+    try {
+      return turndownService.current.turndown(html);
+    } catch (error) {
+      console.error("Error converting HTML to Markdown:", error);
+      return html;
+    }
+  };
+
+  // Handle editor mode switching
+  const handleEditorModeChange = async (
+    newMode: "markdown" | "visual"
+  ) => {
+    if (newMode === "visual" && editorMode === "markdown") {
+      // Convert markdown to HTML before switching
+      const html = await convertMarkdownToHtml(contentMarkdown);
+      setContentHtml(html);
+    } else if (newMode === "markdown" && editorMode === "visual") {
+      // Convert HTML to markdown before switching
+      const markdown = convertHtmlToMarkdown(contentHtml);
+      setContentMarkdown(markdown);
+    }
+    setEditorMode(newMode);
+  };
+
   const handleSave = async (status: "draft" | "published", silent = false) => {
-    if (!title || !content) {
+    if (!title || !contentMarkdown) {
       alert("Vui lòng nhập tiêu đề và nội dung");
       return;
     }
@@ -119,11 +181,24 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
     setLoading(true);
 
     try {
+      // Sync content before saving
+      let finalMarkdown = contentMarkdown;
+      let finalHtml = contentHtml;
+
+      if (editorMode === "visual") {
+        // If currently in visual mode, convert HTML to Markdown
+        finalMarkdown = convertHtmlToMarkdown(contentHtml);
+      } else {
+        // If currently in markdown mode, convert Markdown to HTML
+        finalHtml = await convertMarkdownToHtml(contentMarkdown);
+      }
+
       const data = {
         title,
         slug,
         excerpt: excerpt || undefined,
-        contentMarkdown: content,
+        contentMarkdown: finalMarkdown,
+        contentHtml: finalHtml,
         status,
         seoTitle: seoTitle || undefined,
         seoDescription: seoDescription || undefined,
@@ -165,48 +240,79 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
   return (
     <div className="space-y-6">
       {/* Toolbar */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 flex items-center justify-between">
-        <div className="flex gap-2">
-          <button
-            onClick={() => setMode("write")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              mode === "write"
-                ? "bg-blue-100 text-blue-700 font-semibold"
-                : "text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            Soạn thảo
-          </button>
-          <button
-            onClick={() => setMode("preview")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              mode === "preview"
-                ? "bg-blue-100 text-blue-700 font-semibold"
-                : "text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            <FiEye className="inline w-4 h-4 mr-1" />
-            Xem trước
-          </button>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex gap-2">
+            <button
+              onClick={() => setPreviewMode("write")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                previewMode === "write"
+                  ? "bg-blue-100 text-blue-700 font-semibold"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              Soạn thảo
+            </button>
+            <button
+              onClick={() => setPreviewMode("preview")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                previewMode === "preview"
+                  ? "bg-blue-100 text-blue-700 font-semibold"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              <FiEye className="inline w-4 h-4 mr-1" />
+              Xem trước
+            </button>
+          </div>
+
+          <div className="flex gap-2">
+            <button
+              onClick={() => handleSave("draft")}
+              disabled={loading}
+              className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 disabled:opacity-50 transition-colors"
+            >
+              <FiSave className="w-4 h-4" />
+              Lưu nháp
+            </button>
+            <button
+              onClick={() => handleSave("published")}
+              disabled={loading}
+              className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            >
+              {loading ? "Đang lưu..." : "Xuất bản"}
+            </button>
+          </div>
         </div>
 
-        <div className="flex gap-2">
-          <button
-            onClick={() => handleSave("draft")}
-            disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 disabled:opacity-50 transition-colors"
-          >
-            <FiSave className="w-4 h-4" />
-            Lưu nháp
-          </button>
-          <button
-            onClick={() => handleSave("published")}
-            disabled={loading}
-            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
-          >
-            {loading ? "Đang lưu..." : "Xuất bản"}
-          </button>
-        </div>
+        {/* Editor Mode Toggle - Only show in write mode */}
+        {previewMode === "write" && (
+          <div className="flex gap-2 pt-3 border-t border-gray-200">
+            <span className="text-sm text-gray-600 font-medium mr-2">
+              Chế độ soạn thảo:
+            </span>
+            <button
+              onClick={() => handleEditorModeChange("markdown")}
+              className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                editorMode === "markdown"
+                  ? "bg-green-600 text-white"
+                  : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              Markdown
+            </button>
+            <button
+              onClick={() => handleEditorModeChange("visual")}
+              className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                editorMode === "visual"
+                  ? "bg-green-600 text-white"
+                  : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              Visual Editor
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Editor */}
@@ -231,18 +337,30 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
             />
 
             <div className="border-t pt-4">
-              {mode === "write" ? (
-                <textarea
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder="Viết nội dung bằng Markdown..."
-                  className="w-full h-[652px] font-mono text-sm border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+              {previewMode === "write" ? (
+                <>
+                  {editorMode === "markdown" ? (
+                    <textarea
+                      value={contentMarkdown}
+                      onChange={(e) => setContentMarkdown(e.target.value)}
+                      placeholder="Viết nội dung bằng Markdown..."
+                      className="w-full h-[652px] font-mono text-sm border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  ) : (
+                    <TiptapEditor
+                      content={contentHtml}
+                      onChange={setContentHtml}
+                    />
+                  )}
+                </>
               ) : (
                 <div
                   className="prose max-w-none p-4 border border-gray-300 rounded-lg min-h-[658px]"
                   dangerouslySetInnerHTML={{
-                    __html: content.replace(/\n/g, "<br/>"),
+                    __html:
+                      editorMode === "markdown"
+                        ? contentMarkdown.replace(/\n/g, "<br/>")
+                        : contentHtml,
                   }}
                 />
               )}

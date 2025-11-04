@@ -99,8 +99,9 @@ export async function POST(request: NextRequest) {
     const excerpt =
       postData.excerpt || generateExcerpt(postData.contentMarkdown);
 
-    // Convert markdown to HTML
-    const contentHtml = await markdownToHtml(postData.contentMarkdown);
+    // Convert markdown to HTML if not provided
+    const contentHtml =
+      postData.contentHtml || (await markdownToHtml(postData.contentMarkdown));
 
     // Create post
     const [newPost] = await db

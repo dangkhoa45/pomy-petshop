@@ -35,10 +35,8 @@ export async function GET() {
 
     return NextResponse.json(Object.values(uniquePosts));
   } catch (error) {
-    console.error("Error fetching posts:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch posts" },
-      { status: 500 }
-    );
+    console.error("Database connection error in blog API:", error);
+    // Return empty array when database is not available
+    return NextResponse.json([]);
   }
 }

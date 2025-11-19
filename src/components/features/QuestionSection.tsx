@@ -91,10 +91,10 @@ function QuestionSection() {
               className="object-cover object-center rounded-lg shadow-lg"
               alt={data.image.alt}
               src={data.image.src}
-              layout="fill"
-              objectFit="cover"
+              fill
               quality={80}
               loading="lazy"
+              sizes="(max-width: 768px) 330px, 512px"
             />
           </motion.div>
         </motion.div>
@@ -110,13 +110,13 @@ function QuestionSection() {
               transition={{ duration: 0.3 }}
             >
               <Image
-                className="object-cover"
+                className="object-contain"
                 alt="pomy-petshop"
                 src="/images/pomy-petshop-1.jpg"
-                layout="fill"
-                objectFit="contain"
+                fill
                 quality={80}
                 loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
           </div>

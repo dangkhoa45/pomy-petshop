@@ -166,12 +166,12 @@ function StatisticSecondary() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <Image
-            className="object-cover object-center w-full h-full"
+            className="rounded-lg object-cover object-center w-full h-auto"
             src={data.image.src}
             alt={data.image.alt}
             width={600}
             height={300}
-            layout="responsive"
+            sizes="(max-width: 768px) 100vw, 600px"
           />
         </motion.div>
       </div>

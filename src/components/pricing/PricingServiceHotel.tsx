@@ -83,8 +83,8 @@ const HotelImage: React.FC<{ openModal: (index: number) => void }> = ({
         className="rounded-lg shadow-lg object-cover object-center mb-6 transition-transform duration-300"
         src={pricingHotel.images[0].src}
         alt={pricingHotel.images[0].alt}
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   </motion.div>
@@ -127,8 +127,9 @@ const HotelDescription: React.FC<HotelDescriptionProps> = ({ openModal }) => (
           <Image
             src={image.src}
             alt={image.alt}
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
           />
         </motion.div>
       ))}
@@ -187,8 +188,9 @@ const Modal: React.FC<{
               <Image
                 src={image.src}
                 alt={image.alt}
-                layout="fill"
-                objectFit="contain"
+                fill
+                className="object-contain"
+                sizes="100vw"
               />
             </motion.div>
           </SwiperSlide>

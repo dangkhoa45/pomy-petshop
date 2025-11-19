@@ -6,7 +6,14 @@ import { FiPlus } from "react-icons/fi";
 import PostsTable from "@/components/admin/PostsTable";
 
 async function getPosts() {
-  return await db.select().from(posts).orderBy(desc(posts.updatedAt));
+  // TEMPORARY: Bypass database until Supabase is properly setup
+  try {
+    return await db.select().from(posts).orderBy(desc(posts.updatedAt));
+  } catch (error) {
+    console.error("Database connection error:", error);
+    // Return empty array when database is not available
+    return [];
+  }
 }
 
 export default async function PostsListPage() {

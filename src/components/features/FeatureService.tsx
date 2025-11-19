@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Typical from "react-typical";
 import { useSwipeable } from "react-swipeable";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,6 +16,20 @@ const galleryImages = gallery as { src: string; alt: string }[];
 
 const FeatureService = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const texts = [BUSINESS_INFO.name, BUSINESS_INFO.address];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [texts.length]);
+
+  useEffect(() => {
+    setDisplayText(texts[currentTextIndex]);
+  }, [currentTextIndex, texts]);
 
   const handleNextImage = () => {
     if (selectedIndex !== null) {
@@ -59,13 +72,16 @@ const FeatureService = () => {
           <h1 className="title-font text-xl md:text-2xl mb-6 font-medium text-pink-600 font-poppins">
             {copy.title}
             <br />
-            <span className="text-2xl md:text-4xl font-bold">
-              <Typical
-                steps={[BUSINESS_INFO.name, 1500, BUSINESS_INFO.address, 1500]}
-                loop={Infinity}
-                wrapper="span"
-              />
-            </span>
+            <motion.span 
+              className="text-2xl md:text-4xl font-bold"
+              key={currentTextIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {displayText}
+            </motion.span>
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
             {copy.intro}
@@ -95,10 +111,10 @@ const FeatureService = () => {
                 <Image
                   alt={image.alt}
                   src={image.src}
-                  layout="responsive"
                   width={500}
                   height={300}
-                  className="object-cover"
+                  className="object-cover w-full h-auto"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
                 />
               </motion.div>
             </SwiperSlide>

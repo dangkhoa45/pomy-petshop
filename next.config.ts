@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import TerserPlugin from "terser-webpack-plugin";
 
 // Dynamically include Supabase Storage host for next/image
 const imageDomains = [
@@ -23,30 +22,63 @@ try {
 
 const nextConfig: NextConfig = {
   images: {
-    domains: imageDomains,
     formats: ["image/webp", "image/avif"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    // Optionally, restrict remote patterns to the storage public path
-    remotePatterns: supabaseHostname
-      ? [
-          {
-            protocol: "https",
-            hostname: supabaseHostname,
-            pathname: "/storage/v1/object/public/**",
-          },
-        ]
-      : undefined,
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Add quality 80 to fix Next.js warnings
+    qualities: [75, 80, 90],
+    remotePatterns: [
+      // Allow common image domains
+      {
+        protocol: "https",
+        hostname: "dummyimage.com",
+      },
+      {
+        protocol: "https", 
+        hostname: "i.pravatar.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "pomypetshopsoctrang.com",
+      },
+      // Supabase storage
+      ...(supabaseHostname
+        ? [
+            {
+              protocol: "https" as const,
+              hostname: supabaseHostname,
+              pathname: "/storage/v1/object/public/**",
+            },
+          ]
+        : []),
+    ],
   },
 
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
+  // Turbopack configuration for Next.js 16
+  turbopack: {},
+
+  // Disable powered-by header for security and cleaner headers
+  poweredByHeader: false,
+  
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ["framer-motion", "swiper"],
+    optimizePackageImports: [
+      "framer-motion", 
+      "swiper",
+      "react-icons",
+      "date-fns",
+      "marked",
+      "nanoid",
+      "unified",
+      "rehype-sanitize"
+    ],
   },
 
   async headers() {
@@ -70,6 +102,10 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
         ],
       },
       {
@@ -81,44 +117,33 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/api/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, must-revalidate",
+          },
+        ],
+      },
     ];
   },
 
-  webpack: (config, { isServer, dev }) => {
-    if (!isServer && !dev) {
-      config.optimization.minimizer = [
-        new TerserPlugin({
-          terserOptions: {
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              pure_funcs: ["console.log", "console.info"],
-            },
-            mangle: true,
-          },
-        }),
-      ];
-
-      config.optimization.splitChunks = {
-        chunks: "all",
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            priority: 10,
-            enforce: true,
-          },
-          common: {
-            name: "common",
-            minChunks: 2,
-            priority: 5,
-            reuseExistingChunk: true,
-          },
-        },
-      };
-    }
-    return config;
-  },
+  // Webpack config removed - Turbopack handles optimization automatically
+  // In Next.js 16, Turbopack provides built-in optimizations including:
+  // - Tree shaking
+  // - Code splitting  
+  // - Console removal in production
+  // - Modern bundling with better performance
 
   async redirects() {
     return [

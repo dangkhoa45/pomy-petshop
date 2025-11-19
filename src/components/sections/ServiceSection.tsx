@@ -126,11 +126,12 @@ function ServiceSection() {
                       <Image
                         src={service.image}
                         alt={service.title}
-                        layout="fill"
+                        fill
                         className="rounded-t-lg md:rounded-l-lg md:rounded-t-none object-fill md:object-contain"
                         priority={service.id === 1}
                         quality={80}
                         loading={service.id === 1 ? undefined : "lazy"}
+                        sizes="(max-width: 768px) 400px, 50vw"
                       />
                     </div>
 

@@ -27,7 +27,8 @@ export async function POST(request: NextRequest) {
     }
 
     if (tag) {
-      revalidateTag(tag);
+      // In Next.js 16, revalidateTag requires a second parameter (options)
+      revalidateTag(tag, {});
     }
 
     return apiSuccess(

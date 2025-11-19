@@ -126,12 +126,12 @@ function HeroSection() {
                 <Image
                   src={image.image}
                   alt={image.alt}
-                  layout="intrinsic"
                   width={500}
                   height={300}
                   priority={index === 0}
                   quality={80}
                   loading={index === 0 ? undefined : "lazy"}
+                  sizes="(max-width: 768px) 100vw, 500px"
                 />
               </SwiperSlide>
             ))}

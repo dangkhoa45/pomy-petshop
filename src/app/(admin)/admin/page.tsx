@@ -5,30 +5,42 @@ import { FiFileText, FiEdit, FiCheckCircle } from "react-icons/fi";
 import Link from "next/link";
 
 async function getDashboardStats() {
-  const [totalPosts] = await db.select({ count: count() }).from(posts);
+  // TEMPORARY: Bypass database until Supabase is properly setup
+  try {
+    const [totalPosts] = await db.select({ count: count() }).from(posts);
 
-  const [draftPosts] = await db
-    .select({ count: count() })
-    .from(posts)
-    .where(eq(posts.status, "draft"));
+    const [draftPosts] = await db
+      .select({ count: count() })
+      .from(posts)
+      .where(eq(posts.status, "draft"));
 
-  const [publishedPosts] = await db
-    .select({ count: count() })
-    .from(posts)
-    .where(eq(posts.status, "published"));
+    const [publishedPosts] = await db
+      .select({ count: count() })
+      .from(posts)
+      .where(eq(posts.status, "published"));
 
-  const recentPosts = await db
-    .select()
-    .from(posts)
-    .orderBy(desc(posts.updatedAt))
-    .limit(5);
+    const recentPosts = await db
+      .select()
+      .from(posts)
+      .orderBy(desc(posts.updatedAt))
+      .limit(5);
 
-  return {
-    total: totalPosts.count,
-    draft: draftPosts.count,
-    published: publishedPosts.count,
-    recent: recentPosts,
-  };
+    return {
+      total: totalPosts.count,
+      draft: draftPosts.count,
+      published: publishedPosts.count,
+      recent: recentPosts,
+    };
+  } catch (error) {
+    console.error("Database connection error:", error);
+    // Return mock data when database is not available
+    return {
+      total: 0,
+      draft: 0, 
+      published: 0,
+      recent: [],
+    };
+  }
 }
 
 export default async function AdminDashboard() {

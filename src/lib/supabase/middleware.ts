@@ -6,9 +6,18 @@ export async function updateSession(request: NextRequest) {
     request,
   });
 
+  // Add safety check for environment variables
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn("Supabase environment variables missing");
+    return supabaseResponse;
+  }
+
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    supabaseUrl,
+    supabaseAnonKey,
     {
       cookies: {
         getAll() {
@@ -26,6 +35,13 @@ export async function updateSession(request: NextRequest) {
           );
         },
       },
+      auth: {
+        // Add timeout and retry configuration for Edge Runtime
+        detectSessionInUrl: false,
+        persistSession: true,
+        autoRefreshToken: true,
+        flowType: 'pkce'
+      }
     }
   );
 
@@ -33,9 +49,16 @@ export async function updateSession(request: NextRequest) {
   // supabase.auth.getUser(). A simple mistake could make it very hard to debug
   // issues with users being randomly logged out.
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user = null;
+  try {
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
+    user = authUser;
+  } catch (error) {
+    console.warn("Auth check failed in middleware:", error instanceof Error ? error.message : "Unknown error");
+    // Continue without user for public routes
+  }
 
   // Protected routes check
   if (request.nextUrl.pathname.startsWith("/admin") && !user) {

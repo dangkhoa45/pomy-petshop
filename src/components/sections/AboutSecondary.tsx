@@ -56,8 +56,8 @@ export default function AboutSecondary() {
               className="object-cover object-center rounded-lg shadow-lg"
               alt={data.image.alt}
               src={data.image.src}
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
         </motion.div>

@@ -77,12 +77,12 @@ function PricingServiceSPA() {
             viewport={{ once: true, amount: 0.5 }}
           >
             <Image
-              className="rounded-lg shadow-lg object-cover object-center mb-6 cursor-pointer hover:shadow-2xl transition-all duration-300"
+              className="rounded-lg shadow-lg object-contain object-center mb-6 cursor-pointer hover:shadow-2xl transition-all duration-300"
               src={pricingSpa.image.src}
               alt={pricingSpa.image.alt}
-              layout="fill"
-              objectFit="contain"
+              fill
               onClick={toggleModal}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
         </div>
@@ -107,12 +107,12 @@ function PricingServiceSPA() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                className="rounded-lg object-cover object-center"
+                className="rounded-lg object-cover object-center w-full h-auto"
                 src={pricingSpa.image.src}
                 alt={pricingSpa.image.alt}
-                layout="responsive"
                 width={600}
                 height={400}
+                sizes="(max-width: 768px) 100vw, 600px"
               />
               <p className="mt-4 text-center text-gray-700">
                 {pricingSpa.caption.line1}

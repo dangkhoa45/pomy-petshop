@@ -62,7 +62,6 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
     if (initialData?.contentMarkdown) {
       convertMarkdownToHtml(initialData.contentMarkdown).then(setContentHtml);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePickImage = () => {
@@ -109,7 +108,9 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
         );
         try {
           router.push("/auth/login");
-        } catch {}
+        } catch {
+          // Router push failed, ignore
+        }
         return;
       }
       if (!res.ok || !result?.success) {
@@ -449,7 +450,6 @@ export default function PostEditor({ postId, initialData }: PostEditorProps) {
               {/* Preview */}
               {featuredImage && (
                 <div className="mt-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={featuredImage}
                     alt="Featured preview"

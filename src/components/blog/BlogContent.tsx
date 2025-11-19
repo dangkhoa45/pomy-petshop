@@ -192,7 +192,6 @@ export default function BlogContent({
         // External images are lazy-loaded with proper attributes for performance
         return (
           <span className="block my-8">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={src}
               alt={alt || ""}
